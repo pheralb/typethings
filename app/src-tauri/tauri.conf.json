@@ -24,7 +24,7 @@
         "confirm": true
       },
       "path": {
-        "all": false
+        "all": true
       },
       "fs": {
         "all": false,
