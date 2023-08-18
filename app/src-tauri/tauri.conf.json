@@ -16,6 +16,28 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "dialog": {
+        "all": false,
+        "save": true,
+        "open": true,
+        "confirm": true
+      },
+      "path": {
+        "all": false
+      },
+      "fs": {
+        "all": false,
+        "copyFile": false,
+        "createDir": true,
+        "exists": true,
+        "readDir": true,
+        "readFile": true,
+        "removeDir": true,
+        "removeFile": true,
+        "renameFile": true,
+        "scope": ["$DOCUMENT/*", "$DESKTOP/**/**"],
+        "writeFile": true
       }
     },
     "bundle": {
@@ -38,7 +60,7 @@
         "fullscreen": false,
         "resizable": true,
         "title": "typethings",
-        "width": 800,
+        "width": 1100,
         "height": 600
       }
     ]
