@@ -1,5 +1,7 @@
-const Editor = () => {
-  return <div>Editor</div>;
+import { Editor } from "@monaco-editor/react";
+
+const CustomEditor = () => {
+  return <Editor theme="vs-dark" height="100vh" />;
 };
 
-export default Editor;
+export default CustomEditor;
