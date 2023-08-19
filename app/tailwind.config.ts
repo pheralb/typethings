@@ -20,6 +20,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["Inter-Roman", "sans-serif"],
+        mono: ["Hack", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
