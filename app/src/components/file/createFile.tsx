@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { desktopDir } from "@tauri-apps/api/path";
 
 import {
   Dialog,
@@ -32,7 +33,9 @@ const CreateFile = (props: iCreateFileProps) => {
   // Create New File function:
   const handleCreateFile: SubmitHandler<iCreateFileInputs> = async (data) => {
     try {
+      const desktopPath = await desktopDir();
       await createNewFile({
+        directory: desktopPath,
         folder: "taurifiles",
         filename: data.title,
         extension: "md",
