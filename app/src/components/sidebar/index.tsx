@@ -83,7 +83,7 @@ const Sidebar = () => {
   return (
     <main className="min-h-screen">
       <SidebarContent />
-      <div className="ml-60">
+      <div className="ml-56">
         <Outlet />
       </div>
     </main>
