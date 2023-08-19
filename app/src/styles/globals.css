@@ -82,3 +82,11 @@
   font-display: swap;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Hack";
+  src: url("/fonts/Hack.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
