@@ -5,8 +5,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // Styles:
 import "@/styles/globals.css";
 
-// Global layout:
+// Global Imports:
 import Sidebar from "./components/sidebar";
+import { Toaster } from "sonner";
 
 // Routes:
 import App from "./routes";
@@ -27,5 +28,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Toaster />
   </React.StrictMode>,
 );
