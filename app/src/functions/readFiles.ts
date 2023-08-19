@@ -5,6 +5,6 @@ interface iReadFiles {
   folder: string;
 }
 
-export const readFiles = async ({ directory, folder }: iReadFiles) => {
+export const readFilesFromFolder = async ({ directory, folder }: iReadFiles) => {
   return await readDir(`${directory}/${folder}`);
 };
