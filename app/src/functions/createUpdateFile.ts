@@ -1,4 +1,5 @@
 import { writeTextFile } from "@tauri-apps/api/fs";
+import { join } from "@tauri-apps/api/path";
 
 interface iCreateNewFile {
   directory: string;
@@ -8,15 +9,13 @@ interface iCreateNewFile {
   content: string;
 }
 
-export const createNewFile = async ({
+export const createUpdateFile = async ({
   directory,
   folder,
   filename,
   extension,
   content,
 }: iCreateNewFile) => {
-  await writeTextFile(
-    `${directory}/${folder}/${filename}.${extension}`,
-    content,
-  );
+  const fullPath = await join(directory, folder, `${filename}.${extension}`);
+  return await writeTextFile(fullPath, content);
 };
