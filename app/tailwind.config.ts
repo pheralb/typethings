@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config: Config = {
   darkMode: ["class"],
@@ -19,7 +20,7 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter-Roman", "sans-serif"],
+        sans: ["Inter-Roman", ...fontFamily.sans],
         mono: ["Hack", "monospace"],
       },
       colors: {
