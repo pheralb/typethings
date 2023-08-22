@@ -15,6 +15,7 @@ import {
 
 // From Sidebar (shared classes & icon size):
 import { SidebarItemClasses, SidebarItemIconSize } from "../sidebar";
+import DeleteFile from "./deleteFile";
 
 interface iFileItemProps {
   filename: string;
@@ -76,10 +77,12 @@ const FileItem = (props: iFileItemProps) => {
           </div>
         </ContextMenuItem>
         <ContextMenuItem>
-          <div className="flex items-center space-x-2">
-            <Trash size={12} />
-            <span>Delete</span>
-          </div>
+          <DeleteFile>
+            <div className="flex items-center space-x-2">
+              <Trash size={12} />
+              <span>Delete</span>
+            </div>
+          </DeleteFile>
         </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>
