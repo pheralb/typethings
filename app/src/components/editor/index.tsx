@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import type { Monaco, EditorProps } from "@monaco-editor/react";
 import { Editor } from "@monaco-editor/react";
 import CSTheme from "@/styles/monaco-theme.json";
@@ -26,6 +25,10 @@ const CustomEditor = (props: EditorProps) => {
         minimap: {
           enabled: false,
         },
+        bracketPairColorization: {
+          enabled: true,
+        },
+        cursorBlinking: "expand",
       }}
       {...props}
     />
