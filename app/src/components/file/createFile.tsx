@@ -38,7 +38,7 @@ const CreateFile = (props: iCreateFileProps) => {
         directory: desktopPath,
         folder: "taurifiles",
         filename: data.title,
-        extension: "md",
+        extension: "ts",
         content: "",
       });
       setOpenDialog(false);

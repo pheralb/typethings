@@ -11,6 +11,7 @@ import { Toaster } from "sonner";
 
 // Routes:
 import App from "./routes";
+import Settings from "./routes/settings";
 
 // Router:
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <App />,
       },
+      {
+        path: "/settings",
+        element: <Settings />,
+      }
     ],
   },
 ]);

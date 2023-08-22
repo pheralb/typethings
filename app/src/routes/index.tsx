@@ -4,6 +4,7 @@ import { desktopDir } from "@tauri-apps/api/path";
 import { useFilesStore } from "@/store/filesStore";
 import Editor from "../components/editor";
 import { createUpdateFile } from "@/functions/createUpdateFile";
+import { fileExtensions } from "@/data/fileExtensions";
 
 function App() {
   const fileSelected = useFilesStore((state) => state.selectedFile);
@@ -36,7 +37,11 @@ function App() {
     <>
       {fileSelected ? (
         <Editor
-          language={fileSelected.extension}
+          language={
+            fileExtensions.find(
+              (file) => file.extension === fileSelected.extension,
+            )?.name ?? "plaintext"
+          }
           onChange={(value) => setText(value)}
           value={fileSelected.content}
         />

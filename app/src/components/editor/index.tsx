@@ -1,8 +1,35 @@
-import type { EditorProps } from "@monaco-editor/react";
+import { useEffect } from "react";
+import type { Monaco, EditorProps } from "@monaco-editor/react";
 import { Editor } from "@monaco-editor/react";
+import CSTheme from "@/styles/monaco-theme.json";
 
 const CustomEditor = (props: EditorProps) => {
-  return <Editor theme="vs-dark" height="100vh" {...props} />;
+  // Set custom theme:
+  const handleEditorDidMount = (monaco: Monaco) => {
+    monaco.editor.defineTheme("customTheme", {
+      base: "vs-dark",
+      inherit: true,
+      ...CSTheme,
+    });
+  };
+
+  return (
+    <Editor
+      theme="customTheme"
+      height="100vh"
+      beforeMount={handleEditorDidMount}
+      options={{
+        fontSize: 14,
+        fontFamily: "Jetbrains-Mono",
+        fontLigatures: true,
+        wordWrap: "on",
+        minimap: {
+          enabled: false,
+        },
+      }}
+      {...props}
+    />
+  );
 };
 
 export default CustomEditor;

@@ -59,7 +59,7 @@ const SidebarContent = () => {
             </div>
           </Link>
           <Link
-            to="/test"
+            to="/settings"
             className={cn(
               buttonVariants({ variant: "ghost" }),
               SidebarItemClasses,
