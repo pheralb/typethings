@@ -29,6 +29,12 @@ const CustomEditor = (props: EditorProps) => {
           enabled: true,
         },
         cursorBlinking: "expand",
+        quickSuggestions: false,
+        formatOnPaste: true,
+        suggest: {
+          showFields: false,
+          showFunctions: false,
+        },
       }}
       {...props}
     />
