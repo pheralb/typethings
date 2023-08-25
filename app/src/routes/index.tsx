@@ -22,7 +22,7 @@ function App() {
           folder: "taurifiles",
           filename: fileSelected.filename,
           extension: fileSelected.extension,
-          content: text ?? "",
+          content: text!,
         });
       } catch (error) {
         console.error(error);
