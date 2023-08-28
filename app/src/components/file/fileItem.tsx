@@ -3,16 +3,9 @@ import { cn } from "@/utils";
 import { useFilesStore } from "@/store/filesStore";
 import { desktopDir } from "@tauri-apps/api/path";
 import { readFile } from "@/functions/readFiles";
-import {
-  FileText,
-  ArrowRight,
-  Trash,
-  MoreVertical,
-  ChevronRight,
-  FileEdit,
-  Files,
-} from "lucide-react";
+import { FileText, MoreVertical, Trash } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import DeleteFile from "./deleteFile";
 
 // From Sidebar (shared classes & icon size):
 import { SidebarItemClasses, SidebarItemIconSize } from "../sidebar";
@@ -24,6 +17,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
+import { Dialog, DialogTrigger } from "../ui/dialog";
 
 interface iFileItemProps {
   filename: string;
@@ -57,6 +51,10 @@ const FileItem = (props: iFileItemProps) => {
     }
   };
 
+  // Why <Dialog> component wrap the <Dropdown> component?
+  // https://ui.shadcn.com/docs/components/dialog#notes
+  // Change line 105.
+
   return (
     <Button
       variant="ghost"
@@ -70,41 +68,40 @@ const FileItem = (props: iFileItemProps) => {
       onClick={handleOpenFile}
     >
       <div className="flex w-full items-center justify-between space-x-3 overflow-hidden">
-        <div className="flex items-center">
-          <span className="truncate">{props.filename}</span>
-          <span>.{props.extension}</span>
+        <div className="flex items-center space-x-3">
+          <FileText size={SidebarItemIconSize} />
+          <div className="flex items-center">
+            <span className="truncate">{props.filename}</span>
+            <span>.{props.extension}</span>
+          </div>
         </div>
-        <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
-          <DropdownMenuTrigger className="focus:outline-none">
-            <MoreVertical size={SidebarItemIconSize} />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem onClick={handleOpenFile}>
-              <div className="flex items-center space-x-2">
-                <FileText size={SidebarItemIconSize} />
-                <span>Open</span>
-              </div>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <div className="flex items-center space-x-2">
-                <FileEdit size={SidebarItemIconSize} />
-                <span>Rename</span>
-              </div>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <div className="flex items-center space-x-2">
-                <Files size={SidebarItemIconSize} />
-                <span>Make a copy</span>
-              </div>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <div className="flex items-center space-x-2">
-                <Trash size={SidebarItemIconSize} />
-                <span>Delete</span>
-              </div>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Dialog>
+          <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
+            <DropdownMenuTrigger
+              className="cursor-default focus:outline-none"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <MoreVertical size={SidebarItemIconSize} />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem onClick={handleOpenFile}>
+                <div className="flex items-center space-x-2">
+                  <FileText size={SidebarItemIconSize} />
+                  <span>Open</span>
+                </div>
+              </DropdownMenuItem>
+              <DialogTrigger asChild>
+                <DropdownMenuItem>
+                  <div className="flex items-center space-x-2">
+                    <Trash size={SidebarItemIconSize} />
+                    <span>Delete</span>
+                  </div>
+                </DropdownMenuItem>
+              </DialogTrigger>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DeleteFile filename={props.filename} extension={props.extension} />
+        </Dialog>
       </div>
     </Button>
   );

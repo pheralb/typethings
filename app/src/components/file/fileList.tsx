@@ -1,5 +1,5 @@
-import { desktopDir } from "@tauri-apps/api/path";
 import { useEffect } from "react";
+import { desktopDir } from "@tauri-apps/api/path";
 import { readFilesFromFolder } from "@/functions/readFiles";
 import { useFilesStore } from "@/store/filesStore";
 import FileItem from "./fileItem";
@@ -17,13 +17,14 @@ const FileList = () => {
         folder: "taurifiles",
       });
       const filesnames = result.map((file) => file.name!);
+      console.log(filesnames);
       saveFilesToStore(filesnames);
     }
     loadFiles();
   }, []);
 
   return (
-    <div>
+    <>
       {files.map((file) => (
         <FileItem
           key={file}
@@ -31,7 +32,7 @@ const FileList = () => {
           extension={file.split(".")[1]}
         />
       ))}
-    </div>
+    </>
   );
 };
 

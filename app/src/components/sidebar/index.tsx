@@ -71,7 +71,7 @@ const SidebarContent = () => {
             </div>
           </Link>
         </SidebarGroup>
-        <SidebarGroup title="Workspace">
+        <SidebarGroup title="Files">
           <FileList />
         </SidebarGroup>
       </div>
