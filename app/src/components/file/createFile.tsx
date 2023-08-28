@@ -38,7 +38,7 @@ const CreateFile = (props: iCreateFileProps) => {
         directory: desktopPath,
         folder: "taurifiles",
         filename: data.title,
-        extension: "ts",
+        extension: "md",
         content: "",
       });
       setOpenDialog(false);
@@ -66,7 +66,6 @@ const CreateFile = (props: iCreateFileProps) => {
         >
           <Input
             id="title"
-            className="mt-1"
             placeholder="Enter title..."
             {...register("title", { required: true })}
           />
