@@ -4,9 +4,11 @@
 
 ## ✨ Introduction
 
-[**Typethings**](https://typethings.vercel.app/) is an open source text editor built with Tauri and React. It is designed to be a simple, fast and beautiful for everyone.
+[**Typethings**](https://typethings.vercel.app/) is an open source text editor built with [Tauri](https://tauri.app) and [React](https://react.dev). It is designed to be a simple, fast and beautiful for everyone.
 
-## ⬇️ Download
+## 🚀 Getting Started
+
+**Download the latest release for your platform:**
 
 - [Windows](#) - Coming soon.
 - [MacOS](#) - Coming soon.
@@ -30,9 +32,9 @@
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
 - [shadcn/ui + Radix UI](https://ui.shadcn.com/) - A set of accessible UI components.
 
-## 🚀 Contributing
+## 🪄 Contributing
 
-- Soon.
+*Soon*
 
 ## 📝 License
 
