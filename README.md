@@ -1,8 +1,8 @@
-# Turborepo starter
+> **Warning**
+> This is a work-in-progress and not the finished product.
+> Typethings will be constantly updated and is not yet ready for its first release. Contributions are welcome.
 
-This is an official starter Turborepo.
-
-## Using this example
+## ✨ Introduction
 
 Run the following command:
 
@@ -10,7 +10,7 @@ Run the following command:
 npx create-turbo@latest
 ```
 
-## What's inside?
+## 📦 What's inside?
 
 This Turborepo includes the following packages/apps:
 
