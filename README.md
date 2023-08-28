@@ -4,78 +4,36 @@
 
 ## ✨ Introduction
 
-Run the following command:
+[**Typethings**](https://typethings.vercel.app/) is an open source text editor built with Tauri and React. It is designed to be a simple, fast and beautiful for everyone.
 
-```sh
-npx create-turbo@latest
-```
+## ⬇️ Download
 
-## 📦 What's inside?
+- [Windows](#) - Coming soon.
+- [MacOS](#) - Coming soon.
+- [Linux](#) - Coming soon.
 
-This Turborepo includes the following packages/apps:
+## 📦 Stack
 
-### Apps and Packages
+### Desktop App:
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+- [Tauri](https://tauri.studio/en/) - Build smaller, faster, and more secure desktop applications with a web frontend.
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
+- [shadcn/ui + Radix UI](https://ui.shadcn.com/) - A set of accessible UI components.
+- [@monaco-editor/react](https://microsoft.github.io/monaco-editor/) - A browser based code editor.
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - for state management in React.
+- [React Router](https://reactrouter.com/) - for routing in React.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+### Website:
 
-### Utilities
+- [Next.js](https://nextjs.org/) - The React Framework for Production.
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
+- [shadcn/ui + Radix UI](https://ui.shadcn.com/) - A set of accessible UI components.
 
-This Turborepo has some additional tools already setup for you:
+## 🚀 Contributing
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+- Soon.
 
-### Build
+## 📝 License
 
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+- [Apache License 2.0](https://github.com/pheralb/typethings/blob/main/LICENSE).
