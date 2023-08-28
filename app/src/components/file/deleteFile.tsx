@@ -1,47 +1,69 @@
-import type { ReactNode } from "react";
-import { useState } from "react";
-import { desktopDir } from "@tauri-apps/api/path";
-
-import { useFilesStore } from "@/store/filesStore";
-
 import {
-  Dialog,
   DialogContent,
+  DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { DialogClose } from "@radix-ui/react-dialog";
+import { Button } from "../ui/button";
+import { desktopDir } from "@tauri-apps/api/path";
+import { toast } from "sonner";
+import { deleteFile } from "@/functions/deleteFile";
+import { useFilesStore } from "@/store/filesStore";
 
 interface iDeleteFileProps {
-  children: ReactNode;
-}
-
-interface iCreateFileInputs {
-  title: string;
+  filename: string;
   extension: string;
 }
 
 const DeleteFile = (props: iDeleteFileProps) => {
-  const [openDeleteDialog, setOpenDeleteDialog] = useState<boolean>(false);
-  const addFile = useFilesStore((state) => state.addFile);
-  const selectFile = useFilesStore((state) => state.setSelectedFile);
+  const removeFileStore = useFilesStore((state) => state.removeFile);
+  const setSelectedFileStore = useFilesStore((state) => state.setSelectedFile);
 
   // Delete function:
-  //   const handleDeleteFile = async () => {
-  //     try {
-  //       const desktopPath = await desktopDir();
-  //       setOpenDialog(false);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
+  const handleDeleteFile = async () => {
+    try {
+      const desktopPath = await desktopDir();
+      await deleteFile({
+        directory: desktopPath,
+        folder: "taurifiles",
+        filename: props.filename,
+        extension: props.extension,
+      });
+      removeFileStore(`${props.filename}.${props.extension}`);
+      toast("Deleted file");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <Popover>
-      <PopoverTrigger>{props.children}</PopoverTrigger>
-      <PopoverContent>Place content for the popover here.</PopoverContent>
-    </Popover>
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle>Delete file</DialogTitle>
+        <DialogDescription>
+          Are you sure you want to delete "{props.filename}"? This action cannot
+          be undone.
+        </DialogDescription>
+      </DialogHeader>
+      <DialogFooter>
+        <DialogClose asChild>
+          <Button
+            variant="outline"
+            className="border-red-900"
+            onClick={() => {
+              handleDeleteFile();
+            }}
+          >
+            Confirm
+          </Button>
+        </DialogClose>
+        <DialogClose asChild>
+          <Button variant="outline">Cancel</Button>
+        </DialogClose>
+      </DialogFooter>
+    </DialogContent>
   );
 };
 
