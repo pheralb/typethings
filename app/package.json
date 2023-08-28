@@ -8,10 +8,12 @@
     "dev:vite": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "typecheck": "tsc",
     "tauri": "tauri"
   },
   "dependencies": {
     "@monaco-editor/react": "4.5.1",
+    "@radix-ui/react-collapsible": "1.0.3",
     "@radix-ui/react-context-menu": "2.1.4",
     "@radix-ui/react-dialog": "1.0.4",
     "@radix-ui/react-dropdown-menu": "2.0.5",
