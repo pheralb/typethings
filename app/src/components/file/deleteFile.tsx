@@ -19,7 +19,6 @@ interface iDeleteFileProps {
 
 const DeleteFile = (props: iDeleteFileProps) => {
   const removeFileStore = useFilesStore((state) => state.removeFile);
-  const setSelectedFileStore = useFilesStore((state) => state.setSelectedFile);
 
   // Delete function:
   const handleDeleteFile = async () => {

@@ -24,10 +24,10 @@ function App() {
           extension: fileSelected.extension,
           content: text!,
         });
+        setIsSaved(true);
       } catch (error) {
         console.error(error);
       }
-      setIsSaved(true);
     }, 1000);
 
     return () => clearTimeout(saveFile);
@@ -35,6 +35,10 @@ function App() {
 
   return (
     <>
+      <p>
+        {fileSelected?.filename}.{fileSelected?.extension}
+        {isSaved ? " - Saved" : " - Saving..."}
+      </p>
       {fileSelected ? (
         <Editor
           language={
