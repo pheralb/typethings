@@ -6,7 +6,8 @@
   "private": true,
   "packageManager": "npm@8.5.0",
   "workspaces": [
-    "app"
+    "app",
+    "website"
   ],
   "scripts": {
     "build": "turbo run build",
