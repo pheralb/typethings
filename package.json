@@ -7,7 +7,8 @@
   "packageManager": "npm@8.5.0",
   "workspaces": [
     "app",
-    "website"
+    "website",
+    "packages/*"
   ],
   "scripts": {
     "build": "turbo run build",
@@ -18,7 +19,6 @@
   "devDependencies": {
     "@turbo/gen": "1.10.12",
     "eslint": "8.47.0",
-    "eslint-config-custom": "*",
     "prettier": "3.0.2",
     "prettier-plugin-tailwindcss": "0.5.3",
     "turbo": "latest"
