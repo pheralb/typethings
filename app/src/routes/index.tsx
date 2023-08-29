@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { desktopDir } from "@tauri-apps/api/path";
 
 import { useFilesStore } from "@/store/filesStore";
-import Editor from "../components/editor";
+import { Editor } from "@typethings/editor";
 import { createUpdateFile } from "@/functions/createUpdateFile";
 import { fileExtensions } from "@/data/fileExtensions";
 
@@ -35,21 +35,18 @@ function App() {
 
   return (
     <>
-      <p>
-        {fileSelected?.filename}.{fileSelected?.extension}
-        {isSaved ? " - Saved" : " - Saving..."}
-      </p>
       {fileSelected ? (
-        <Editor
-          language={
-            fileExtensions.find(
-              (file) => file.extension === fileSelected.extension,
-            )?.name ?? "plaintext"
-          }
-          onChange={(value) => setText(value)}
-          value={fileSelected.content}
-        />
+        <Editor />
       ) : (
+        // <Editor
+        //   language={
+        //     fileExtensions.find(
+        //       (file) => file.extension === fileSelected.extension,
+        //     )?.name ?? "plaintext"
+        //   }
+        //   onChange={(value) => setText(value)}
+        //   value={fileSelected.content}
+        // />
         <div className="flex h-screen items-center justify-center">
           No file selected
         </div>

@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-// Styles:
+// App & Typethings editor styles:
 import "@/styles/globals.css";
+import "@typethings/editor/styles.css";
 
 // Global Imports:
 import Sidebar from "./components/sidebar";
