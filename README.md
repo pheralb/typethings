@@ -38,7 +38,7 @@ Built with:
 
 ### Packages:
 
-- **@typethings/editor** - A wrapper around [Tiptap](https://tiptap.dev/) editor. Built with [React](https://react.dev) and using [tsup](https://tsup.egoist.dev/) for bundling.
+- [**@typethings/editor**](https://github.com/pheralb/typethings/tree/main/packages/editor) - A wrapper around [Tiptap](https://tiptap.dev/) editor. Built with [React](https://react.dev) and using [tsup](https://tsup.egoist.dev/) for bundling.
 
 ## 🪄 Contributing
 
