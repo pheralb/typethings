@@ -17,7 +17,8 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@typethings/editor": ["../packages/editor/src/index.ts"],
     }
   },
   "include": ["src"],
