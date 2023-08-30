@@ -48,7 +48,9 @@ function App() {
           onUpdate={(content: {
             editor: { getText: () => SetStateAction<string | undefined> };
           }) => setText(content.editor.getText())}
-        ></TiptapEditor>
+        >
+          <p>other menu</p>
+        </TiptapEditor>
       ) : (
         // <Editor
         //   language={
