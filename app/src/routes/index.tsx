@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { desktopDir } from "@tauri-apps/api/path";
 
 import { useFilesStore } from "@/store/filesStore";
-import { Editor } from "@typethings/editor";
+import { MenuEditor, TiptapEditor } from "@typethings/editor";
 import { createUpdateFile } from "@/functions/createUpdateFile";
-import { fileExtensions } from "@/data/fileExtensions";
+import { buttonVariants } from "@/components/ui/button";
 
 function App() {
   const fileSelected = useFilesStore((state) => state.selectedFile);
   const [text, setText] = useState<string | undefined>("");
-  const [isSaved, setIsSaved] = useState<boolean>(false);
 
   useEffect(() => {
     if (!fileSelected) return;
@@ -24,7 +23,6 @@ function App() {
           extension: fileSelected.extension,
           content: text!,
         });
-        setIsSaved(true);
       } catch (error) {
         console.error(error);
       }
@@ -36,7 +34,21 @@ function App() {
   return (
     <>
       {fileSelected ? (
-        <Editor />
+        <TiptapEditor
+          slotBefore={
+            <MenuEditor
+              btnClassName={buttonVariants({
+                variant: "ghost",
+              })}
+              btnActiveClassName="text-red-500"
+            />
+          }
+          editorClassName="prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none"
+          content={fileSelected.content}
+          onUpdate={(content: {
+            editor: { getText: () => SetStateAction<string | undefined> };
+          }) => setText(content.editor.getText())}
+        ></TiptapEditor>
       ) : (
         // <Editor
         //   language={
