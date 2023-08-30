@@ -14,9 +14,11 @@
 - [MacOS](#) - Coming soon.
 - [Linux](#) - Coming soon.
 
-## 📦 Stack
+## 🤔 What's inside?
 
 ### Desktop App:
+
+Built with:
 
 - [Tauri](https://tauri.studio/en/) - Build smaller, faster, and more secure desktop applications with a web frontend.
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
@@ -28,13 +30,19 @@
 
 ### Website:
 
+Built with:
+
 - [Next.js](https://nextjs.org/) - The React Framework for Production.
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
 - [shadcn/ui + Radix UI](https://ui.shadcn.com/) - A set of accessible UI components.
 
+### Packages:
+
+- **@typethings/editor** - A wrapper around [Tiptap](https://tiptap.dev/) editor. Built with [React](https://react.dev) and using [tsup](https://tsup.egoist.dev/) for bundling.
+
 ## 🪄 Contributing
 
-*Soon*
+_Soon_
 
 ## 📝 License
 
