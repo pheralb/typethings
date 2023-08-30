@@ -7,7 +7,12 @@
   "sideEffects": [
     "**/*.css"
   ],
+  "type": "module",
   "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": "./dist",
     "./styles.css": "./dist/index.css"
@@ -17,6 +22,16 @@
     "lint": "eslint src/",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tiptap/extension-color": "2.1.7",
+    "@tiptap/extension-text-style": "2.1.7",
+    "@tiptap/pm": "2.1.7",
+    "@tiptap/react": "2.1.7",
+    "@tiptap/starter-kit": "2.1.7",
+    "clsx": "2.0.0",
+    "lucide-react": "0.271.0",
+    "tailwind-merge": "1.14.0"
   },
   "devDependencies": {
     "@types/react": "18.2.5",

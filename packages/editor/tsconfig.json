@@ -19,11 +19,13 @@
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["dist", "node_modules"]
 }

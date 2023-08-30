@@ -1,9 +1,32 @@
-import React from 'react'
+import type { CustomEditorProps } from "@/types/editorProps";
 
-const Editor = () => {
+// Tiptap Provider:
+import { EditorProvider } from "@tiptap/react";
+
+// Extensions:
+import { extensions } from "../extensions";
+
+// Menu:
+import Menu from "./menu";
+
+export const TiptapEditor = (props: CustomEditorProps) => {
   return (
-    <div>Editor olee</div>
-  )
-}
+    <EditorProvider
+      slotBefore={props.slotBefore}
+      extensions={extensions}
+      content={props.content}
+      editable={true}
+      autofocus={true}
+      editorProps={{
+        attributes: {
+          class: props.editorClassName || "",
+        },
+      }}
+      {...props}
+    >
+      {props.children}
+    </EditorProvider>
+  );
+};
 
-export default Editor
+export default TiptapEditor;
