@@ -1,13 +1,10 @@
-import type { CustomEditorProps } from "@/types/editorProps";
+import type { CustomEditorProps } from "../types/editorProps";
 
 // Tiptap Provider:
 import { EditorProvider } from "@tiptap/react";
 
 // Extensions:
 import { extensions } from "../extensions";
-
-// Menu:
-import Menu from "./menu";
 
 export const TiptapEditor = (props: CustomEditorProps) => {
   return (

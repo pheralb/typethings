@@ -1,5 +1,5 @@
-import type { MenuEditorProps } from "@/types/menuProps";
-import { cn } from "@/utils/cn";
+import type { MenuEditorProps } from "../types/menuProps";
+import { cn } from "../utils/cn";
 
 import { useCurrentEditor } from "@tiptap/react";
 
