@@ -4,10 +4,31 @@ import { cn } from "../utils/cn";
 import { useCurrentEditor } from "@tiptap/react";
 
 // All icons:
-import { BoldIcon } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  BoldIcon,
+  Code2Icon,
+  CodeIcon,
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
+  Heading5,
+  Heading6,
+  ItalicIcon,
+  List,
+  ListOrdered,
+  Minus,
+  Paintbrush,
+  Pilcrow,
+  StrikethroughIcon,
+  TextQuote,
+  WrapText,
+} from "lucide-react";
 
 // Icons size:
-const iconSize = 20;
+const iconSize = 16;
 
 const Menu = (props: MenuEditorProps) => {
   const { editor } = useCurrentEditor();
@@ -16,7 +37,29 @@ const Menu = (props: MenuEditorProps) => {
     return null;
   }
   return (
-    <>
+    <div className={cn(props.btnGroupClassName)}>
+      {/* ------------------------ */}
+      {/* Undo & Redo */}
+      {/* ------------------------ */}
+      <button
+        onClick={() => editor.chain().focus().undo().run()}
+        disabled={!editor.can().chain().focus().undo().run()}
+        className={cn(props.btnClassName)}
+        aria-label="Undo"
+      >
+        <ArrowLeft size={iconSize} />
+      </button>
+      <button
+        onClick={() => editor.chain().focus().redo().run()}
+        disabled={!editor.can().chain().focus().redo().run()}
+        className={cn(props.btnClassName)}
+        aria-label="Redo"
+      >
+        <ArrowRight size={iconSize} />
+      </button>
+      {/* ------------------------ */}
+      {/* Bold, Italic & Striket: */}
+      {/* ------------------------ */}
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -24,129 +67,187 @@ const Menu = (props: MenuEditorProps) => {
           props.btnClassName,
           editor.isActive("bold") ? props.btnActiveClassName : "",
         )}
+        aria-label="Bold"
       >
         <BoldIcon size={iconSize} />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
         disabled={!editor.can().chain().focus().toggleItalic().run()}
-        className={editor.isActive("italic") ? "is-active" : ""}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("italic") ? props.btnActiveClassName : "",
+        )}
+        aria-label="Italic"
       >
-        italic
+        <ItalicIcon size={iconSize} />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleStrike().run()}
         disabled={!editor.can().chain().focus().toggleStrike().run()}
-        className={editor.isActive("strike") ? "is-active" : ""}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("strike") ? props.btnActiveClassName : "",
+        )}
       >
-        strike
+        <StrikethroughIcon size={iconSize} />
       </button>
+      {/* -------------------- */}
+      {/* Code blocks: */}
+      {/* -------------------- */}
       <button
         onClick={() => editor.chain().focus().toggleCode().run()}
         disabled={!editor.can().chain().focus().toggleCode().run()}
-        className={editor.isActive("code") ? "is-active" : ""}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("code") ? props.btnActiveClassName : "",
+        )}
       >
-        code
-      </button>
-      <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>
-        clear marks
-      </button>
-      <button onClick={() => editor.chain().focus().clearNodes().run()}>
-        clear nodes
-      </button>
-      <button
-        onClick={() => editor.chain().focus().setParagraph().run()}
-        className={editor.isActive("paragraph") ? "is-active" : ""}
-      >
-        paragraph
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive("heading", { level: 1 }) ? "is-active" : ""}
-      >
-        h1
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={editor.isActive("heading", { level: 2 }) ? "is-active" : ""}
-      >
-        h2
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={editor.isActive("heading", { level: 3 }) ? "is-active" : ""}
-      >
-        h3
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
-        className={editor.isActive("heading", { level: 4 }) ? "is-active" : ""}
-      >
-        h4
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-        className={editor.isActive("heading", { level: 5 }) ? "is-active" : ""}
-      >
-        h5
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-        className={editor.isActive("heading", { level: 6 }) ? "is-active" : ""}
-      >
-        h6
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={editor.isActive("bulletList") ? "is-active" : ""}
-      >
-        bullet list
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive("orderedList") ? "is-active" : ""}
-      >
-        ordered list
+        <CodeIcon size={iconSize} />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-        className={editor.isActive("codeBlock") ? "is-active" : ""}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("codeBlock") ? props.btnActiveClassName : "",
+        )}
       >
-        code block
+        <Code2Icon size={iconSize} />
       </button>
+      {/* -------------------- */}
+      {/* Clear: */}
+      {/* -------------------- */}
+      <button
+        onClick={() => editor.chain().focus().unsetAllMarks().run()}
+        className={cn(props.btnClassName)}
+      >
+        <Paintbrush size={iconSize} />
+      </button>
+      {/* -------------------- */}
+      {/* Text size: */}
+      {/* -------------------- */}
+      <button
+        onClick={() => editor.chain().focus().setParagraph().run()}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("paragraph") ? props.btnActiveClassName : "",
+        )}
+      >
+        <Pilcrow size={iconSize} />
+      </button>
+      <button
+        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("heading", { level: 1 })
+            ? props.btnActiveClassName
+            : "",
+        )}
+      >
+        <Heading1 size={iconSize} />
+      </button>
+      <button
+        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("heading", { level: 2 })
+            ? props.btnActiveClassName
+            : "",
+        )}
+      >
+        <Heading2 size={iconSize} />
+      </button>
+      <button
+        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("heading", { level: 3 })
+            ? props.btnActiveClassName
+            : "",
+        )}
+      >
+        <Heading3 size={iconSize} />
+      </button>
+      <button
+        onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("heading", { level: 4 })
+            ? props.btnActiveClassName
+            : "",
+        )}
+      >
+        <Heading4 size={iconSize} />
+      </button>
+      <button
+        onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("heading", { level: 5 })
+            ? props.btnActiveClassName
+            : "",
+        )}
+      >
+        <Heading5 size={iconSize} />
+      </button>
+      <button
+        onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("heading", { level: 6 })
+            ? props.btnActiveClassName
+            : "",
+        )}
+      >
+        <Heading6 size={iconSize} />
+      </button>
+      {/* -------------------- */}
+      {/* Lists: */}
+      {/* -------------------- */}
+      <button
+        onClick={() => editor.chain().focus().toggleBulletList().run()}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("bulletList") ? props.btnActiveClassName : "",
+        )}
+      >
+        <List size={iconSize} />
+      </button>
+      <button
+        onClick={() => editor.chain().focus().toggleOrderedList().run()}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("orderedList") ? props.btnActiveClassName : "",
+        )}
+      >
+        <ListOrdered size={iconSize} />
+      </button>
+      {/* -------------------- */}
+      {/* Quote: */}
+      {/* -------------------- */}
       <button
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        className={editor.isActive("blockquote") ? "is-active" : ""}
+        className={cn(
+          props.btnClassName,
+          editor.isActive("blockquote") ? props.btnActiveClassName : "",
+        )}
       >
-        blockquote
-      </button>
-      <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
-        horizontal rule
-      </button>
-      <button onClick={() => editor.chain().focus().setHardBreak().run()}>
-        hard break
+        <TextQuote size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().undo().run()}
-        disabled={!editor.can().chain().focus().undo().run()}
+        onClick={() => editor.chain().focus().setHorizontalRule().run()}
+        className={cn(props.btnClassName)}
       >
-        undo
+        <Minus size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().redo().run()}
-        disabled={!editor.can().chain().focus().redo().run()}
+        onClick={() => editor.chain().focus().setHardBreak().run()}
+        className={cn(props.btnClassName)}
       >
-        redo
+        <WrapText size={iconSize} />
       </button>
-      <button
-        onClick={() => editor.chain().focus().setColor("#958DF1").run()}
-        className={
-          editor.isActive("textStyle", { color: "#958DF1" }) ? "is-active" : ""
-        }
-      >
-        purple
-      </button>
-    </>
+      {/* -------------------- */}
+    </div>
   );
 };
 

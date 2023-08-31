@@ -39,11 +39,13 @@ function App() {
             <MenuEditor
               btnClassName={buttonVariants({
                 variant: "ghost",
+                className: "p-2 text-neutral-500 hover:bg-transparent",
               })}
-              btnActiveClassName="text-red-500"
+              btnActiveClassName="text-white"
+              btnGroupClassName="flex items-center space-x-1 border-b border-neutral-800 pl-3 overflow-x-auto"
             />
           }
-          editorClassName="prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none"
+          editorClassName="prose dark:prose-invert prose-sm sm:prose-base m-5 focus:outline-none"
           content={fileSelected.content}
           onUpdate={(content: {
             editor: { getText: () => SetStateAction<string | undefined> };
