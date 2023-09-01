@@ -45,7 +45,7 @@ const FileItem = (props: iFileItemProps) => {
         extension: props.extension,
         content: file,
       });
-      router("/");
+      router("/editor");
     } catch (error) {
       console.error(error);
     }

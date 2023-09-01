@@ -12,6 +12,7 @@ import { Toaster } from "sonner";
 // Routes:
 import App from "./routes";
 import Settings from "./routes/settings";
+import Editor from "./routes/editor";
 
 // Router:
 const router = createBrowserRouter([
@@ -25,7 +26,11 @@ const router = createBrowserRouter([
       {
         path: "/settings",
         element: <Settings />,
-      }
+      },
+      {
+        path: "/editor",
+        element: <Editor />,
+      },
     ],
   },
 ]);
