@@ -1,18 +1,17 @@
 > **Warning**
 > This is a work-in-progress and not the finished product.
-> Typethings will be constantly updated and is not yet ready for its first release. Contributions are welcome.
+> Typethings will be constantly updated and is not yet ready for its first release.
 
 ## ✨ Introduction
 
-[**Typethings**](https://typethings.vercel.app/) is an open source text editor built with [Tauri](https://tauri.app) and [React](https://react.dev). It is designed to be a simple, fast and beautiful for everyone.
+[**Typethings**](https://typethings.vercel.app/) is an open source markdown editor built with [Tauri](https://tauri.app) and [React](https://react.dev). It is designed to be a simple, fast and beautiful for everyone.
 
 ## 🚀 Getting Started
 
 **Download the latest release for your platform:**
 
-- [Windows](#) - Coming soon.
-- [MacOS](#) - Coming soon.
-- [Linux](#) - Coming soon.
+- [Windows](#) - Soon.
+- [MacOS](#) - Soon.
 
 ## 🤔 What's inside?
 
@@ -24,7 +23,7 @@ Built with:
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
 - [shadcn/ui + Radix UI](https://ui.shadcn.com/) - A set of accessible UI components.
-- [@monaco-editor/react](https://microsoft.github.io/monaco-editor/) - A browser based code editor.
+- [**@typethings/editor**](https://github.com/pheralb/typethings/tree/main/packages/editor) - Custom editor.
 - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - for state management in React.
 - [React Router](https://reactrouter.com/) - for routing in React.
 
