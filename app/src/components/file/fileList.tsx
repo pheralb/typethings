@@ -17,14 +17,13 @@ const FileList = () => {
         folder: "taurifiles",
       });
       const filesnames = result.map((file) => file.name!);
-      console.log(filesnames);
       saveFilesToStore(filesnames);
     }
     loadFiles();
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col space-y-0">
       {files.map((file) => (
         <FileItem
           key={file}
@@ -32,7 +31,7 @@ const FileList = () => {
           extension={file.split(".")[1]}
         />
       ))}
-    </>
+    </div>
   );
 };
 

@@ -2,6 +2,7 @@ import { SetStateAction, useEffect, useState } from "react";
 import { useFilesStore } from "@/store/filesStore";
 import { desktopDir } from "@tauri-apps/api/path";
 import { createUpdateFile } from "@/functions/createUpdateFile";
+import { countCharacters, countWords } from "@/utils/text";
 
 import { MenuEditor, TiptapEditor } from "@typethings/editor";
 import PageNavbar from "@/components/pageNavbar";
@@ -54,7 +55,11 @@ const Editor = () => {
         editor: { getText: () => SetStateAction<string | undefined> };
       }) => setText(content.editor.getText())}
     >
-      <p>other menu</p>
+      <div className="fixed bottom-0 flex items-center justify-end p-3 px-4">
+        <p className="text-xs text-neutral-500">
+          {countWords(text)} words / {countCharacters(text) ?? 0} characters
+        </p>
+      </div>
     </TiptapEditor>
   );
 };
