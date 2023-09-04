@@ -16,8 +16,8 @@ const FileList = () => {
         directory: desktopPath,
         folder: "taurifiles",
       });
-      const filesnames = result.map((file) => file.name!);
-      saveFilesToStore(filesnames);
+      saveFilesToStore(result);
+      console.log(result);
     }
     loadFiles();
   }, []);
@@ -26,9 +26,9 @@ const FileList = () => {
     <div className="flex flex-col space-y-0">
       {files.map((file) => (
         <FileItem
-          key={file}
-          filename={file.split(".")[0]}
-          extension={file.split(".")[1]}
+          key={file.name}
+          name={file.name}
+          path={file.path}
         />
       ))}
     </div>

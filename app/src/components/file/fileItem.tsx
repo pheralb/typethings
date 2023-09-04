@@ -1,7 +1,8 @@
+import type { FileEntry } from "@tauri-apps/api/fs";
+
 import { useState } from "react";
 import { cn } from "@/utils";
 import { useFilesStore } from "@/store/filesStore";
-import { desktopDir } from "@tauri-apps/api/path";
 import { readFile } from "@/functions/readFiles";
 import { FileText, MoreVertical, Trash } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -19,9 +20,7 @@ import {
 import { Button } from "../ui/button";
 import { Dialog, DialogTrigger } from "../ui/dialog";
 
-interface iFileItemProps {
-  filename: string;
-  extension: string;
+interface iFileItemProps extends FileEntry {
   active?: boolean;
 }
 
@@ -33,16 +32,12 @@ const FileItem = (props: iFileItemProps) => {
 
   const handleOpenFile = async () => {
     try {
-      const desktopPath = await desktopDir();
       const file = await readFile({
-        directory: desktopPath,
-        folder: "taurifiles",
-        filename: props.filename,
-        extension: props.extension,
+        path: props.path,
       });
+      console.log(file);
       selectFile({
-        filename: props.filename,
-        extension: props.extension,
+        path: props.path,
         content: file,
       });
       router("/editor");
@@ -61,7 +56,7 @@ const FileItem = (props: iFileItemProps) => {
       className={cn(
         SidebarItemClasses,
         "cursor-default text-sm text-neutral-500 duration-75",
-        selectedFile?.filename === props.filename && "text-neutral-100",
+        selectedFile?.path === props.path && "text-neutral-100",
         props.active && "text-neutral-100",
         dropdownOpen && "text-neutral-100",
       )}
@@ -71,8 +66,7 @@ const FileItem = (props: iFileItemProps) => {
         <div className="flex items-center space-x-3">
           <FileText size={SidebarItemIconSize} />
           <div className="flex items-center">
-            <span className="truncate">{props.filename}</span>
-            <span>.{props.extension}</span>
+            <span className="truncate">{props.name}</span>
           </div>
         </div>
         <Dialog>
@@ -100,7 +94,7 @@ const FileItem = (props: iFileItemProps) => {
               </DialogTrigger>
             </DropdownMenuContent>
           </DropdownMenu>
-          <DeleteFile filename={props.filename} extension={props.extension} />
+          <DeleteFile name={props.name} path={props.path} />
         </Dialog>
       </div>
     </Button>

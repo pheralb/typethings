@@ -1,3 +1,5 @@
+import type { FileEntry } from "@tauri-apps/api/fs";
+
 import {
   DialogContent,
   DialogDescription,
@@ -7,30 +9,22 @@ import {
 } from "@/components/ui/dialog";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { Button } from "../ui/button";
-import { desktopDir } from "@tauri-apps/api/path";
 import { toast } from "sonner";
 import { deleteFile } from "@/functions/deleteFile";
 import { useFilesStore } from "@/store/filesStore";
+import { useNavigate } from "react-router-dom";
 
-interface iDeleteFileProps {
-  filename: string;
-  extension: string;
-}
-
-const DeleteFile = (props: iDeleteFileProps) => {
+const DeleteFile = (props: FileEntry) => {
   const removeFileStore = useFilesStore((state) => state.removeFile);
-
+  const router = useNavigate();
   // Delete function:
   const handleDeleteFile = async () => {
     try {
-      const desktopPath = await desktopDir();
+      router("/");
       await deleteFile({
-        directory: desktopPath,
-        folder: "taurifiles",
-        filename: props.filename,
-        extension: props.extension,
+        path: props.path,
       });
-      removeFileStore(`${props.filename}.${props.extension}`);
+      removeFileStore(props.name!);
       toast("Deleted file");
     } catch (error) {
       console.error(error);
@@ -42,8 +36,8 @@ const DeleteFile = (props: iDeleteFileProps) => {
       <DialogHeader>
         <DialogTitle>Delete file</DialogTitle>
         <DialogDescription>
-          Are you sure you want to delete "{props.filename}"? This action cannot
-          be undone.
+          Are you sure you want to delete "{props.name}"? This action cannot be
+          undone.
         </DialogDescription>
       </DialogHeader>
       <DialogFooter>

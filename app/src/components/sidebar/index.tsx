@@ -6,6 +6,7 @@ import CreateFile from "@/components/file/createFile";
 import { Button, buttonVariants } from "@/components/ui/button";
 import SidebarGroup from "./sidebarGroup";
 import FileList from "../file/fileList";
+import OpenFile from "../file/openFile";
 
 // Global styles:
 export const SidebarItemClasses = cn("w-full justify-start text-sm px-2");
@@ -34,18 +35,16 @@ const SidebarContent = () => {
               </Button>
             }
           />
-          <Link
-            to="/test"
-            className={cn(
-              buttonVariants({ variant: "ghost" }),
-              SidebarItemClasses,
-            )}
-          >
-            <div className="flex items-center space-x-3">
-              <FolderOpen size={SidebarItemIconSize} />
-              <span>Open file</span>
-            </div>
-          </Link>
+          <OpenFile
+            trigger={
+              <Button variant="ghost" className={SidebarItemClasses}>
+                <div className="flex items-center space-x-3">
+                  <FolderOpen size={SidebarItemIconSize} />
+                  <span>Open file</span>
+                </div>
+              </Button>
+            }
+          />
           <Link
             to="/test"
             className={cn(
