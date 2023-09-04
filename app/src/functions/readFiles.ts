@@ -7,10 +7,7 @@ interface iReadFilesFromFolder {
 }
 
 interface iReadFile {
-  directory: string;
-  folder: string;
-  filename: string;
-  extension: string;
+  path: string;
 }
 
 export const readFilesFromFolder = async ({
@@ -21,12 +18,6 @@ export const readFilesFromFolder = async ({
   return await readDir(fullPath);
 };
 
-export const readFile = async ({
-  directory,
-  folder,
-  filename,
-  extension,
-}: iReadFile) => {
-  const fullPath = await join(directory, folder, `${filename}.${extension}`);
-  return await readTextFile(fullPath);
+export const readFile = async ({ path }: iReadFile) => {
+  return await readTextFile(path);
 };
