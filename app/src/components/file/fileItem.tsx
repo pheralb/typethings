@@ -37,6 +37,7 @@ const FileItem = (props: iFileItemProps) => {
       });
       console.log(file);
       selectFile({
+        name: props.name!,
         path: props.path,
         content: file,
       });

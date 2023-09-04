@@ -50,6 +50,7 @@ const CreateFile = (props: iCreateFileProps) => {
         path: getFullPath,
       });
       selectFile({
+        name: `${data.title}.${"md"}`,
         path: getFullPath,
         content: "",
       });

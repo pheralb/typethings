@@ -2,6 +2,7 @@ import type { FileEntry } from "@tauri-apps/api/fs";
 import { create } from "zustand";
 
 interface SelectFile {
+  name: string;
   path: string;
   content: string;
 }
@@ -9,7 +10,7 @@ interface SelectFile {
 interface iFilesStore {
   files: FileEntry[];
   selectedFile: SelectFile | null;
-  setSelectedFile: ({ path, content }: SelectFile) => void | null;
+  setSelectedFile: ({ name, path, content }: SelectFile) => void | null;
   saveFilesToStore: (files: FileEntry[]) => void;
   addFile: (file: FileEntry) => void;
   removeFile: (filename: string) => void;
@@ -21,6 +22,7 @@ export const useFilesStore = create<iFilesStore>((set) => ({
   setSelectedFile: (file) =>
     set({
       selectedFile: {
+        name: file.name,
         path: file.path,
         content: file.content,
       },

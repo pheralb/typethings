@@ -1,6 +1,6 @@
 import { SetStateAction, useEffect, useState } from "react";
 import { useFilesStore } from "@/store/filesStore";
-import { desktopDir } from "@tauri-apps/api/path";
+
 import { createUpdateFile } from "@/functions/createUpdateFile";
 import { countCharacters, countWords } from "@/utils/text";
 
@@ -14,16 +14,14 @@ const Editor = () => {
 
   useEffect(() => {
     if (!fileSelected) return;
-
     const saveFile = setTimeout(async () => {
       try {
-        const desktopPath = await desktopDir();
         await createUpdateFile({
-          directory: desktopPath,
+          path: fileSelected.path,
           folder: "taurifiles",
-          filename: fileSelected.filename,
-          extension: fileSelected.extension,
-          content: text!,
+          filename: fileSelected.path,
+          extension: "md",
+          content: text ?? "",
         });
       } catch (error) {
         console.error(error);
@@ -38,7 +36,7 @@ const Editor = () => {
   return (
     <TiptapEditor
       slotBefore={
-        <PageNavbar title={fileSelected.filename}>
+        <PageNavbar title={fileSelected.name}>
           <MenuEditor
             btnClassName={buttonVariants({
               variant: "ghost",
@@ -65,14 +63,3 @@ const Editor = () => {
 };
 
 export default Editor;
-
-// Ver. with Monaco Editor (only if Tiptap doesn't work well)
-// <Editor
-//   language={
-//     fileExtensions.find(
-//       (file) => file.extension === fileSelected.extension,
-//     )?.name ?? "plaintext"
-//   }
-//   onChange={(value) => setText(value)}
-//   value={fileSelected.content}
-// />
