@@ -1,6 +1,11 @@
+import ChangeTheme from "@/components/changeTheme"
+
 const Settings = () => {
   return (
-    <div>Settings Page</div>
+    <>
+      <p>Change Theme:</p>
+      <ChangeTheme />
+    </>
   )
 }
 
