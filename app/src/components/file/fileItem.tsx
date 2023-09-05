@@ -4,7 +4,7 @@ import { useState } from "react";
 import { cn } from "@/utils";
 import { useFilesStore } from "@/store/filesStore";
 import { readFile } from "@/functions/readFiles";
-import { FileText, MoreVertical, Trash } from "lucide-react";
+import { BookOpen, FileText, Trash } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import DeleteFile from "./deleteFile";
 
@@ -12,11 +12,11 @@ import DeleteFile from "./deleteFile";
 import { SidebarItemClasses, SidebarItemIconSize } from "../sidebar";
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "../ui/context-menu";
 import { Button } from "../ui/button";
 import { Dialog, DialogTrigger } from "../ui/dialog";
 
@@ -52,53 +52,49 @@ const FileItem = (props: iFileItemProps) => {
   // Change line 105.
 
   return (
-    <Button
-      variant="ghost"
-      className={cn(
-        SidebarItemClasses,
-        "cursor-default text-sm text-neutral-500 duration-75",
-        selectedFile?.path === props.path && "text-neutral-100",
-        props.active && "text-neutral-100",
-        dropdownOpen && "text-neutral-100",
-      )}
-      onClick={handleOpenFile}
-    >
-      <div className="flex w-full items-center justify-between space-x-3 overflow-hidden">
-        <div className="flex items-center space-x-3">
-          <FileText size={SidebarItemIconSize} />
-          <div className="flex items-center">
-            <span className="truncate">{props.name}</span>
-          </div>
-        </div>
-        <Dialog>
-          <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
-            <DropdownMenuTrigger
-              className="cursor-default focus:outline-none"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <MoreVertical size={SidebarItemIconSize} />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem onClick={handleOpenFile}>
-                <div className="flex items-center space-x-2">
-                  <FileText size={SidebarItemIconSize} />
-                  <span>Open</span>
+    <Dialog>
+      <ContextMenu onOpenChange={setDropdownOpen}>
+        <ContextMenuTrigger asChild>
+          <Button
+            variant="ghost"
+            className={cn(
+              SidebarItemClasses,
+              "cursor-default text-sm text-neutral-500 duration-75",
+              selectedFile?.path === props.path && "text-neutral-100",
+              props.active && "text-neutral-100",
+              dropdownOpen && "text-neutral-100",
+            )}
+            onClick={handleOpenFile}
+          >
+            <div className="flex w-full items-center justify-between space-x-3 overflow-hidden">
+              <div className="flex items-center space-x-3 overflow-hidden">
+                <FileText size={SidebarItemIconSize} />
+                <div className="flex items-center overflow-hidden">
+                  <span className="truncate">{props.name}</span>
                 </div>
-              </DropdownMenuItem>
-              <DialogTrigger asChild>
-                <DropdownMenuItem>
-                  <div className="flex items-center space-x-2">
-                    <Trash size={SidebarItemIconSize} />
-                    <span>Delete</span>
-                  </div>
-                </DropdownMenuItem>
-              </DialogTrigger>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DeleteFile name={props.name} path={props.path} />
-        </Dialog>
-      </div>
-    </Button>
+              </div>
+            </div>
+          </Button>
+        </ContextMenuTrigger>
+        <ContextMenuContent>
+          <ContextMenuItem onClick={handleOpenFile}>
+            <div className="flex items-center space-x-2">
+              <BookOpen size={SidebarItemIconSize} />
+              <span>Open</span>
+            </div>
+          </ContextMenuItem>
+          <DialogTrigger asChild>
+            <ContextMenuItem>
+              <div className="flex items-center space-x-2">
+                <Trash size={SidebarItemIconSize} />
+                <span>Delete</span>
+              </div>
+            </ContextMenuItem>
+          </DialogTrigger>
+        </ContextMenuContent>
+      </ContextMenu>
+      <DeleteFile name={props.name} path={props.path} />
+    </Dialog>
   );
 };
 
