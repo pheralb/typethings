@@ -1,12 +1,5 @@
-import ChangeTheme from "@/components/changeTheme"
-
 const Settings = () => {
-  return (
-    <>
-      <p>Change Theme:</p>
-      <ChangeTheme />
-    </>
-  )
-}
+  return <></>;
+};
 
-export default Settings
+export default Settings;
