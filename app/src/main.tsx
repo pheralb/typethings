@@ -14,10 +14,14 @@ import App from "./routes";
 import Settings from "./routes/settings";
 import Editor from "./routes/editor";
 
+// When the app is in production mode, we use the custom error boundary component:
+import ErrorElement from "./components/errorElement";
+
 // Router:
 const router = createBrowserRouter([
   {
     element: <Sidebar />,
+    errorElement: <ErrorElement />,
     children: [
       {
         path: "/",
