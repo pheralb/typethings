@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { desktopDir, join } from "@tauri-apps/api/path";
+import { join } from "@tauri-apps/api/path";
 
 import { createUpdateFile } from "@/functions/createUpdateFile";
 import { useFilesStore } from "@/store/filesStore";
@@ -15,7 +15,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import FormGroup from "@/components/ui/formGroup";
 import Tip from "@/components/tip";
 import Workspaces from "../workspaces";
@@ -30,7 +29,7 @@ interface iCreateFileInputs {
 }
 
 const CreateFile = (props: iCreateFileProps) => {
-  const { register, handleSubmit, setValue } = useForm<iCreateFileInputs>();
+  const { register, handleSubmit } = useForm<iCreateFileInputs>();
   const [openDialog, setOpenDialog] = useState<boolean>(false);
   const addFile = useFilesStore((state) => state.addFile);
   const selectFile = useFilesStore((state) => state.setSelectedFile);
