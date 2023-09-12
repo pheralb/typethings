@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { useHotkeys } from "react-hotkeys-hook";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { desktopDir, join } from "@tauri-apps/api/path";
 
@@ -14,7 +15,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
+import FormGroup from "@/components/ui/formGroup";
+import Tip from "@/components/tip";
+import Workspaces from "../workspaces";
 
 interface iCreateFileProps {
   trigger: ReactNode;
@@ -30,6 +34,7 @@ const CreateFile = (props: iCreateFileProps) => {
   const [openDialog, setOpenDialog] = useState<boolean>(false);
   const addFile = useFilesStore((state) => state.addFile);
   const selectFile = useFilesStore((state) => state.setSelectedFile);
+  useHotkeys("ctrl+n", () => setOpenDialog(true));
 
   // Create New File function:
   const handleCreateFile: SubmitHandler<iCreateFileInputs> = async (data) => {
@@ -42,8 +47,11 @@ const CreateFile = (props: iCreateFileProps) => {
         extension: "md",
         content: "",
       });
-      const getFullPath = await join(data.path, "taurifiles", `${data.title}.${"md"}`);
-      console.log(getFullPath);
+      const getFullPath = await join(
+        data.path,
+        "taurifiles",
+        `${data.title}.${"md"}`,
+      );
       setOpenDialog(false);
       addFile({
         name: `${data.title}.${"md"}`,
@@ -70,21 +78,28 @@ const CreateFile = (props: iCreateFileProps) => {
           onSubmit={handleSubmit(handleCreateFile)}
           className="flex flex-col space-y-2"
         >
-          <label htmlFor="title">Title:</label>
-          <Input
-            id="title"
-            placeholder="Enter title..."
-            {...register("title", { required: true })}
-          />
-          <label htmlFor="extension">Workspace:</label>
-          <Button
-            onClick={async () => {
-              const desktop = await desktopDir();
-              setValue("path", desktop);
-            }}
-          >
-            Desktop
-          </Button>
+          <FormGroup>
+            <label htmlFor="title" className="text-sm text-neutral-400">
+              Title:
+            </label>
+            <Input
+              id="title"
+              placeholder="Enter title..."
+              {...register("title", { required: true })}
+            />
+          </FormGroup>
+          <FormGroup>
+            <div className="flex items-center justify-between">
+              <label htmlFor="extension" className="text-sm text-neutral-400">
+                Workspace:
+              </label>
+              <Tip
+                text="The workspace is the folder where your document will be saved. Select a folder and it will automatically be added to the workspace :)"
+                iconSize={13}
+              />
+            </div>
+            <Workspaces />
+          </FormGroup>
         </form>
       </DialogContent>
     </Dialog>
