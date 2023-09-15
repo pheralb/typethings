@@ -4,7 +4,6 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useWorkspaceStore } from "@/store/workspaceStore";
 import { toast } from "sonner";
-import { join } from "@tauri-apps/api/path";
 
 import { createFile } from "@/functions/createUpdateFile";
 import { useFilesStore } from "@/store/filesStore";
