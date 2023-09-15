@@ -1,12 +1,13 @@
 import { SetStateAction, useEffect, useState } from "react";
 import { useFilesStore } from "@/store/filesStore";
 
-import { createUpdateFile } from "@/functions/createUpdateFile";
+import { updateFile } from "@/functions/createUpdateFile";
 import { countCharacters, countWords } from "@/utils/text";
 
 import { MenuEditor, TiptapEditor } from "@typethings/editor";
 import PageNavbar from "@/components/pageNavbar";
 import { buttonVariants } from "@/components/ui/button";
+import { getFileName } from "@/functions/getFileName";
 
 const Editor = () => {
   const fileSelected = useFilesStore((state) => state.selectedFile);
@@ -16,12 +17,9 @@ const Editor = () => {
     if (!fileSelected) return;
     const saveFile = setTimeout(async () => {
       try {
-        await createUpdateFile({
+        await updateFile({
           path: fileSelected.path,
-          folder: "taurifiles",
-          filename: fileSelected.path,
-          extension: "md",
-          content: text ?? "",
+          content: text!,
         });
       } catch (error) {
         console.error(error);
@@ -36,7 +34,7 @@ const Editor = () => {
   return (
     <TiptapEditor
       slotBefore={
-        <PageNavbar title={fileSelected.name}>
+        <PageNavbar title={getFileName(fileSelected.path)!}>
           <MenuEditor
             btnClassName={buttonVariants({
               variant: "ghost",

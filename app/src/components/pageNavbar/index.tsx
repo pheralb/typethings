@@ -24,7 +24,7 @@ const PageNavbar = (props: PageNavbarProps) => {
           to="/"
           className={buttonVariants({
             variant: "ghost",
-            className: "p-2 text-neutral-500 hover:bg-transparent",
+            className: "p-2",
           })}
         >
           <X size={16} />
