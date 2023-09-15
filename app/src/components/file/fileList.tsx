@@ -1,12 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { desktopDir } from "@tauri-apps/api/path";
 import { readFilesFromFolder } from "@/functions/readFiles";
-import { useFilesStore } from "@/store/filesStore";
+import { FileEntry } from "@tauri-apps/api/fs";
+
 import FileItem from "./fileItem";
 
 const FileList = () => {
-  const saveFilesToStore = useFilesStore((state) => state.saveFilesToStore);
-  const files = useFilesStore((state) => state.files);
+  const [result, setResult] = useState<FileEntry[]>([]);
 
   // Read files from directory:
   useEffect(() => {
@@ -16,20 +16,15 @@ const FileList = () => {
         directory: desktopPath,
         folder: "taurifiles",
       });
-      saveFilesToStore(result);
-      console.log(result);
+      setResult(result);
     }
     loadFiles();
   }, []);
 
   return (
     <div className="flex flex-col space-y-0">
-      {files.map((file) => (
-        <FileItem
-          key={file.name}
-          name={file.name}
-          path={file.path}
-        />
+      {result.map((file) => (
+        <FileItem key={file.name} name={file.name} path={file.path} />
       ))}
     </div>
   );

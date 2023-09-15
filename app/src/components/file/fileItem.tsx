@@ -35,9 +35,7 @@ const FileItem = (props: iFileItemProps) => {
       const file = await readFile({
         path: props.path,
       });
-      console.log(file);
       selectFile({
-        name: props.name!,
         path: props.path,
         content: file,
       });
