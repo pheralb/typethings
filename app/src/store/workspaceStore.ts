@@ -10,7 +10,7 @@ interface workspace {
 interface iWorkspaceStore {
   workspaces: workspace[];
   selectedWorkspace: workspace | null;
-  selectWorkspace: (folderPath: string) => void;
+  selectWorkspace: (folderPath: string | null) => void;
   addWorkspace: (workspace: workspace) => void;
   deleteWorkspace: (folderPath: string) => void;
 }

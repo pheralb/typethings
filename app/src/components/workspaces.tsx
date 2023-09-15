@@ -7,7 +7,11 @@ import { selectFolder } from "@/functions/selectFolder";
 import { Button } from "./ui/button";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 
-const Workspaces = () => {
+interface WorkspacesProps {
+  checkOption?: boolean;
+}
+
+const Workspaces = (props: WorkspacesProps) => {
   const workspaces = useWorkspaceStore((state) => state.workspaces);
   const addWorkspace = useWorkspaceStore((state) => state.addWorkspace);
   const deleteWorkspace = useWorkspaceStore((state) => state.deleteWorkspace);
@@ -51,6 +55,7 @@ const Workspaces = () => {
   };
 
   const handleDeleteWorkspace = (path: string) => {
+    selectWorkspace(null);
     deleteWorkspace(path);
   };
 
@@ -59,7 +64,10 @@ const Workspaces = () => {
       <Button
         variant="outline"
         className="flex w-full items-center space-x-2"
-        onClick={handleAddWorkspace}
+        onClick={(e) => {
+          e.preventDefault();
+          handleAddWorkspace();
+        }}
       >
         <FolderOpen size={16} />
         <span>Choose folder...</span>
@@ -72,12 +80,16 @@ const Workspaces = () => {
               key={workspace.folderPath}
             >
               <div className="flex items-center space-x-2">
-                <RadioGroupItem
-                  value={workspace.folderPath}
-                  id={workspace.folderPath}
-                  onClick={() => selectWorkspace(workspace.folderPath)}
-                  checked={workspace.folderPath === selectedWorkspace?.folderPath}
-                />
+                {props.checkOption && (
+                  <RadioGroupItem
+                    value={workspace.folderPath}
+                    id={workspace.folderPath}
+                    onClick={() => selectWorkspace(workspace.folderPath)}
+                    checked={
+                      workspace.folderPath === selectedWorkspace?.folderPath
+                    }
+                  />
+                )}
                 <label htmlFor={workspace.folderPath}>
                   {workspace.folderName}
                 </label>
