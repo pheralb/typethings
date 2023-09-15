@@ -3,19 +3,28 @@ import { join } from "@tauri-apps/api/path";
 
 interface iCreateNewFile {
   path: string;
-  folder: string;
   filename: string;
   extension: string;
   content: string;
 }
 
-export const createUpdateFile = async ({
+interface iUpdateFile {
+  path: string;
+  content: string;
+}
+
+export const createFile = async ({
   path,
-  folder,
   filename,
   extension,
   content,
 }: iCreateNewFile) => {
-  const fullPath = await join(path, folder, `${filename}.${extension}`);
-  return await writeTextFile(fullPath, content);
+  const fullPath = await join(path, `${filename}.${extension}`);
+  await writeTextFile(fullPath, content);
+  return fullPath;
+};
+
+export const updateFile = async ({ path, content }: iUpdateFile) => {
+  await writeTextFile(path, content);
+  return path;
 };
