@@ -1,14 +1,16 @@
-import { Link, Outlet } from "react-router-dom";
-import { Plus, Settings, FolderOpen, Search } from "lucide-react";
 import { cn } from "@/utils";
+import { Link, Outlet } from "react-router-dom";
+import { Plus, Settings, FolderOpen, Search, Folders } from "lucide-react";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { useWorkspaceStore } from "@/store/workspaceStore";
 
 import CreateFile from "@/components/file/createFile";
-import { Button, buttonVariants } from "@/components/ui/button";
-import SidebarGroup from "./sidebarGroup";
-import FileList from "../file/fileList";
-import OpenFile from "../file/openFile";
-import { useWorkspaceStore } from "@/store/workspaceStore";
-import Folder from "../folder";
+import OpenFile from "@/components/file/openFile";
+import FileList from "@/components/file/fileList";
+
+import SidebarGroup from "@/components/sidebar/sidebarGroup";
+import Folder from "@/components/folder";
+import ManageWorkspaces from "@/components/workspaces/manageWorkspaces";
 
 // Global styles:
 export const SidebarItemClasses = cn("w-full justify-start text-sm px-2");
@@ -44,6 +46,16 @@ const SidebarContent = () => {
                 <div className="flex items-center space-x-3">
                   <FolderOpen size={SidebarItemIconSize} />
                   <span>Open file</span>
+                </div>
+              </Button>
+            }
+          />
+          <ManageWorkspaces
+            trigger={
+              <Button variant="ghost" className={SidebarItemClasses}>
+                <div className="flex items-center space-x-3">
+                  <Folders size={SidebarItemIconSize} />
+                  <span>Workspaces</span>
                 </div>
               </Button>
             }

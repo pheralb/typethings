@@ -1,11 +1,11 @@
-import { FolderOpen, X } from "lucide-react";
+import { FolderIcon, FolderOpen, X } from "lucide-react";
 import { toast } from "sonner";
 
 import { useWorkspaceStore } from "@/store/workspaceStore";
 import { selectFolder } from "@/functions/selectFolder";
 
-import { Button } from "./ui/button";
-import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
+import { Button } from "../ui/button";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 
 interface WorkspacesProps {
   checkOption?: boolean;
@@ -80,7 +80,7 @@ const Workspaces = (props: WorkspacesProps) => {
               key={workspace.folderPath}
             >
               <div className="flex items-center space-x-2">
-                {props.checkOption && (
+                {props.checkOption ? (
                   <RadioGroupItem
                     value={workspace.folderPath}
                     id={workspace.folderPath}
@@ -89,6 +89,8 @@ const Workspaces = (props: WorkspacesProps) => {
                       workspace.folderPath === selectedWorkspace?.folderPath
                     }
                   />
+                ) : (
+                  <FolderIcon size={16} className="text-neutral-500" />
                 )}
                 <label htmlFor={workspace.folderPath}>
                   {workspace.folderName}
