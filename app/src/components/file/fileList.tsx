@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
-import { desktopDir } from "@tauri-apps/api/path";
 import { readFilesFromFolder } from "@/functions/readFiles";
 import { FileEntry } from "@tauri-apps/api/fs";
 
 import FileItem from "./fileItem";
 
-const FileList = () => {
+interface iFileListProps {
+  directory: string;
+  folder: string;
+}
+
+const FileList = (props: iFileListProps) => {
   const [result, setResult] = useState<FileEntry[]>([]);
 
   // Read files from directory:
   useEffect(() => {
     async function loadFiles() {
-      const desktopPath = await desktopDir();
       const result = await readFilesFromFolder({
-        directory: desktopPath,
-        folder: "taurifiles",
+        path: props.directory,
       });
       setResult(result);
     }

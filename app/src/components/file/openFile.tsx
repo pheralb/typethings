@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import { Button } from "../ui/button";
-import { openFile } from "@/functions/openFile";
+// import { openFile } from "@/functions/openFile";
 
 interface iCreateFileProps {
   trigger: ReactNode;
@@ -20,8 +20,7 @@ const OpenFile = (props: iCreateFileProps) => {
 
   const handleOpenFile = async () => {
     try {
-      const selectedFile = await openFile();
-      console.log(selectedFile);
+      // const selectedFile = await openFile();
     } catch (error) {
       console.error(error);
     }

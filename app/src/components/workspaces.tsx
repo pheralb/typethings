@@ -1,4 +1,4 @@
-import { FolderOpen, Trash } from "lucide-react";
+import { FolderOpen, X } from "lucide-react";
 import { toast } from "sonner";
 
 import { useWorkspaceStore } from "@/store/workspaceStore";
@@ -99,7 +99,7 @@ const Workspaces = (props: WorkspacesProps) => {
                 size="icon"
                 onClick={() => handleDeleteWorkspace(workspace.folderPath)}
               >
-                <Trash size={15} />
+                <X size={15} />
               </Button>
             </div>
           ))

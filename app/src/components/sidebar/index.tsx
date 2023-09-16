@@ -7,12 +7,15 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import SidebarGroup from "./sidebarGroup";
 import FileList from "../file/fileList";
 import OpenFile from "../file/openFile";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import Folder from "../folder";
 
 // Global styles:
 export const SidebarItemClasses = cn("w-full justify-start text-sm px-2");
 export const SidebarItemIconSize = 16;
 
 const SidebarContent = () => {
+  const workspaces = useWorkspaceStore((state) => state.workspaces);
   return (
     <nav
       className={cn(
@@ -71,7 +74,16 @@ const SidebarContent = () => {
           </Link>
         </SidebarGroup>
         <SidebarGroup title="Workspaces">
-          <FileList />
+          <div className="flex flex-col space-x-0">
+            {workspaces.map((workspace) => (
+              <Folder key={workspace.folderPath} name={workspace.folderName}>
+                <FileList
+                  directory={workspace.folderPath}
+                  folder={workspace.folderName}
+                />
+              </Folder>
+            ))}
+          </div>
         </SidebarGroup>
       </div>
     </nav>
