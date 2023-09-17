@@ -1,6 +1,6 @@
 import { cn } from "@/utils";
 import { Link, Outlet } from "react-router-dom";
-import { Plus, Settings, FolderOpen, Search, Folders } from "lucide-react";
+import { Plus, Settings, Search, Folders, FilePlus2Icon } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { useWorkspaceStore } from "@/store/workspaceStore";
 
@@ -24,7 +24,7 @@ const SidebarContent = () => {
         "fixed left-0 top-0 h-full",
         "w-56 pb-10",
         "overflow-y-auto overflow-x-hidden",
-        "bg-neutral-800/20",
+        "bg-neutral-700/20",
         "border-r border-neutral-800",
       )}
     >
@@ -44,7 +44,7 @@ const SidebarContent = () => {
             trigger={
               <Button variant="ghost" className={SidebarItemClasses}>
                 <div className="flex items-center space-x-3">
-                  <FolderOpen size={SidebarItemIconSize} />
+                  <FilePlus2Icon size={SidebarItemIconSize} />
                   <span>Open file</span>
                 </div>
               </Button>
