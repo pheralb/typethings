@@ -45,7 +45,7 @@ const Editor = () => {
           />
         </PageNavbar>
       }
-      editorClassName="prose dark:prose-invert prose-sm sm:prose-base m-5 focus:outline-none"
+      editorClassName="prose dark:prose-invert prose-sm sm:prose-base m-5 focus:outline-none mx-auto max-w-4xl mt-10"
       content={fileSelected.content}
       onUpdate={(content: {
         editor: { getText: () => SetStateAction<string | undefined> };
