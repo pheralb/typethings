@@ -6,13 +6,7 @@ import { useFilesStore } from "@/store/filesStore";
 import { updateFile } from "@/functions/createUpdateFile";
 import { getFileName } from "@/functions/getFileName";
 
-import {
-  useEditor,
-  Menu,
-  Editor,
-  Extensions,
-  type iEditor,
-} from "@typethings/editor";
+import { useEditor, Menu, Editor, Extensions } from "@typethings/editor";
 
 import PageNavbar from "@/components/pageNavbar";
 import { buttonVariants } from "@/components/ui/button";
@@ -63,7 +57,7 @@ const EditorPage = () => {
         defaultValue={fileSelected.content}
         autoFocus={true}
         editorContentClassName="p-4"
-        onUpdate={({ editor }: { editor: iEditor }) => {
+        onUpdate={({ editor }) => {
           setText(editor.storage.markdown.getMarkdown());
         }}
       >
