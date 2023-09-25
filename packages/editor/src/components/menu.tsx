@@ -1,7 +1,5 @@
-import type { MenuEditorProps } from "../types/menuProps";
-import { cn } from "../utils/cn";
-
-import { useCurrentEditor } from "@tiptap/react";
+import type { MenuEditorProps } from "@/types/menuProps";
+import { cn } from "@/utils/cn";
 
 // All icons:
 import {
@@ -31,27 +29,22 @@ import {
 const iconSize = 16;
 
 const Menu = (props: MenuEditorProps) => {
-  const { editor } = useCurrentEditor();
-
-  if (!editor) {
-    return null;
-  }
   return (
     <div className={cn(props.btnGroupClassName)}>
       {/* ------------------------ */}
       {/* Undo & Redo */}
       {/* ------------------------ */}
       <button
-        onClick={() => editor.chain().focus().undo().run()}
-        disabled={!editor.can().chain().focus().undo().run()}
+        onClick={() => props.editor?.chain().focus().undo().run()}
+        disabled={!props.editor?.can().chain().focus().undo().run()}
         className={cn(props.btnClassName)}
         aria-label="Undo"
       >
         <ArrowLeft size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().redo().run()}
-        disabled={!editor.can().chain().focus().redo().run()}
+        onClick={() => props.editor?.chain().focus().redo().run()}
+        disabled={!props.editor?.can().chain().focus().redo().run()}
         className={cn(props.btnClassName)}
         aria-label="Redo"
       >
@@ -61,33 +54,33 @@ const Menu = (props: MenuEditorProps) => {
       {/* Bold, Italic & Striket: */}
       {/* ------------------------ */}
       <button
-        onClick={() => editor.chain().focus().toggleBold().run()}
-        disabled={!editor.can().chain().focus().toggleBold().run()}
+        onClick={() => props.editor?.chain().focus().toggleBold().run()}
+        disabled={!props.editor?.can().chain().focus().toggleBold().run()}
         className={cn(
           props.btnClassName,
-          editor.isActive("bold") ? props.btnActiveClassName : "",
+          props.editor?.isActive("bold") ? props.btnActiveClassName : "",
         )}
         aria-label="Bold"
       >
         <BoldIcon size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().toggleItalic().run()}
-        disabled={!editor.can().chain().focus().toggleItalic().run()}
+        onClick={() => props.editor?.chain().focus().toggleItalic().run()}
+        disabled={!props.editor?.can().chain().focus().toggleItalic().run()}
         className={cn(
           props.btnClassName,
-          editor.isActive("italic") ? props.btnActiveClassName : "",
+          props.editor?.isActive("italic") ? props.btnActiveClassName : "",
         )}
         aria-label="Italic"
       >
         <ItalicIcon size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().toggleStrike().run()}
-        disabled={!editor.can().chain().focus().toggleStrike().run()}
+        onClick={() => props.editor?.chain().focus().toggleStrike().run()}
+        disabled={!props.editor?.can().chain().focus().toggleStrike().run()}
         className={cn(
           props.btnClassName,
-          editor.isActive("strike") ? props.btnActiveClassName : "",
+          props.editor?.isActive("strike") ? props.btnActiveClassName : "",
         )}
       >
         <StrikethroughIcon size={iconSize} />
@@ -96,20 +89,20 @@ const Menu = (props: MenuEditorProps) => {
       {/* Code blocks: */}
       {/* -------------------- */}
       <button
-        onClick={() => editor.chain().focus().toggleCode().run()}
-        disabled={!editor.can().chain().focus().toggleCode().run()}
+        onClick={() => props.editor?.chain().focus().toggleCode().run()}
+        disabled={!props.editor?.can().chain().focus().toggleCode().run()}
         className={cn(
           props.btnClassName,
-          editor.isActive("code") ? props.btnActiveClassName : "",
+          props.editor?.isActive("code") ? props.btnActiveClassName : "",
         )}
       >
         <CodeIcon size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().toggleCodeBlock().run()}
+        onClick={() => props.editor?.chain().focus().toggleCodeBlock().run()}
         className={cn(
           props.btnClassName,
-          editor.isActive("codeBlock") ? props.btnActiveClassName : "",
+          props.editor?.isActive("codeBlock") ? props.btnActiveClassName : "",
         )}
       >
         <Code2Icon size={iconSize} />
@@ -118,7 +111,7 @@ const Menu = (props: MenuEditorProps) => {
       {/* Clear: */}
       {/* -------------------- */}
       <button
-        onClick={() => editor.chain().focus().unsetAllMarks().run()}
+        onClick={() => props.editor?.chain().focus().unsetAllMarks().run()}
         className={cn(props.btnClassName)}
       >
         <Paintbrush size={iconSize} />
@@ -127,19 +120,21 @@ const Menu = (props: MenuEditorProps) => {
       {/* Text size: */}
       {/* -------------------- */}
       <button
-        onClick={() => editor.chain().focus().setParagraph().run()}
+        onClick={() => props.editor?.chain().focus().setParagraph().run()}
         className={cn(
           props.btnClassName,
-          editor.isActive("paragraph") ? props.btnActiveClassName : "",
+          props.editor?.isActive("paragraph") ? props.btnActiveClassName : "",
         )}
       >
         <Pilcrow size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
+        onClick={() =>
+          props.editor?.chain().focus().toggleHeading({ level: 1 }).run()
+        }
         className={cn(
           props.btnClassName,
-          editor.isActive("heading", { level: 1 })
+          props.editor?.isActive("heading", { level: 1 })
             ? props.btnActiveClassName
             : "",
         )}
@@ -147,10 +142,12 @@ const Menu = (props: MenuEditorProps) => {
         <Heading1 size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+        onClick={() =>
+          props.editor?.chain().focus().toggleHeading({ level: 2 }).run()
+        }
         className={cn(
           props.btnClassName,
-          editor.isActive("heading", { level: 2 })
+          props.editor?.isActive("heading", { level: 2 })
             ? props.btnActiveClassName
             : "",
         )}
@@ -158,10 +155,12 @@ const Menu = (props: MenuEditorProps) => {
         <Heading2 size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
+        onClick={() =>
+          props.editor?.chain().focus().toggleHeading({ level: 3 }).run()
+        }
         className={cn(
           props.btnClassName,
-          editor.isActive("heading", { level: 3 })
+          props.editor?.isActive("heading", { level: 3 })
             ? props.btnActiveClassName
             : "",
         )}
@@ -169,10 +168,12 @@ const Menu = (props: MenuEditorProps) => {
         <Heading3 size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
+        onClick={() =>
+          props.editor?.chain().focus().toggleHeading({ level: 4 }).run()
+        }
         className={cn(
           props.btnClassName,
-          editor.isActive("heading", { level: 4 })
+          props.editor?.isActive("heading", { level: 4 })
             ? props.btnActiveClassName
             : "",
         )}
@@ -180,10 +181,12 @@ const Menu = (props: MenuEditorProps) => {
         <Heading4 size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
+        onClick={() =>
+          props.editor?.chain().focus().toggleHeading({ level: 5 }).run()
+        }
         className={cn(
           props.btnClassName,
-          editor.isActive("heading", { level: 5 })
+          props.editor?.isActive("heading", { level: 5 })
             ? props.btnActiveClassName
             : "",
         )}
@@ -191,10 +194,12 @@ const Menu = (props: MenuEditorProps) => {
         <Heading5 size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
+        onClick={() =>
+          props.editor?.chain().focus().toggleHeading({ level: 6 }).run()
+        }
         className={cn(
           props.btnClassName,
-          editor.isActive("heading", { level: 6 })
+          props.editor?.isActive("heading", { level: 6 })
             ? props.btnActiveClassName
             : "",
         )}
@@ -205,19 +210,19 @@ const Menu = (props: MenuEditorProps) => {
       {/* Lists: */}
       {/* -------------------- */}
       <button
-        onClick={() => editor.chain().focus().toggleBulletList().run()}
+        onClick={() => props.editor?.chain().focus().toggleBulletList().run()}
         className={cn(
           props.btnClassName,
-          editor.isActive("bulletList") ? props.btnActiveClassName : "",
+          props.editor?.isActive("bulletList") ? props.btnActiveClassName : "",
         )}
       >
         <List size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().toggleOrderedList().run()}
+        onClick={() => props.editor?.chain().focus().toggleOrderedList().run()}
         className={cn(
           props.btnClassName,
-          editor.isActive("orderedList") ? props.btnActiveClassName : "",
+          props.editor?.isActive("orderedList") ? props.btnActiveClassName : "",
         )}
       >
         <ListOrdered size={iconSize} />
@@ -226,22 +231,22 @@ const Menu = (props: MenuEditorProps) => {
       {/* Quote: */}
       {/* -------------------- */}
       <button
-        onClick={() => editor.chain().focus().toggleBlockquote().run()}
+        onClick={() => props.editor?.chain().focus().toggleBlockquote().run()}
         className={cn(
           props.btnClassName,
-          editor.isActive("blockquote") ? props.btnActiveClassName : "",
+          props.editor?.isActive("blockquote") ? props.btnActiveClassName : "",
         )}
       >
         <TextQuote size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().setHorizontalRule().run()}
+        onClick={() => props.editor?.chain().focus().setHorizontalRule().run()}
         className={cn(props.btnClassName)}
       >
         <Minus size={iconSize} />
       </button>
       <button
-        onClick={() => editor.chain().focus().setHardBreak().run()}
+        onClick={() => props.editor?.chain().focus().setHardBreak().run()}
         className={cn(props.btnClassName)}
       >
         <WrapText size={iconSize} />
@@ -251,4 +256,4 @@ const Menu = (props: MenuEditorProps) => {
   );
 };
 
-export default Menu;
+export { Menu };
