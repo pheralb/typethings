@@ -12,10 +12,10 @@ interface PageNavbarProps {
 
 const PageNavbar = (props: PageNavbarProps) => {
   return (
-    <>
-      <nav
+    <nav className="sticky top-0 flex flex-col w-full bg-neutral-900 z-50">
+      <div
         className={cn(
-          "flex w-full items-center justify-between px-4 pt-2 sticky top-0",
+          "flex w-full items-center justify-between px-4 pt-1",
           props.border ? "border-b border-neutral-800" : "",
         )}
       >
@@ -29,9 +29,9 @@ const PageNavbar = (props: PageNavbarProps) => {
         >
           <X size={16} />
         </Link>
-      </nav>
-      {props.children}
-    </>
+      </div>
+      <div>{props.children}</div>
+    </nav>
   );
 };
 

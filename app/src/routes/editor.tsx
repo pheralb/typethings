@@ -1,41 +1,75 @@
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useHotkeys } from "react-hotkeys-hook";
+import { toast } from "sonner";
+
 import { useFilesStore } from "@/store/filesStore";
-
 import { updateFile } from "@/functions/createUpdateFile";
-import { countCharacters, countWords } from "@/utils/text";
-
-import { MenuEditor, TiptapEditor } from "@typethings/editor";
-import PageNavbar from "@/components/pageNavbar";
-import { buttonVariants } from "@/components/ui/button";
 import { getFileName } from "@/functions/getFileName";
 
-const Editor = () => {
+import {
+  useEditor,
+  Menu,
+  Editor,
+  Extensions,
+  type iEditor,
+} from "@typethings/editor";
+
+import PageNavbar from "@/components/pageNavbar";
+import { buttonVariants } from "@/components/ui/button";
+
+const EditorPage = () => {
   const fileSelected = useFilesStore((state) => state.selectedFile);
   const [text, setText] = useState<string | undefined>("");
+  const editor = useEditor({
+    extensions: Extensions,
+    content: fileSelected?.content,
+    onUpdate: ({ editor }) => {
+      setText(editor.storage.markdown.getMarkdown());
+    },
+    autofocus: true,
+    editable: true,
+    editorProps: {
+      attributes: {
+        class:
+          "prose dark:prose-invert prose-sm sm:prose-base focus:outline-none overflow-y-auto outline-none overflow-x-hidden mx-auto",
+      },
+    },
+  });
+  useHotkeys("ctrl+s", () => handleSaveFile);
 
   useEffect(() => {
     if (!fileSelected) return;
-    const saveFile = setTimeout(async () => {
-      try {
-        await updateFile({
-          path: fileSelected.path,
-          content: text!,
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    }, 1000);
-
-    return () => clearTimeout(saveFile);
-  }, [text]);
+    editor?.chain().focus().setContent(fileSelected.content).run();
+  }, [fileSelected]);
 
   if (!fileSelected) return null;
 
+  const handleSaveFile = async () => {
+    try {
+      await updateFile({
+        path: fileSelected.path,
+        content: text!,
+      });
+      toast.success("File saved!");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <TiptapEditor
-      slotBefore={
+    <>
+      <Editor
+        editor={editor}
+        defaultValue={fileSelected.content}
+        autoFocus={true}
+        editorContentClassName="p-4"
+        onUpdate={({ editor }: { editor: iEditor }) => {
+          setText(editor.storage.markdown.getMarkdown());
+        }}
+      >
         <PageNavbar title={getFileName(fileSelected.path)!}>
-          <MenuEditor
+          <Menu
+            editor={editor}
             btnClassName={buttonVariants({
               variant: "ghost",
               className: "p-2 text-neutral-500 hover:bg-transparent",
@@ -44,20 +78,9 @@ const Editor = () => {
             btnGroupClassName="flex items-center space-x-1 border-b border-neutral-800 pl-3 overflow-x-auto bg-neutral-900 w-full z-50"
           />
         </PageNavbar>
-      }
-      editorClassName="prose dark:prose-invert prose-sm sm:prose-base m-5 focus:outline-none mx-auto max-w-4xl mt-10"
-      content={fileSelected.content}
-      onUpdate={(content: {
-        editor: { getText: () => SetStateAction<string | undefined> };
-      }) => setText(content.editor.getText())}
-    >
-      <div className="fixed bottom-0 flex items-center justify-end p-3 px-4">
-        <p className="text-xs text-neutral-500">
-          {countWords(text)} words / {countCharacters(text) ?? 0} characters
-        </p>
-      </div>
-    </TiptapEditor>
+      </Editor>
+    </>
   );
 };
 
-export default Editor;
+export default EditorPage;

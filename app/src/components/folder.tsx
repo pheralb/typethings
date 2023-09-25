@@ -42,7 +42,7 @@ const Folder = (props: FolderProps) => {
       </CollapsibleTrigger>
       <CollapsibleContent
         className={cn(
-          "ml-3 border-l border-neutral-800 pl-2 transition-all duration-100",
+          "ml-3 border-l border-neutral-700/60 pl-2 transition-all duration-100",
           openCollapsible ? "animate-in fade-in" : "",
         )}
       >
