@@ -1,5 +1,5 @@
-import type { MenuEditorProps } from "@/types/menuProps";
-import { cn } from "@/utils/cn";
+import type { MenuEditorProps } from "../types/menuProps";
+import { cn } from "../utils/cn";
 
 // All icons:
 import {

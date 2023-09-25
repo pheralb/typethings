@@ -1,4 +1,4 @@
-import type { CustomEditorProps } from "@/types/editorProps";
+import type { CustomEditorProps } from "../types/editorProps";
 
 // Main Editor Component:
 import { EditorContent } from "@tiptap/react";
