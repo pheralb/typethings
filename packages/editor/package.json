@@ -1,7 +1,7 @@
 {
   "name": "@typethings/editor",
   "author": "@pheralb_",
-  "description": "A Notion-style WYSIWYG editor based on steven-tey/novel website",
+  "description": "A WYSIWYG markdown editor built with React, Tailwind CSS & Tiptap",
   "version": "0.1.0",
   "license": "MIT",
   "sideEffects": [
@@ -31,7 +31,8 @@
     "@tiptap/starter-kit": "2.1.7",
     "clsx": "2.0.0",
     "lucide-react": "0.271.0",
-    "tailwind-merge": "1.14.0"
+    "tailwind-merge": "1.14.0",
+    "tiptap-markdown": "0.8.2"
   },
   "devDependencies": {
     "@types/react": "18.2.5",
