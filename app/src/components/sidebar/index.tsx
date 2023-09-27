@@ -22,9 +22,9 @@ const SidebarContent = () => {
     <nav
       className={cn(
         "fixed left-0 top-0 h-full",
-        "w-56 pb-10",
+        "w-52 pb-10",
         "overflow-y-auto overflow-x-hidden",
-        "bg-neutral-700/20",
+        "bg-neutral-800/20",
         "border-r border-neutral-800",
       )}
     >
@@ -86,7 +86,7 @@ const SidebarContent = () => {
           </Link>
         </SidebarGroup>
         <SidebarGroup title="Workspaces">
-          <div className="flex flex-col space-x-0">
+          <div className="flex flex-col space-y-1">
             {workspaces.map((workspace) => (
               <Folder key={workspace.folderPath} name={workspace.folderName}>
                 <FileList
@@ -106,7 +106,7 @@ const Sidebar = () => {
   return (
     <main className="min-h-screen">
       <SidebarContent />
-      <div className="ml-56">
+      <div className="ml-52">
         <Outlet />
       </div>
     </main>
