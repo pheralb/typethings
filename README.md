@@ -32,7 +32,7 @@
 
 </div>
 
-> **Warning**
+> [!IMPORTANT]
 > This is a work-in-progress and not the finished product.
 > Typethings will be constantly updated and is not yet ready for its first release.
 
@@ -40,21 +40,21 @@
 
 [**Typethings**](https://typethings.vercel.app/) is an open source markdown editor built with [Tauri](https://tauri.app) and [React](https://react.dev). It is designed to be a simple, fast and beautiful for everyone.
 
+## 🌱 Features
+
+We are constantly developing new features for Typethings, here are the ones that are included today:
+
+- [x] Create, read, delete markdown files.
+- [x] Create and delete workspaces.
+- [x] Open markdown files from a specific directory.
+- [x] Show files from workspace.
+
 ## 🚀 Getting Started
 
 **Download the latest release for your platform:**
 
 - [Windows](#) - Soon.
 - [MacOS](#) - Soon.
-
-## 🌱 Features
-
-We are constantly developing new features for Typethings, here are the ones that are included today:
-
-- [ ] Create, read, delete markdown files.
-- [ ] Open markdown files from a specific directory.
-- [ ] Create and delete workspaces.
-- [ ] Show files from workspace.
 
 ## 🤔 What's inside?
 

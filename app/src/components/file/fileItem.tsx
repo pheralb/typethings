@@ -1,11 +1,13 @@
 import type { FileEntry } from "@tauri-apps/api/fs";
+import { appWindow } from "@tauri-apps/api/window";
 
 import { useState } from "react";
 import { cn } from "@/utils";
 import { useFilesStore } from "@/store/filesStore";
-import { readFile } from "@/functions/readFiles";
-import { BookOpen, FileText, Trash } from "lucide-react";
+import { BookOpen, Trash } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
+import { readFile } from "@/functions/readFiles";
 import DeleteFile from "./deleteFile";
 
 // From Sidebar (shared classes & icon size):
@@ -19,6 +21,7 @@ import {
 } from "../ui/context-menu";
 import { Button } from "../ui/button";
 import { Dialog, DialogTrigger } from "../ui/dialog";
+import { getFileNameWithoutExtension } from "@/functions/getFileName";
 
 interface iFileItemProps extends FileEntry {
   active?: boolean;
@@ -40,6 +43,7 @@ const FileItem = (props: iFileItemProps) => {
         content: file,
       });
       router("/editor");
+      appWindow.setTitle(`${getFileNameWithoutExtension(props.name!)} - Typethings`);
     } catch (error) {
       console.error(error);
     }
@@ -57,7 +61,7 @@ const FileItem = (props: iFileItemProps) => {
             variant="ghost"
             className={cn(
               SidebarItemClasses,
-              "cursor-default text-sm text-neutral-500 duration-75",
+              "h-8 cursor-default text-sm text-neutral-500 duration-75",
               selectedFile?.path === props.path && "text-neutral-100",
               props.active && "text-neutral-100",
               dropdownOpen && "text-neutral-100",
@@ -66,9 +70,10 @@ const FileItem = (props: iFileItemProps) => {
           >
             <div className="flex w-full items-center justify-between space-x-3 overflow-hidden">
               <div className="flex items-center space-x-3 overflow-hidden">
-                <FileText size={SidebarItemIconSize} />
                 <div className="flex items-center overflow-hidden">
-                  <span className="truncate">{props.name}</span>
+                  <span className="truncate">
+                    {getFileNameWithoutExtension(props.name!)}
+                  </span>
                 </div>
               </div>
             </div>
