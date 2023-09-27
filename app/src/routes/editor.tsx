@@ -10,6 +10,15 @@ import { useEditor, Menu, Editor, Extensions } from "@typethings/editor";
 
 import PageNavbar from "@/components/pageNavbar";
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/utils";
+
+const ProseClasses = cn(
+  "prose prose-quoteless prose-neutral dark:prose-invert",
+  "prose-headings:text-2xl",
+  "prose-line:leading-8",
+  "focus:outline-none outline-none",
+  "overflow-y-auto overflow-x-hidden mx-auto",
+);
 
 const EditorPage = () => {
   const fileSelected = useFilesStore((state) => state.selectedFile);
@@ -24,8 +33,7 @@ const EditorPage = () => {
     editable: true,
     editorProps: {
       attributes: {
-        class:
-          "prose dark:prose-invert prose-sm sm:prose-base focus:outline-none overflow-y-auto outline-none overflow-x-hidden mx-auto",
+        class: ProseClasses,
       },
     },
   });
