@@ -28,7 +28,7 @@ const Folder = (props: FolderProps) => {
           variant="ghost"
           className={cn(
             SidebarItemClasses,
-            "flex cursor-default items-center space-x-3 text-sm text-neutral-500 duration-75",
+            "flex cursor-default items-center space-x-3 text-sm text-neutral-400 duration-75",
             openCollapsible && "text-neutral-100",
           )}
         >
@@ -42,7 +42,7 @@ const Folder = (props: FolderProps) => {
       </CollapsibleTrigger>
       <CollapsibleContent
         className={cn(
-          "ml-3 border-l border-neutral-700/60 pl-2 transition-all duration-100",
+          "ml-3 border-l border-neutral-700/50 pl-3 pt-1 transition-all duration-100",
           openCollapsible ? "animate-in fade-in" : "",
         )}
       >
