@@ -1,5 +1,11 @@
+import PageNavbar from "@/components/pageNavbar";
+
 const Settings = () => {
-  return <></>;
+  return (
+    <>
+      <PageNavbar title="Settings" border={true} />
+    </>
+  );
 };
 
 export default Settings;
