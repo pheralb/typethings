@@ -21,6 +21,7 @@ import FormGroup from "@/components/ui/formGroup";
 import { Button } from "@/components/ui/button";
 import Tip from "@/components/tip";
 import Workspaces from "@/components/workspaces";
+import { useNavigate } from "react-router-dom";
 
 interface iCreateFileProps {
   trigger: ReactNode;
@@ -35,6 +36,7 @@ const CreateFile = (props: iCreateFileProps) => {
   const { register, handleSubmit } = useForm<iCreateFileInputs>();
   const [openDialog, setOpenDialog] = useState<boolean>(false);
   const selectFile = useFilesStore((state) => state.setSelectedFile);
+  const route = useNavigate();
   const selectedWorkspace = useWorkspaceStore(
     (state) => state.selectedWorkspace,
   );
@@ -59,6 +61,7 @@ const CreateFile = (props: iCreateFileProps) => {
         content: "",
       });
       setOpenDialog(false);
+      route(`/editor`);
     } catch (error) {
       console.error(error);
     }
