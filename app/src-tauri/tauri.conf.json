@@ -13,6 +13,15 @@
   "tauri": {
     "allowlist": {
       "all": false,
+      "process": {
+        "all": false,
+        "exit": true,
+        "relaunch": true,
+        "relaunchDangerousAllowSymlinkMacos": false
+      },
+      "os": {
+        "all": true
+      },
       "window": {
         "all": false,
         "center": false,

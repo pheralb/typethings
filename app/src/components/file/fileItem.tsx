@@ -43,7 +43,9 @@ const FileItem = (props: iFileItemProps) => {
         content: file,
       });
       router("/editor");
-      appWindow.setTitle(`${getFileNameWithoutExtension(props.name!)} - Typethings`);
+      appWindow.setTitle(
+        `${getFileNameWithoutExtension(props.name!)} - Typethings`,
+      );
     } catch (error) {
       console.error(error);
     }
@@ -63,7 +65,6 @@ const FileItem = (props: iFileItemProps) => {
               SidebarItemClasses,
               "h-8 cursor-default text-sm text-neutral-500 duration-75",
               selectedFile?.path === props.path && "text-neutral-100",
-              props.active && "text-neutral-100",
               dropdownOpen && "text-neutral-100",
             )}
             onClick={handleOpenFile}

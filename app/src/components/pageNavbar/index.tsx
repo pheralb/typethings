@@ -16,7 +16,7 @@ const PageNavbar = (props: PageNavbarProps) => {
       <div
         className={cn(
           "flex w-full items-center justify-between px-4 pt-1",
-          props.border ? "border-b border-neutral-800" : "",
+          props.border ? "border-b border-neutral-800 pb-1" : "",
         )}
       >
         <p className="text-sm text-neutral-300">{props.title}</p>

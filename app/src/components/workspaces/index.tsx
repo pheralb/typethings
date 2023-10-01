@@ -70,7 +70,7 @@ const Workspaces = (props: WorkspacesProps) => {
         }}
       >
         <FolderOpen size={16} />
-        <span>Choose folder...</span>
+        <span>Open folder...</span>
       </Button>
       <RadioGroup className="rounded-md border border-neutral-800 p-3 text-sm">
         {workspaces.length > 0 ? (
