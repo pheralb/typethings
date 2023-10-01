@@ -17,7 +17,7 @@ const FileList = (props: iFileListProps) => {
       const result = await readFilesFromFolder({
         path: props.directory,
       });
-      const onlyMdFiles = result.filter((file) => file.name!.endsWith(".md"));
+      const onlyMdFiles = result.filter((file) => file.name!.endsWith("md"));
       setResult(onlyMdFiles);
     }
     loadFiles();
