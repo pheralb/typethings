@@ -63,9 +63,9 @@ const FileItem = (props: iFileItemProps) => {
             variant="ghost"
             className={cn(
               SidebarItemClasses,
-              "h-8 cursor-default text-sm text-neutral-500 duration-75",
-              selectedFile?.path === props.path && "text-neutral-100",
-              dropdownOpen && "text-neutral-100",
+              "h-8 cursor-default text-sm text-neutral-500 duration-75 dark:text-neutral-500",
+              selectedFile?.path === props.path && "text-dark dark:text-neutral-100",
+              dropdownOpen && "text-neutral-900 dark:text-neutral-100",
             )}
             onClick={handleOpenFile}
           >

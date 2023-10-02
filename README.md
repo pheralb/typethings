@@ -48,6 +48,7 @@ We are constantly developing new features for Typethings, here are the ones that
 - [x] Create and delete workspaces.
 - [x] Open markdown files from a specific directory.
 - [x] Show files from workspace.
+- [x] Light and dark mode.
 
 ## 🚀 Getting Started
 

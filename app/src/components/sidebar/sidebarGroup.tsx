@@ -11,7 +11,7 @@ const SidebarGroup = (props: SidebarGroupProps) => {
   return (
     <div className={cn("mb-3 flex flex-col space-y-1 pb-2")}>
       {props.title && (
-        <span className="mb-2 text-xs font-medium text-neutral-500">
+        <span className="mb-2 text-xs font-medium text-neutral-800 dark:text-neutral-500">
           {props.title}
         </span>
       )}
