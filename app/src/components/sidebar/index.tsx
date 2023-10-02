@@ -49,8 +49,8 @@ const Sidebar = () => {
         className={cn(
           "fixed left-0 top-0 h-full pb-10",
           "overflow-y-auto overflow-x-hidden",
-          "bg-neutral-800/20",
-          "border-r border-neutral-800",
+          "bg-neutral-200/40 dark:bg-neutral-800/20",
+          "border-r border-neutral-300/50 dark:border-neutral-800",
         )}
         style={{ width: `${width / 16}rem` }}
       >

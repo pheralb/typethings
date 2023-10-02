@@ -74,10 +74,10 @@ const EditorPage = () => {
             editor={editor}
             btnClassName={buttonVariants({
               variant: "ghost",
-              className: "p-2 text-neutral-500 hover:bg-transparent",
+              className: "p-2 text-neutral-500 hover:bg-transparent dark:hover:bg-transparent",
             })}
-            btnActiveClassName="text-white"
-            btnGroupClassName="flex items-center space-x-1 border-b border-neutral-800 pl-3 overflow-x-auto bg-neutral-900 w-full z-50"
+            btnActiveClassName="text-dark dark:text-white"
+            btnGroupClassName="flex items-center space-x-1 border-b border-neutral-300/50 dark:border-neutral-800 pl-3 overflow-x-auto bg-neutral-100 dark:bg-neutral-900 w-full z-50"
           />
         </PageNavbar>
       </Editor>
