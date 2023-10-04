@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2015"],
+    "module": "ESNext",
+    "target": "ES6",
+    "jsx": "react-jsx",
+    "composite": false,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": false,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveWatchOutput": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true
+  }
+}
