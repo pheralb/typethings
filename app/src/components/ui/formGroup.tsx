@@ -8,7 +8,7 @@ interface iFormGroupProps {
 
 const FormGroup = (props: iFormGroupProps) => {
   return (
-    <div className={cn("flex flex-col space-y-2 mb-4", props.className)}>
+    <div className={cn("flex flex-col space-y-2 mb-2", props.className)}>
       {props.children}
     </div>
   );
