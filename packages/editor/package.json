@@ -24,7 +24,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@radix-ui/react-tooltip": "1.0.7",
     "@tiptap/extension-color": "2.1.7",
+    "@tiptap/extension-link": "2.1.11",
     "@tiptap/extension-text-style": "2.1.7",
     "@tiptap/pm": "2.1.7",
     "@tiptap/react": "2.1.7",

@@ -46,9 +46,8 @@ const CreateFile = (props: iCreateFileProps) => {
   const handleCreateFile: SubmitHandler<iCreateFileInputs> = async (data) => {
     if (!selectedWorkspace) {
       toast.error("Please select a workspace.");
-      return;
+      return false;
     }
-
     try {
       const fullPath = await createFile({
         path: selectedWorkspace?.folderPath || "",
@@ -74,23 +73,25 @@ const CreateFile = (props: iCreateFileProps) => {
         <DialogHeader>
           <DialogTitle>New file</DialogTitle>
         </DialogHeader>
+        <form onSubmit={handleSubmit(handleCreateFile)}>
+          <FormGroup>
+            <label htmlFor="title" className="text-sm text-neutral-400">
+              Title:
+            </label>
+            <Input
+              id="title"
+              placeholder="Enter title..."
+              {...register("title", { required: true })}
+            />
+          </FormGroup>
+        </form>
         <FormGroup>
-          <label htmlFor="title" className="text-sm text-neutral-400">
-            Title:
-          </label>
-          <Input
-            id="title"
-            placeholder="Enter title..."
-            {...register("title", { required: true })}
-          />
-        </FormGroup>
-        <FormGroup className="mb-5">
           <div className="flex items-center justify-between">
             <label htmlFor="extension" className="text-sm text-neutral-400">
               Workspace:
             </label>
             <Tip
-              text="The workspace is the folder where your document will be saved. Select a folder and it will automatically be added to the workspace :)"
+              text="The workspace is the folder where your document will be saved. Select a folder and it will automatically be added to the workspace."
               iconSize={13}
             />
           </div>
