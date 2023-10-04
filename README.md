@@ -1,22 +1,22 @@
 <div align="center">
+    <a href="#-download">
+        Download
+    </a>
+    <span>&nbsp;✦&nbsp;</span>
     <a href="#-getting-started">
         Getting Started
     </a>
-    <span>&nbsp;❖&nbsp;</span>
-    <a href="#-features">
-        Features
-    </a>
-    <span>&nbsp;❖&nbsp;</span>
-    <a href="#-contributing">
-        Contribute (soon)
-    </a>
-    <span>&nbsp;❖&nbsp;</span>
+    <span>&nbsp;✦&nbsp;</span>
     <a href="#-whats-inside">
         What's inside?
     </a>
-    <span>&nbsp;❖&nbsp;</span>
+    <span>&nbsp;✦&nbsp;</span>
     <a href="#" target="_blank">
-        Website ↗︎ (soon)
+        Website (soon)
+    </a>
+    <span>&nbsp;✦&nbsp;</span>
+    <a href="#-license">
+        License
     </a>
 </div>
 
@@ -24,11 +24,13 @@
 
 <div align="center">
 
+![Tauri](https://img.shields.io/badge/Tauri-FFC131?style=flat&logo=Tauri&logoColor=white)
 [![GitHub actions](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fpheralb%2Ftypethings%2Fbadge%3Fref%3Dmain&style=flat)](https://actions-badge.atrox.dev/pheralb/typethings/goto?ref=main)
 ![GitHub stars](https://img.shields.io/github/stars/pheralb/typethings)
 ![GitHub issues](https://img.shields.io/github/issues/pheralb/typethings)
 ![GitHub forks](https://img.shields.io/github/forks/pheralb/typethings)
 ![GitHub license](https://img.shields.io/github/license/pheralb/typethings)
+![tailwindcss](https://img.shields.io/badge/tailwindcss%20-0F172A?logo=tailwindcss&style=flat&labelColor=38bdf8&logoColor=ffffff)
 
 </div>
 
@@ -40,22 +42,53 @@
 
 [**Typethings**](https://typethings.vercel.app/) is an open source markdown editor built with [Tauri](https://tauri.app) and [React](https://react.dev). It is designed to be a simple, fast and beautiful for everyone.
 
-## 🌱 Features
-
-We are constantly developing new features for Typethings, here are the ones that are included today:
-
 - [x] Create, read, delete markdown files.
 - [x] Create and delete workspaces.
 - [x] Open markdown files from a specific directory.
 - [x] Show files from workspace.
 - [x] Light and dark mode.
 
-## 🚀 Getting Started
+## 📦 Download
 
 **Download the latest release for your platform:**
 
 - [Windows](#) - Soon.
 - [MacOS](#) - Soon.
+
+## 🚀 Getting Started
+
+To get a local copy up and running, please follow these simple steps.
+
+**Prerequisites:**
+
+- [Node.js +18 (LTS recommended)](https://nodejs.org/). Then run ``node --version`` in your terminal to check if it's installed correctly.
+- [Visual Studio Code](https://code.visualstudio.com/) (recommended) or [Lapce](https://lapce.dev/).
+- Only for Windows: [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/es/visual-cpp-build-tools/).
+- Rust. For Windows x64: [click here](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe). For Linux: [click here](https://forge.rust-lang.org/infra/other-installation-methods.html#other-ways-to-install-rustup). Then, run ``rustc --version`` in your terminal to check if it's installed correctly.
+
+**Setup:**
+
+1. Clone or [fork](https://github.com/pheralb/typethings/fork) this repository:
+
+```bash
+git clone git@github.com:pheralb/typethings.git
+```
+
+2. Install dependencies:
+
+```bash
+# Access the project folder:
+cd typethings
+
+# Install dependencies:
+npm install
+```
+
+3. Run the app:
+
+```bash
+npm run dev
+```
 
 ## 🤔 What's inside?
 
@@ -83,9 +116,6 @@ Built with:
 
 - [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) - A wrapper around [Tiptap](https://tiptap.dev/) editor. Built with [React](https://react.dev) and using [tsup](https://tsup.egoist.dev/) for bundling.
 
-## 🪄 Contributing
-
-_Soon_
 
 ## 📝 License
 
