@@ -1,10 +1,10 @@
 [package]
 name = "typethings"
-version = "0.0.0"
-description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
+version = "0.1.0"
+description = "A beautiful, minimal, and fast markdown editor"
+authors = ["pheralb"]
+license = "Apache-2.0"
+repository = "https://github.com/pheralb/typethings"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -13,9 +13,29 @@ edition = "2021"
 tauri-build = { version = "1.4", features = [] }
 
 [dependencies]
-tauri = { version = "1.4", features = [ "os-all", "process-relaunch-dangerous-allow-symlink-macos", "process-exit", "process-relaunch", "window-set-title", "path-all", "fs-remove-file", "fs-read-dir", "fs-write-file", "fs-rename-file", "fs-read-file", "fs-create-dir", "fs-remove-dir", "fs-exists", "dialog-confirm", "dialog-open", "dialog-save", "shell-open"] }
+tauri = { version = "1.4", features = [
+    "os-all",
+    "process-relaunch-dangerous-allow-symlink-macos",
+    "process-exit",
+    "process-relaunch",
+    "window-set-title",
+    "path-all",
+    "fs-remove-file",
+    "fs-read-dir",
+    "fs-write-file",
+    "fs-rename-file",
+    "fs-read-file",
+    "fs-create-dir",
+    "fs-remove-dir",
+    "fs-exists",
+    "dialog-confirm",
+    "dialog-open",
+    "dialog-save",
+    "shell-open",
+] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+window-vibrancy = "0.4.2"
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem
