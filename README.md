@@ -38,7 +38,7 @@
 > This is a work-in-progress and not the finished product.
 > Typethings will be constantly updated and is not yet ready for its first release.
 
-## ✨ Introduction
+## <img src="app/public/images/logo.svg" alt="Typethings logo" height="16" />&nbsp;&nbsp;Introduction
 
 [**Typethings**](https://typethings.vercel.app/) is an open source markdown editor built with [Tauri](https://tauri.app) and [React](https://react.dev). It is designed to be a simple, fast and beautiful for everyone.
 
@@ -61,10 +61,10 @@ To get a local copy up and running, please follow these simple steps.
 
 **Prerequisites:**
 
-- [Node.js +18 (LTS recommended)](https://nodejs.org/). Then run ``node --version`` in your terminal to check if it's installed correctly.
+- [Node.js +18 (LTS recommended)](https://nodejs.org/). Then run `node --version` in your terminal to check if it's installed correctly.
 - [Visual Studio Code](https://code.visualstudio.com/) (recommended) or [Lapce](https://lapce.dev/).
 - Only for Windows: [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/es/visual-cpp-build-tools/).
-- Rust. For Windows x64: [click here](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe). For Linux: [click here](https://forge.rust-lang.org/infra/other-installation-methods.html#other-ways-to-install-rustup). Then, run ``rustc --version`` in your terminal to check if it's installed correctly.
+- Rust. For Windows x64: [click here](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe). For Linux: [click here](https://forge.rust-lang.org/infra/other-installation-methods.html#other-ways-to-install-rustup). Then, run `rustc --version` in your terminal to check if it's installed correctly.
 
 **Setup:**
 
@@ -115,7 +115,6 @@ Built with:
 ### Packages:
 
 - [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) - A wrapper around [Tiptap](https://tiptap.dev/) editor. Built with [React](https://react.dev) and using [tsup](https://tsup.egoist.dev/) for bundling.
-
 
 ## 📝 License
 
