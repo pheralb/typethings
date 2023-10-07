@@ -38,7 +38,7 @@
 > This is a work-in-progress and not the finished product.
 > Typethings will be constantly updated and is not yet ready for its first release.
 
-## <img src="app/public/images/logo.svg" alt="Typethings logo" height="16" />&nbsp;&nbsp;Introduction
+## <img src="app/public/images/logo.svg" alt="Typethings logo" height="18" />&nbsp;&nbsp;Introduction
 
 [**Typethings**](https://typethings.vercel.app/) is an open source markdown editor built with [Tauri](https://tauri.app) and [React](https://react.dev). It is designed to be a simple, fast and beautiful for everyone.
 
