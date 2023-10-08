@@ -62,6 +62,7 @@ To get a local copy up and running, please follow these simple steps.
 **Prerequisites:**
 
 - [Node.js +18 (LTS recommended)](https://nodejs.org/). Then run `node --version` in your terminal to check if it's installed correctly.
+- [pnpm (we are using +8.8.0)](https://pnpm.io/). Install with npm: ``npm i pnpm -g``. Then run `pnpm --version` in your terminal to check if it's installed correctly.
 - [Visual Studio Code](https://code.visualstudio.com/) (recommended) or [Lapce](https://lapce.dev/).
 - Only for Windows: [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/es/visual-cpp-build-tools/).
 - Rust. For Windows x64: [click here](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe). For Linux: [click here](https://forge.rust-lang.org/infra/other-installation-methods.html#other-ways-to-install-rustup). Then, run `rustc --version` in your terminal to check if it's installed correctly.
@@ -81,13 +82,13 @@ git clone git@github.com:pheralb/typethings.git
 cd typethings
 
 # Install dependencies:
-npm install
+pnpm install
 ```
 
 3. Run the app:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ## 🤔 What's inside?
@@ -99,7 +100,7 @@ Built with:
 - [Tauri](https://tauri.studio/en/) - Build smaller, faster, and more secure desktop applications with a web frontend.
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
-- [shadcn/ui + Radix UI](https://ui.shadcn.com/) - A set of accessible UI components.
+- [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) - A set of accessible UI components.
 - [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) - Custom editor built with Tiptap.
 - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - For state management in React.
 - [React Router v6](https://reactrouter.com/) - For routing in React.
@@ -110,11 +111,12 @@ Built with:
 
 - [Next.js](https://nextjs.org/) - The React Framework for Production.
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
-- [shadcn/ui + Radix UI](https://ui.shadcn.com/) - A set of accessible UI components.
+- [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) - A set of accessible UI components.
 
 ### Packages:
 
 - [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) - A wrapper around [Tiptap](https://tiptap.dev/) editor. Built with [React](https://react.dev) and using [tsup](https://tsup.egoist.dev/) for bundling.
+- [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) - A set of accessible UI components. Built with [React](https://react.dev), [shadcn/ui](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/). Using [tsup](https://tsup.egoist.dev/) for bundling.
 
 ## 📝 License
 
