@@ -8,6 +8,7 @@
     "**/*.css"
   ],
   "type": "module",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "typings": "./dist/index.d.ts",
   "files": [
@@ -37,7 +38,6 @@
     "tiptap-markdown": "0.8.2"
   },
   "devDependencies": {
-    "@types/react": "18.2.5",
     "postcss": "^8.4.20",
     "react": "18.2.0",
     "tsup": "7.2.0",
