@@ -28,5 +28,8 @@ jobs:
       - name: Run Editor Typecheck
         run: pnpm run typecheck-editor
 
+      - name: Run UI Library Typecheck
+        run: pnpm run typecheck-editor
+
       - name: Run Website Typecheck
         run: pnpm run typecheck-website
