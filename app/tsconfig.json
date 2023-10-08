@@ -19,6 +19,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@typethings/editor": ["../packages/editor/src/index.ts"],
+      "@typethings/ui": ["../packages/ui/src/index.ts"],
     }
   },
   "include": ["src"],
