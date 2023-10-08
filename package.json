@@ -1,27 +1,24 @@
 {
-  "name": "typethings",
+  "name": "@typethings/workspace",
   "author": "@pheralb_",
   "type": "module",
   "description": "A beautiful, minimal, and fast text editor built with Tauri.",
   "private": true,
-  "packageManager": "npm@8.5.0",
-  "workspaces": [
-    "app",
-    "website",
-    "packages/*"
-  ],
+  "packageManager": "pnpm@8.6.10",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "gen-icon": "cd app/src-tauri && cargo tauri icon app/public/images/logo.svg"
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@turbo/gen": "1.10.12",
-    "eslint": "8.47.0",
-    "prettier": "3.0.2",
-    "prettier-plugin-tailwindcss": "0.5.3",
+    "@turbo/gen": "1.10.15",
+    "@types/node": "20.8.3",
+    "@types/react": "18.2.25",
+    "@types/react-dom": "18.2.11",
+    "eslint": "8.51.0",
+    "prettier": "3.0.3",
+    "prettier-plugin-tailwindcss": "0.5.5",
     "turbo": "latest"
   }
 }
