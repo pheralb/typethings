@@ -6,6 +6,9 @@
   "private": true,
   "packageManager": "pnpm@8.6.10",
   "scripts": {
+    "typecheck-app": "cd app && pnpm typecheck",
+    "typecheck-editor": "cd packages/editor && pnpm typecheck",
+    "typecheck-website": "cd website && pnpm typecheck",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
