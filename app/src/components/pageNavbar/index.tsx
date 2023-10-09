@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-import { cn } from "@/utils";
-import { buttonVariants } from "../ui/button";
+import { cn, buttonVariants } from "@typethings/ui";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 

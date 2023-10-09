@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // App styles:
 import "@/styles/globals.css";
+import "@typethings/ui/dist/index.css";
 
 // Global Imports:
 import Sidebar from "./components/sidebar";

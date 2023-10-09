@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { useWorkspaceStore } from "@/store/workspaceStore";
 import { toast } from "sonner";
 
@@ -9,19 +10,19 @@ import { createFile } from "@/functions/createUpdateFile";
 import { useFilesStore } from "@/store/filesStore";
 
 import {
+  Input,
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import FormGroup from "@/components/ui/formGroup";
-import { Button } from "@/components/ui/button";
+  FormGroup,
+  Button,
+} from "@typethings/ui";
+
 import Tip from "@/components/tip";
 import Workspaces from "@/components/workspaces";
-import { useNavigate } from "react-router-dom";
 
 interface iCreateFileProps {
   trigger: ReactNode;
@@ -75,7 +76,7 @@ const CreateFile = (props: iCreateFileProps) => {
         </DialogHeader>
         <form onSubmit={handleSubmit(handleCreateFile)}>
           <FormGroup>
-            <label htmlFor="title" className="text-sm text-neutral-400">
+            <label htmlFor="title" className="text-sm">
               Title:
             </label>
             <Input
@@ -87,7 +88,7 @@ const CreateFile = (props: iCreateFileProps) => {
         </form>
         <FormGroup>
           <div className="flex items-center justify-between">
-            <label htmlFor="extension" className="text-sm text-neutral-400">
+            <label htmlFor="extension" className="text-sm">
               Workspace:
             </label>
             <Tip

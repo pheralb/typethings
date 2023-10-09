@@ -1,7 +1,7 @@
-import { cn } from "@/utils";
+import { cn } from "@typethings/ui";
 import { Link, Outlet } from "react-router-dom";
 import { Plus, Settings, Search, Folders, FilePlus2Icon } from "lucide-react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@typethings/ui";
 import { useWorkspaceStore } from "@/store/workspaceStore";
 
 import CreateFile from "@/components/file/createFile";

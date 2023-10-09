@@ -4,8 +4,7 @@ import { toast } from "sonner";
 import { useWorkspaceStore } from "@/store/workspaceStore";
 import { selectFolder } from "@/functions/selectFolder";
 
-import { Button } from "../ui/button";
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { Button, RadioGroup, RadioGroupItem } from "@typethings/ui";
 
 interface WorkspacesProps {
   checkOption?: boolean;
@@ -72,11 +71,11 @@ const Workspaces = (props: WorkspacesProps) => {
         <FolderOpen size={16} />
         <span>Open folder...</span>
       </Button>
-      <RadioGroup className="rounded-md border border-neutral-800 p-3 text-sm">
+      <RadioGroup className="rounded-md border border-neutral-300 dark:border-neutral-800 p-3 text-sm">
         {workspaces.length > 0 ? (
           workspaces.sort().map((workspace) => (
             <div
-              className="flex items-center justify-between"
+              className="flex items-center justify-between overflow-hidden"
               key={workspace.folderPath}
             >
               <div className="flex items-center space-x-2">
@@ -92,8 +91,8 @@ const Workspaces = (props: WorkspacesProps) => {
                 ) : (
                   <FolderIcon size={16} className="text-neutral-500" />
                 )}
-                <label htmlFor={workspace.folderPath}>
-                  {workspace.folderName}
+                <label htmlFor={workspace.folderPath} className="truncate">
+                  {workspace.folderName} asdddddddddddd
                 </label>
               </div>
               <Button

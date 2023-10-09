@@ -9,8 +9,8 @@ import { getFileName } from "@/functions/getFileName";
 import { useEditor, Menu, Editor, Extensions } from "@typethings/editor";
 
 import PageNavbar from "@/components/pageNavbar";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/utils";
+
+import { cn, buttonVariants } from "@typethings/ui";
 
 const ProseClasses = cn(
   "prose prose-quoteless prose-neutral dark:prose-invert",

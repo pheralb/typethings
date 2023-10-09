@@ -6,21 +6,21 @@ import {
   FolderOpenIcon,
   X,
 } from "lucide-react";
-import { cn } from "@/utils";
 
 import { SidebarItemClasses, SidebarItemIconSize } from "./sidebar";
+
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "./ui/collapsible";
-import { Button } from "./ui/button";
-import {
+  cn,
+  Button,
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuTrigger,
-} from "./ui/context-menu";
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@typethings/ui";
+
 import { useWorkspaceStore } from "@/store/workspaceStore";
 
 interface FolderProps {
