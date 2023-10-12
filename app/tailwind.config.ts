@@ -21,7 +21,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["Inter-Roman", ...fontFamily.sans],
-        mono: ["Hack", "monospace"],
+        mono: ["JetBrains-Mono", ...fontFamily.mono],
       },
       colors: {
         border: "hsl(var(--border))",
