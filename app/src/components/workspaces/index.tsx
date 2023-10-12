@@ -71,28 +71,31 @@ const Workspaces = (props: WorkspacesProps) => {
         <FolderOpen size={16} />
         <span>Open folder...</span>
       </Button>
-      <RadioGroup className="rounded-md border border-neutral-300 dark:border-neutral-800 p-3 text-sm">
+      <RadioGroup className="rounded-md border border-neutral-300 p-3 text-sm dark:border-neutral-800">
         {workspaces.length > 0 ? (
           workspaces.sort().map((workspace) => (
             <div
               className="flex items-center justify-between overflow-hidden"
+              title={workspace.folderName}
               key={workspace.folderPath}
             >
-              <div className="flex items-center space-x-2">
-                {props.checkOption ? (
-                  <RadioGroupItem
-                    value={workspace.folderPath}
-                    id={workspace.folderPath}
-                    onClick={() => selectWorkspace(workspace.folderPath)}
-                    checked={
-                      workspace.folderPath === selectedWorkspace?.folderPath
-                    }
-                  />
-                ) : (
-                  <FolderIcon size={16} className="text-neutral-500" />
-                )}
+              <div className="flex items-center space-x-2 overflow-hidden">
+                <div>
+                  {props.checkOption ? (
+                    <RadioGroupItem
+                      value={workspace.folderPath}
+                      id={workspace.folderPath}
+                      onClick={() => selectWorkspace(workspace.folderPath)}
+                      checked={
+                        workspace.folderPath === selectedWorkspace?.folderPath
+                      }
+                    />
+                  ) : (
+                    <FolderIcon size={16} className="text-neutral-500" />
+                  )}
+                </div>
                 <label htmlFor={workspace.folderPath} className="truncate">
-                  {workspace.folderName} asdddddddddddd
+                  {workspace.folderName}
                 </label>
               </div>
               <Button
