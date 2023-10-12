@@ -81,19 +81,5 @@
 
   body {
     @apply bg-background text-foreground;
-    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
-  }
-
-  body::-webkit-scrollbar {
-    width: var(--sb-size);
-  }
-
-  body::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-  }
-
-  body::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 10px;
   }
 }
