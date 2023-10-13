@@ -33,10 +33,6 @@
     --ring: 0 0% 3.9%;
 
     --radius: 0.5rem;
-
-    --sb-track-color: rgb(229 229 229 / 0.5);
-    --sb-thumb-color: #d4d4d4;
-    --sb-size: 7px;
   }
 
   .dark {
@@ -67,10 +63,6 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
-
-    --sb-track-color: #171717;
-    --sb-thumb-color: #404040;
-    --sb-size: 7px;
   }
 }
 
