@@ -6,6 +6,6 @@ interface iAppStore {
 }
 
 export const useAppStore = create<iAppStore>((set) => ({
-  openDrawer: false,
+  openDrawer: true,
   toggleDrawer: () => set((state) => ({ openDrawer: !state.openDrawer })),
 }));

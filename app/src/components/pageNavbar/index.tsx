@@ -17,7 +17,7 @@ const PageNavbar = (props: PageNavbarProps) => {
     <nav className="sticky top-0 z-50 flex w-full flex-col bg-neutral-100 dark:bg-neutral-900">
       <div
         className={cn(
-          "flex w-full items-center justify-between pr-2 py-1",
+          "flex w-full items-center justify-between py-1 pr-2",
           props.border
             ? "border-b border-neutral-300/50 pb-1 dark:border-neutral-800"
             : "",
@@ -26,7 +26,11 @@ const PageNavbar = (props: PageNavbarProps) => {
         <div className="flex items-center space-x-0">
           <Button
             variant="ghost"
-            className="h-0 text-neutral-500 hover:bg-transparent dark:text-neutral-400 dark:hover:bg-transparent"
+            className={buttonVariants({
+              variant: "ghost",
+              className:
+                "p-1 text-neutral-400 hover:bg-transparent dark:text-neutral-500 dark:hover:bg-transparent",
+            })}
             size="icon"
             onClick={() => toggleDrawer()}
           >
