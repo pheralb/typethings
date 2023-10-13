@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cn } from "@/utils";
+import { cn } from "..";
 
 interface iFormGroupProps {
   children: ReactNode;
@@ -8,10 +8,10 @@ interface iFormGroupProps {
 
 const FormGroup = (props: iFormGroupProps) => {
   return (
-    <div className={cn("flex flex-col space-y-2 mb-2", props.className)}>
+    <div className={cn("mb-2 flex flex-col space-y-2", props.className)}>
       {props.children}
     </div>
   );
 };
 
-export default FormGroup;
+export { FormGroup };

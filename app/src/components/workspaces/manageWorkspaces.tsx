@@ -1,11 +1,13 @@
 import type { ReactNode } from "react";
+
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../ui/dialog";
+} from "@typethings/ui";
+
 import Workspaces from "@/components/workspaces";
 
 interface ManageWorkspacesProps {

@@ -1,14 +1,15 @@
 import type { FileEntry } from "@tauri-apps/api/fs";
 
 import {
+  Button,
   DialogContent,
+  DialogClose,
   DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { DialogClose } from "@radix-ui/react-dialog";
-import { Button } from "../ui/button";
+} from "@typethings/ui";
+
 import { toast } from "sonner";
 import { deleteFile } from "@/functions/deleteFile";
 import { useFilesStore } from "@/store/filesStore";
@@ -43,8 +44,8 @@ const DeleteFile = (props: FileEntry) => {
       <DialogFooter>
         <DialogClose asChild>
           <Button
-            variant="outline"
-            className="border-red-900"
+            variant="ghost"
+            className="cursor-default border border-red-900"
             onClick={() => {
               handleDeleteFile();
             }}

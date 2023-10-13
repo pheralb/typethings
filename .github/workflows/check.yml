@@ -1,0 +1,35 @@
+name: 🔎 Check
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+concurrency: ${{ github.workflow }} - ${{ github.ref }}
+
+jobs:
+  Typecheck:
+    name: Check-Types
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run App Typecheck
+        run: pnpm run typecheck-app
+
+      - name: Run Editor Typecheck
+        run: pnpm run typecheck-editor
+
+      - name: Run UI Library Typecheck
+        run: pnpm run typecheck-editor
+
+      - name: Run Website Typecheck
+        run: pnpm run typecheck-website

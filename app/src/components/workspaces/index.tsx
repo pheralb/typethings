@@ -4,8 +4,7 @@ import { toast } from "sonner";
 import { useWorkspaceStore } from "@/store/workspaceStore";
 import { selectFolder } from "@/functions/selectFolder";
 
-import { Button } from "../ui/button";
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { Button, RadioGroup, RadioGroupItem } from "@typethings/ui";
 
 interface WorkspacesProps {
   checkOption?: boolean;
@@ -72,27 +71,30 @@ const Workspaces = (props: WorkspacesProps) => {
         <FolderOpen size={16} />
         <span>Open folder...</span>
       </Button>
-      <RadioGroup className="rounded-md border border-neutral-800 p-3 text-sm">
+      <RadioGroup className="rounded-md border border-neutral-300 p-3 text-sm dark:border-neutral-800">
         {workspaces.length > 0 ? (
           workspaces.sort().map((workspace) => (
             <div
-              className="flex items-center justify-between"
+              className="flex items-center justify-between overflow-hidden"
+              title={workspace.folderName}
               key={workspace.folderPath}
             >
-              <div className="flex items-center space-x-2">
-                {props.checkOption ? (
-                  <RadioGroupItem
-                    value={workspace.folderPath}
-                    id={workspace.folderPath}
-                    onClick={() => selectWorkspace(workspace.folderPath)}
-                    checked={
-                      workspace.folderPath === selectedWorkspace?.folderPath
-                    }
-                  />
-                ) : (
-                  <FolderIcon size={16} className="text-neutral-500" />
-                )}
-                <label htmlFor={workspace.folderPath}>
+              <div className="flex items-center space-x-2 overflow-hidden">
+                <div>
+                  {props.checkOption ? (
+                    <RadioGroupItem
+                      value={workspace.folderPath}
+                      id={workspace.folderPath}
+                      onClick={() => selectWorkspace(workspace.folderPath)}
+                      checked={
+                        workspace.folderPath === selectedWorkspace?.folderPath
+                      }
+                    />
+                  ) : (
+                    <FolderIcon size={16} className="text-neutral-500" />
+                  )}
+                </div>
+                <label htmlFor={workspace.folderPath} className="truncate">
                   {workspace.folderName}
                 </label>
               </div>
@@ -106,7 +108,7 @@ const Workspaces = (props: WorkspacesProps) => {
             </div>
           ))
         ) : (
-          <div className="flex flex-col justify-center space-y-2 text-center text-neutral-400">
+          <div className="flex flex-col justify-center space-y-2 text-center text-neutral-600 dark:border-neutral-700 dark:text-neutral-400">
             <p>You don't have any workspaces yet.</p>
           </div>
         )}

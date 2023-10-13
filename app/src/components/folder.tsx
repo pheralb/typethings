@@ -6,21 +6,21 @@ import {
   FolderOpenIcon,
   X,
 } from "lucide-react";
-import { cn } from "@/utils";
 
 import { SidebarItemClasses, SidebarItemIconSize } from "./sidebar";
+
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "./ui/collapsible";
-import { Button } from "./ui/button";
-import {
+  cn,
+  Button,
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuTrigger,
-} from "./ui/context-menu";
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@typethings/ui";
+
 import { useWorkspaceStore } from "@/store/workspaceStore";
 
 interface FolderProps {
@@ -31,6 +31,7 @@ interface FolderProps {
 
 const Folder = (props: FolderProps) => {
   const [openCollapsible, setOpenCollapsible] = useState<boolean>(false);
+  const [openContextMenu, setOpenContextMenu] = useState<boolean>(false);
   const deleteWorkspace = useWorkspaceStore((state) => state.deleteWorkspace);
   const selectWorkspace = useWorkspaceStore((state) => state.selectWorkspace);
 
@@ -40,7 +41,7 @@ const Folder = (props: FolderProps) => {
   };
 
   return (
-    <ContextMenu>
+    <ContextMenu onOpenChange={setOpenContextMenu}>
       <ContextMenuTrigger asChild>
         <Collapsible
           id={props.name}
@@ -49,25 +50,28 @@ const Folder = (props: FolderProps) => {
         >
           <CollapsibleTrigger className="w-full" asChild>
             <Button
+              title={props.name}
               variant="ghost"
               className={cn(
                 SidebarItemClasses,
-                "my-0 flex cursor-default items-center space-x-3 text-sm text-neutral-500 duration-75 dark:text-neutral-400",
+                "my-0 flex cursor-default items-center space-x-3 overflow-hidden truncate text-sm text-neutral-500 transition-none duration-75 dark:text-neutral-400",
                 openCollapsible && "text-dark dark:text-neutral-100",
+                openContextMenu && "text-neutral-900 dark:text-neutral-100",
               )}
             >
-              {openCollapsible ? (
-                <FolderOpenIcon size={SidebarItemIconSize} />
-              ) : (
-                <FolderIcon size={SidebarItemIconSize} />
-              )}
-              <span>{props.name}</span>
+              <div>
+                {openCollapsible ? (
+                  <FolderOpenIcon size={SidebarItemIconSize} />
+                ) : (
+                  <FolderIcon size={SidebarItemIconSize} />
+                )}
+              </div>
+              <span className="truncate">{props.name}</span>
             </Button>
           </CollapsibleTrigger>
           <CollapsibleContent
             className={cn(
-              "ml-3 border-l border-neutral-400/50 pl-3 pt-1 transition-all duration-100 dark:border-neutral-700/50",
-              openCollapsible ? "animate-in fade-in" : "",
+              "ml-3 border-l border-neutral-400/50 pl-4 pt-1 duration-100 dark:border-neutral-700/30",
             )}
           >
             {props.children}

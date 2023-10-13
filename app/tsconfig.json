@@ -19,8 +19,13 @@
     "paths": {
       "@/*": ["./src/*"],
       "@typethings/editor": ["../packages/editor/src/index.ts"],
+      "@typethings/ui": ["../packages/ui/src/index.tsx"]
     }
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "../packages/ui/src/index.tsx",
+    "../packages/editor/src/index.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

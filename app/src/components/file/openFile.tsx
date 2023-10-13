@@ -2,13 +2,14 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 
 import {
+  Button,
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../ui/dialog";
-import { Button } from "../ui/button";
+} from "@typethings/ui";
+
 // import { openFile } from "@/functions/openFile";
 
 interface iCreateFileProps {

@@ -1,22 +1,23 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/utils";
+import { cn } from "..";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:text-white text-neutral-800 cursor-default",
   {
     variants: {
       variant: {
         default:
-          "bg-neutral-800 text-white shadow hover:bg-neutral-700/60",
+          "bg-neutral-700 text-white dark:bg-neutral-800 shadow hover:bg-neutral-700/60 dark:hover:bg-neutral-700/60",
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
-          "border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground",
+          "border border-neutral-300 dark:border-neutral-800 bg-transparent shadow-sm dark:hover:bg-neutral-800 hover:bg-neutral-400/20",
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-neutral-400/20 dark:hover:bg-neutral-700/40 hover:text-accent-foreground",
+        ghost:
+          "hover:bg-neutral-400/20 dark:hover:bg-neutral-700/40 dark:hover:text-white hover:text-neutral-900",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

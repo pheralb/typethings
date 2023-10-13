@@ -1,7 +1,6 @@
 # Dependencies
 node_modules
 package-lock.json
-pnpm-lock.yaml
 yarn.lock
 .pnp
 .pnp.js
@@ -41,8 +40,6 @@ yarn-error.log*
 .vercel
 
 # Editor directories and files:
-.vscode/*
-!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
@@ -50,3 +47,6 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Other:
+tsconfig.tsbuildinfo

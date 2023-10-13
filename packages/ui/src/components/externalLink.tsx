@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cn } from "@/utils";
+import { cn } from "..";
 
 interface LinkProps {
   href: string;

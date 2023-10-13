@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@typethings/ui";
 import { toast } from "sonner";
 
 function App() {

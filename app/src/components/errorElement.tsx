@@ -1,10 +1,9 @@
+import { useEffect, useState } from "react";
 import { useRouteError } from "react-router-dom";
 import { exit, relaunch } from "@tauri-apps/api/process";
 
-import { Button, buttonVariants } from "./ui/button";
+import { Button, buttonVariants, ExternalLink } from "@typethings/ui";
 import { AlertTriangle, ArrowUpRight, LogOut, RefreshCw } from "lucide-react";
-import { ExternalLink } from "./ui/externalLink";
-import { useEffect, useState } from "react";
 
 import { type OSInfo, getOSInfo } from "@/functions/getAllPlatformInfo";
 
@@ -23,7 +22,7 @@ const ErrorElement = () => {
   return (
     <div className="bg-[url('/grid/grid-dark.svg')]">
       <div className="mx-auto flex h-screen flex-col items-center justify-center">
-        <div className="w-96 rounded-lg border p-4 shadow-sm transition hover:shadow-lg sm:p-6 bg-neutral-900">
+        <div className="w-96 rounded-lg border bg-neutral-900 p-4 shadow-sm transition hover:shadow-lg sm:p-6">
           <div className="mb-3 flex flex-col space-y-3 border-b border-neutral-800 pb-3">
             <AlertTriangle className="text-red-400" size={22} />
             <h3 className="text-xl font-medium">Something went wrong.</h3>

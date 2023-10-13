@@ -4,7 +4,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "./ui/tooltip";
+} from "@typethings/ui";
 
 interface TipProps {
   text: string;
@@ -15,7 +15,10 @@ const Tip = (props: TipProps) => {
   return (
     <TooltipProvider>
       <Tooltip delayDuration={0.5}>
-        <TooltipTrigger asChild className="cursor-help text-neutral-300 transition-colors duration-300 hover:text-yellow-400">
+        <TooltipTrigger
+          asChild
+          className="cursor-help text-neutral-300 transition-colors duration-300 hover:text-yellow-400"
+        >
           <Lightbulb size={props.iconSize || 16} />
         </TooltipTrigger>
         <TooltipContent

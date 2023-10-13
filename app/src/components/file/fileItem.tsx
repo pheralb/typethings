@@ -2,7 +2,7 @@ import type { FileEntry } from "@tauri-apps/api/fs";
 import { appWindow } from "@tauri-apps/api/window";
 
 import { useState } from "react";
-import { cn } from "@/utils";
+import { cn } from "@typethings/ui";
 import { useFilesStore } from "@/store/filesStore";
 import { BookOpen, Trash } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -14,13 +14,15 @@ import DeleteFile from "./deleteFile";
 import { SidebarItemClasses, SidebarItemIconSize } from "../sidebar";
 
 import {
+  Button,
+  Dialog,
+  DialogTrigger,
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuTrigger,
-} from "../ui/context-menu";
-import { Button } from "../ui/button";
-import { Dialog, DialogTrigger } from "../ui/dialog";
+} from "@typethings/ui";
+
 import { getFileNameWithoutExtension } from "@/functions/getFileName";
 
 interface iFileItemProps extends FileEntry {
@@ -63,8 +65,9 @@ const FileItem = (props: iFileItemProps) => {
             variant="ghost"
             className={cn(
               SidebarItemClasses,
-              "h-8 cursor-default text-sm text-neutral-500 duration-75 dark:text-neutral-500",
-              selectedFile?.path === props.path && "text-dark dark:text-neutral-100",
+              "cursor-default text-sm text-neutral-500 transition-none duration-75 dark:text-neutral-500",
+              selectedFile?.path === props.path &&
+                "text-dark dark:text-neutral-100 bg-neutral-400/20 dark:bg-neutral-700/50",
               dropdownOpen && "text-neutral-900 dark:text-neutral-100",
             )}
             onClick={handleOpenFile}
