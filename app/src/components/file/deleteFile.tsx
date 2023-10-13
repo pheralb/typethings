@@ -44,8 +44,8 @@ const DeleteFile = (props: FileEntry) => {
       <DialogFooter>
         <DialogClose asChild>
           <Button
-            variant="outline"
-            className="border-red-900"
+            variant="ghost"
+            className="cursor-default border border-red-900"
             onClick={() => {
               handleDeleteFile();
             }}

@@ -108,7 +108,7 @@ const Workspaces = (props: WorkspacesProps) => {
             </div>
           ))
         ) : (
-          <div className="flex flex-col justify-center space-y-2 text-center text-neutral-400">
+          <div className="flex flex-col justify-center space-y-2 text-center text-neutral-600 dark:border-neutral-700 dark:text-neutral-400">
             <p>You don't have any workspaces yet.</p>
           </div>
         )}
