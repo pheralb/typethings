@@ -9,6 +9,7 @@ const Editor = (props: CustomEditorProps) => {
       {props.children}
       <EditorContent
         autoFocus={props.autoFocus}
+        spellCheck={props.spellCheck}
         editor={props.editor}
         className={props.editorContentClassName}
         content={props.defaultValue}
