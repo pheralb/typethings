@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { readFilesFromFolder } from "@/functions/readFiles";
-import { FileEntry } from "@tauri-apps/api/fs";
+
 import FileItem from "./fileItem";
 import { useFilesStore } from "@/store/filesStore";
 

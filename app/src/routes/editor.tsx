@@ -11,7 +11,6 @@ import { useEditor, Menu, Editor, Extensions } from "@typethings/editor";
 import PageNavbar from "@/components/pageNavbar";
 
 import { cn, buttonVariants, TooltipStyles } from "@typethings/ui";
-import { getFolderName } from "@/functions/getFolderName";
 
 const ProseClasses = cn(
   "prose prose-quoteless prose-neutral dark:prose-invert",
@@ -73,10 +72,7 @@ const EditorPage = () => {
         setText(editor.storage.markdown.getMarkdown());
       }}
     >
-      <PageNavbar
-        title={getFileName(fileSelected.path)!}
-        folder={getFolderName(fileSelected.path)}
-      >
+      <PageNavbar title={getFileName(fileSelected.path)!}>
         <Menu
           editor={editor}
           btnClassName={buttonVariants({
