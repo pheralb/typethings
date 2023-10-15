@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { readFilesFromFolder } from "@/functions/readFiles";
 import { FileEntry } from "@tauri-apps/api/fs";
 import FileItem from "./fileItem";
+import { useFilesStore } from "@/store/filesStore";
 
 interface iFileListProps {
   directory: string;
@@ -9,7 +10,8 @@ interface iFileListProps {
 }
 
 const FileList = (props: iFileListProps) => {
-  const [result, setResult] = useState<FileEntry[]>([]);
+  const setFiles = useFilesStore((state) => state.setFiles);
+  const getFiles = useFilesStore((state) => state.files);
 
   // Read files from directory:
   useEffect(() => {
@@ -18,15 +20,15 @@ const FileList = (props: iFileListProps) => {
         path: props.directory,
       });
       const onlyMdFiles = result.filter((file) => file.name!.endsWith("md"));
-      setResult(onlyMdFiles);
+      setFiles(onlyMdFiles);
     }
     loadFiles();
   }, []);
 
   return (
     <div className="flex flex-col space-y-0">
-      {result.length > 0 ? (
-        result.map((file) => (
+      {getFiles.length > 0 ? (
+        getFiles.map((file) => (
           <FileItem key={file.name} name={file.name!} path={file.path!} />
         ))
       ) : (

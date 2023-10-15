@@ -37,6 +37,7 @@ const CreateFile = (props: iCreateFileProps) => {
   const { register, handleSubmit } = useForm<iCreateFileInputs>();
   const [openDialog, setOpenDialog] = useState<boolean>(false);
   const selectFile = useFilesStore((state) => state.setSelectedFile);
+  const addFile = useFilesStore((state) => state.addFile);
   const route = useNavigate();
   const selectedWorkspace = useWorkspaceStore(
     (state) => state.selectedWorkspace,
@@ -55,6 +56,10 @@ const CreateFile = (props: iCreateFileProps) => {
         filename: data.title,
         extension: "md",
         content: "",
+      });
+      addFile({
+        name: data.title,
+        path: fullPath,
       });
       selectFile({
         path: fullPath,

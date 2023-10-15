@@ -8,6 +8,7 @@ interface SelectFile {
 
 interface iFilesStore {
   files: FileEntry[];
+  setFiles: (files: FileEntry[]) => void;
   selectedFile: SelectFile | null;
   setSelectedFile: ({ path, content }: SelectFile) => void | null;
   saveFilesToStore: (files: FileEntry[]) => void;
@@ -18,6 +19,7 @@ interface iFilesStore {
 export const useFilesStore = create<iFilesStore>((set) => ({
   files: [],
   selectedFile: null,
+  setFiles: (files) => set({ files }),
   setSelectedFile: (file) =>
     set({
       selectedFile: {

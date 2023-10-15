@@ -10,7 +10,8 @@ import { useEditor, Menu, Editor, Extensions } from "@typethings/editor";
 
 import PageNavbar from "@/components/pageNavbar";
 
-import { cn, buttonVariants } from "@typethings/ui";
+import { cn, buttonVariants, TooltipStyles } from "@typethings/ui";
+import { getFolderName } from "@/functions/getFolderName";
 
 const ProseClasses = cn(
   "prose prose-quoteless prose-neutral dark:prose-invert",
@@ -72,7 +73,10 @@ const EditorPage = () => {
         setText(editor.storage.markdown.getMarkdown());
       }}
     >
-      <PageNavbar title={getFileName(fileSelected.path)!}>
+      <PageNavbar
+        title={getFileName(fileSelected.path)!}
+        folder={getFolderName(fileSelected.path)}
+      >
         <Menu
           editor={editor}
           btnClassName={buttonVariants({
@@ -83,7 +87,7 @@ const EditorPage = () => {
           btnActiveClassName="text-dark dark:text-white"
           btnGroupClassName="flex items-center border-b border-neutral-300/50 dark:border-neutral-800 overflow-x-auto bg-neutral-100 dark:bg-neutral-900 w-full z-50 pb-2"
           btnGroupDividerClassName="flex items-center space-x-1 h-6 px-2"
-          btnToolTipClassName="bg-neutral-100 dark:bg-neutral-800 text-popover-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 overflow-hidden rounded-md border px-3 py-1.5 text-sm shadow-md"
+          btnToolTipClassName={TooltipStyles}
           saveOnClickFn={handleSaveFile}
         />
       </PageNavbar>
