@@ -3,21 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
     "lint": "next lint",
+    "start": "next start",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "autoprefixer": "10.4.15",
-    "eslint": "8.47.0",
-    "eslint-config-next": "13.4.17",
-    "next": "13.4.17",
-    "postcss": "8.4.28",
+    "@typethings/ui": "workspace:*",
+    "@typethings/editor": "workspace:*",
+    "next": "13.5.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/eslint": "8.44.2",
+    "@typescript-eslint/eslint-plugin": "6.3.0",
+    "@typescript-eslint/parser": "6.3.0",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.47.0",
+    "eslint-config-next": "13.5.4",
+    "postcss": "8.4.27",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
+  },
+  "ct3aMetadata": {
+    "initVersion": "7.21.0"
   }
 }
