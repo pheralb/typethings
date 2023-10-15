@@ -25,6 +25,7 @@
     "@tauri-apps/api": "1.5.0",
     "@typethings/editor": "workspace:*",
     "@typethings/ui": "workspace:*",
+    "@typethings/tailwind-config": "workspace:*",
     "class-variance-authority": "0.7.0",
     "clsx": "2.0.0",
     "cmdk": "0.2.0",
