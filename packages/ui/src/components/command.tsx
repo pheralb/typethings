@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { DialogProps } from "@radix-ui/react-dialog";
 import { Search } from "lucide-react";
