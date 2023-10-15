@@ -99,9 +99,6 @@ Built with:
 
 - [Tauri](https://tauri.studio/en/) - Build smaller, faster, and more secure desktop applications with a web frontend.
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
-- [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) - A set of accessible UI components.
-- [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) - Custom editor built with Tiptap.
 - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - For state management in React.
 - [React Router v6](https://reactrouter.com/) - For routing in React.
 
@@ -110,13 +107,15 @@ Built with:
 Built with:
 
 - [Next.js](https://nextjs.org/) - The React Framework for Production.
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
 - [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) - A set of accessible UI components.
 
 ### Packages:
 
+For all websites & apps:
+
 - [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) - A wrapper around [Tiptap](https://tiptap.dev/) editor. Built with [React](https://react.dev) and using [tsup](https://tsup.egoist.dev/) for bundling.
 - [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) - A set of accessible UI components. Built with [React](https://react.dev), [shadcn/ui](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/). Using [tsup](https://tsup.egoist.dev/) for bundling.
+- [@typethings/tailwind-config](https://github.com/pheralb/typethings/tree/main/packages/ui) - [Tailwind CSS](https://tailwindcss.com/) configuration for Typethings.
 
 ## 📝 License
 
