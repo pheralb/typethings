@@ -89,7 +89,11 @@ pnpm install
 3. Run the app:
 
 ```bash
+# Run all monorepo apps, websites and packages:
 pnpm dev
+
+# Run only website dev server:
+pnpm dev:web
 ```
 
 ## 🤔 What's inside?
