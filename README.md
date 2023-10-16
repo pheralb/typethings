@@ -46,6 +46,7 @@
 - [x] Create and delete workspaces.
 - [x] Open markdown files from a specific directory.
 - [x] Show files from workspace.
+- [x] CMD + K to search app settings & files.
 - [x] Light and dark mode.
 
 ## 📦 Download
