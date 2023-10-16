@@ -12,6 +12,7 @@
     "typecheck-website": "cd website && pnpm typecheck",
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "dev:web": "cd website && pnpm dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
