@@ -12,11 +12,10 @@
   "types": "./dist/index.d.ts",
   "typings": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/**"
   ],
   "exports": {
-    ".": "./dist",
-    "./styles.css": "./dist/index.css"
+    ".": "./dist"
   },
   "scripts": {
     "build": "tsup",
