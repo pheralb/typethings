@@ -1,19 +1,26 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
 
 // Global styles:
 import "@/styles/globals.css";
 import "@typethings/ui/dist/index.css";
 import { cn } from "@typethings/ui";
 
+// Providers:
+import { ThemeProvider } from "@/providers/theme";
+
 // Fonts:
 import { Inter } from "next/font/google";
-const InterFont = Inter({
-  subsets: ["latin-ext"],
-  weight: ["400", "700"],
+const interLatin = Inter({
+  subsets: ["latin"],
+  variable: "--inter-font",
+  weight: ["400", "900"],
   display: "swap",
   preload: true,
 });
+
+// Analytics:
+import { Analytics } from "@vercel/analytics/react";
+import Header from "@/layout/header";
 
 // Metadata:
 export const metadata = {
@@ -28,18 +35,24 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body>
-        <div className="mx-auto max-w-2xl px-4 py-10">
-          <header>
-            <div className="flex items-center justify-between">
-              <nav className="ml-auto space-x-6 text-sm font-medium">
-                <Link href="/">Home</Link>
-                <Link href="/about">About</Link>
-              </nav>
-            </div>
-          </header>
+      <body
+        className={cn(
+          "min-h-screen",
+          `font-sans antialiased`,
+          "bg-neutral-100 dark:bg-neutral-900",
+          "text-neutral-900 dark:text-white",
+        )}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
           <main>{children}</main>
-        </div>
+        </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
