@@ -3,8 +3,7 @@
 import type { ReactNode } from "react";
 import { cn } from "..";
 
-interface LinkProps {
-  href: string;
+interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
   className?: string;
   underline?: boolean;
@@ -17,6 +16,7 @@ export const ExternalLink = (props: LinkProps) => {
       rel="noreferrer"
       target="_blank"
       className={cn(props.underline && "underline", props.className)}
+      {...props}
     >
       {props.children}
     </a>
