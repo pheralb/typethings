@@ -22,14 +22,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run App Typecheck
+      - name: App Typecheck
         run: pnpm run typecheck-app
 
-      - name: Run Editor Typecheck
+      - name: Editor Typecheck
         run: pnpm run typecheck-editor
 
-      - name: Run UI Library Typecheck
+      - name: UI Library Typecheck
+        run: pnpm run typecheck-editor
+      
+      - name: Functions Typecheck
         run: pnpm run typecheck-editor
 
-      - name: Run Website Typecheck
+      - name: Website Typecheck
         run: pnpm run typecheck-website
