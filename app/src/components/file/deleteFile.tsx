@@ -11,7 +11,7 @@ import {
 } from "@typethings/ui";
 
 import { toast } from "sonner";
-import { deleteFile } from "@/functions/deleteFile";
+import { deleteFile } from "@typethings/functions";
 import { useFilesStore } from "@/store/filesStore";
 import { useNavigate } from "react-router-dom";
 

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useWorkspaceStore } from "@/store/workspaceStore";
 import { toast } from "sonner";
 
-import { createFile } from "@/functions/createUpdateFile";
+import { createFile } from "@typethings/functions";
 import { useFilesStore } from "@/store/filesStore";
 
 import {

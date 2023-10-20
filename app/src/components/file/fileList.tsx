@@ -1,8 +1,9 @@
-import { useEffect } from "react";
-import { readFilesFromFolder } from "@/functions/readFiles";
+import { useEffect, useState } from "react";
+
+import { readFilesFromFolder } from "@typethings/functions";
+import type { FileEntry } from "@typethings/functions";
 
 import FileItem from "./fileItem";
-import { useFilesStore } from "@/store/filesStore";
 
 interface iFileListProps {
   directory: string;
@@ -10,8 +11,7 @@ interface iFileListProps {
 }
 
 const FileList = (props: iFileListProps) => {
-  const setFiles = useFilesStore((state) => state.setFiles);
-  const getFiles = useFilesStore((state) => state.files);
+  const [files, setFiles] = useState<FileEntry[]>([]);
 
   // Read files from directory:
   useEffect(() => {
@@ -19,16 +19,15 @@ const FileList = (props: iFileListProps) => {
       const result = await readFilesFromFolder({
         path: props.directory,
       });
-      const onlyMdFiles = result.filter((file) => file.name!.endsWith("md"));
-      setFiles(onlyMdFiles);
+      setFiles(result!);
     }
     loadFiles();
   }, []);
 
   return (
     <div className="flex flex-col space-y-0">
-      {getFiles.length > 0 ? (
-        getFiles.map((file) => (
+      {files.length > 0 ? (
+        files.map((file) => (
           <FileItem key={file.name} name={file.name!} path={file.path!} />
         ))
       ) : (

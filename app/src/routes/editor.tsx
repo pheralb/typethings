@@ -3,8 +3,7 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { toast } from "sonner";
 
 import { useFilesStore } from "@/store/filesStore";
-import { updateFile } from "@/functions/createUpdateFile";
-import { getFileName } from "@/functions/getFileName";
+import { getFileName, updateFile } from "@typethings/functions";
 
 import { useEditor, Menu, Editor, Extensions } from "@typethings/editor";
 

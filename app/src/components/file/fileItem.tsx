@@ -7,7 +7,7 @@ import { useFilesStore } from "@/store/filesStore";
 import { BookOpen, Trash } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import { readFile } from "@/functions/readFiles";
+import { readFile, getFileNameWithoutExtension } from "@typethings/functions";
 import DeleteFile from "./deleteFile";
 
 // From Sidebar (shared classes & icon size):
@@ -23,7 +23,6 @@ import {
   ContextMenuTrigger,
 } from "@typethings/ui";
 
-import { getFileNameWithoutExtension } from "@/functions/getFileName";
 
 interface iFileItemProps extends FileEntry {
   active?: boolean;
