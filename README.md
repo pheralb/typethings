@@ -11,6 +11,10 @@
         What's inside?
     </a>
     <span>&nbsp;✦&nbsp;</span>
+    <a href="https://github.com/pheralb/typethings/tree/main/packages">
+        Packages
+    </a>
+    <span>&nbsp;✦&nbsp;</span>
     <a href="#" target="_blank">
         Website (soon)
     </a>
@@ -118,9 +122,12 @@ Built with:
 
 For all websites & apps:
 
-- [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) - A wrapper around [Tiptap](https://tiptap.dev/) editor. Built with [React](https://react.dev) and using [tsup](https://tsup.egoist.dev/) for bundling.
-- [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) - A set of accessible UI components. Built with [React](https://react.dev), [shadcn/ui](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/). Using [tsup](https://tsup.egoist.dev/) for bundling.
-- [@typethings/tailwind-config](https://github.com/pheralb/typethings/tree/main/packages/ui) - [Tailwind CSS](https://tailwindcss.com/) configuration for Typethings.
+| Package | Description |
+| --- | --- |
+| [`@typethings/functions`](https://github.com/pheralb/typethings/tree/main/packages/functions) | A set of files/folders functions using Tauri API. |
+| [`@typethings/editor`](https://github.com/pheralb/typethings/tree/main/packages/editor) | A wrapper around [Tiptap](https://tiptap.dev/) editor. |
+| [`@typethings/ui`](https://github.com/pheralb/typethings/tree/main/packages/ui) | A set of accessible UI components. Built with [React](https://react.dev), [shadcn/ui](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/).|
+| [`@typethings/tailwind-config`](https://github.com/pheralb/typethings/tree/main/packages/ui) | [Tailwind CSS](https://tailwindcss.com/) configuration for Typethings App.|
 
 ## 📝 License
 
