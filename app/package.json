@@ -15,6 +15,7 @@
   "dependencies": {
     "@monaco-editor/react": "4.6.0",
     "@tauri-apps/api": "1.5.0",
+    "@typethings/functions": "workspace:*",
     "@typethings/editor": "workspace:*",
     "@typethings/tailwind-config": "workspace:*",
     "@typethings/ui": "workspace:*",

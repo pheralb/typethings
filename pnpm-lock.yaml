@@ -47,6 +47,9 @@ importers:
       '@typethings/editor':
         specifier: workspace:*
         version: link:../packages/editor
+      '@typethings/functions':
+        specifier: workspace:*
+        version: link:../packages/functions
       '@typethings/tailwind-config':
         specifier: workspace:*
         version: link:../packages/tailwind-config
@@ -164,6 +167,19 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
 
+  packages/functions:
+    dependencies:
+      '@tauri-apps/api':
+        specifier: 1.5.0
+        version: 1.5.0
+    devDependencies:
+      tsup:
+        specifier: 7.2.0
+        version: 7.2.0(postcss@8.4.31)(typescript@5.1.6)
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+
   packages/tailwind-config:
     dependencies:
       '@tailwindcss/typography':
@@ -270,6 +286,9 @@ importers:
       '@vercel/analytics':
         specifier: 1.1.1
         version: 1.1.1
+      lucide-react:
+        specifier: 0.287.0
+        version: 0.287.0(react@18.2.0)
       next:
         specifier: 13.5.4
         version: 13.5.4(react-dom@18.2.0)(react@18.2.0)
@@ -282,6 +301,15 @@ importers:
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
+      react-rough-notation:
+        specifier: 1.0.5
+        version: 1.0.5(react-dom@18.2.0)(react@18.2.0)
+      react-snowfall:
+        specifier: 1.2.1
+        version: 1.2.1(react-dom@18.2.0)(react@18.2.0)
+      react-wrap-balancer:
+        specifier: 1.1.0
+        version: 1.1.0(react@18.2.0)
     devDependencies:
       '@types/eslint':
         specifier: 8.44.2
@@ -5212,6 +5240,14 @@ packages:
       react: 18.2.0
     dev: false
 
+  /lucide-react@0.287.0(react@18.2.0):
+    resolution: {integrity: sha512-auxP2bTGiMoELzX+6ItTeNzLmhGd/O+PHBsrXV2YwPXYCxarIFJhiMOSzFT9a1GWeYPSZtnWdLr79IVXr/5JqQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /make-error@1.3.6:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
 
@@ -6015,6 +6051,10 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-fast-compare@3.2.2:
+    resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
+    dev: false
+
   /react-hook-form@7.47.0(react@18.2.0):
     resolution: {integrity: sha512-F/TroLjTICipmHeFlMrLtNLceO2xr1jU3CyiNla5zdwsGUGu2UOxxR4UyJgLlhMwLW/Wzp4cpJ7CPfgJIeKdSg==}
     engines: {node: '>=12.22.0'}
@@ -6097,6 +6137,17 @@ packages:
       use-sidecar: 1.1.2(@types/react@18.2.25)(react@18.2.0)
     dev: false
 
+  /react-rough-notation@1.0.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-TTDnw1Qn96PwitGsBsjNh4911+o26Vivj/dhHbsHHhN6lDgkQsFhv1X/eOnCjHA2EOyDE5JBQ1HEZ1yW8sCmKA==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      rough-notation: 0.5.1
+    dev: false
+
   /react-router-dom@6.16.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-aTfBLv3mk/gaKLxgRDUPbPw+s4Y/O+ma3rEN1u8EgEpLpPe6gNjIsWt9rxushMHHMb7mSwxRGdGlGdvmFsyPIg==}
     engines: {node: '>=14.0.0'}
@@ -6120,6 +6171,17 @@ packages:
       react: 18.2.0
     dev: false
 
+  /react-snowfall@1.2.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-d2UR3nDq3F0DJGaTfJ0QNbBo76UZHtT9wHFj+ePxAl4FgSxWBhxB/Bjn06f5iDBwhgwiZ7CZmv3lwfNvjo6a+w==}
+    peerDependencies:
+      react: "^16.8 ||\_17.x || 18.x"
+      react-dom: ^16.8 || 17.x || 18.x
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-fast-compare: 3.2.2
+    dev: false
+
   /react-style-singleton@2.2.1(@types/react@18.2.25)(react@18.2.0):
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
     engines: {node: '>=10'}
@@ -6135,6 +6197,14 @@ packages:
       invariant: 2.2.4
       react: 18.2.0
       tslib: 2.6.2
+    dev: false
+
+  /react-wrap-balancer@1.1.0(react@18.2.0):
+    resolution: {integrity: sha512-EhF3jOZm5Fjx+Cx41e423qOv2c2aOvXAtym2OHqrGeMUnwERIyNsRBgnfT3plB170JmuYvts8K2KSPEIerKr5A==}
+    peerDependencies:
+      react: '>=16.8.0 || ^17.0.0 || ^18'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react@18.2.0:
@@ -6261,6 +6331,10 @@ packages:
 
   /rope-sequence@1.3.4:
     resolution: {integrity: sha512-UT5EDe2cu2E/6O4igUr5PSFs23nvvukicWHx6GnOPlHAiiYbzNuCRQCuiUdHJQcqKalLKlrYJnjY0ySGsXNQXQ==}
+    dev: false
+
+  /rough-notation@0.5.1:
+    resolution: {integrity: sha512-ITHofTzm13cWFVfoGsh/4c/k2Mg8geKgBCwex71UZLnNuw403tCRjYPQ68jSAd37DMbZIePXPjDgY0XdZi9HPw==}
     dev: false
 
   /run-async@2.4.1:
