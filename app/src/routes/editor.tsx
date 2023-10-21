@@ -44,6 +44,7 @@ const EditorPage = () => {
   useEffect(() => {
     if (!fileSelected) return;
     editor?.chain().focus().setContent(fileSelected.content).run();
+    setText(fileSelected.content);
   }, [fileSelected]);
 
   if (!fileSelected) return null;

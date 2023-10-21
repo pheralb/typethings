@@ -9,7 +9,7 @@ import FileList from "../file/fileList";
 const Explorer = () => {
   const workspaces = useWorkspaceStore((state) => state.workspaces);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col space-y-1">
       {workspaces.length > 0 ? (
         workspaces.sort().map((workspace) => (
           <Folder
