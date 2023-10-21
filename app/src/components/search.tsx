@@ -12,7 +12,11 @@ import {
   CommandList,
   cn,
 } from "@typethings/ui";
-import { SidebarItemClasses, SidebarItemIconSize } from "./sidebar";
+import {
+  SidebarIconAnimation,
+  SidebarItemClasses,
+  SidebarItemIconSize,
+} from "./sidebar";
 import {
   ArrowLeft,
   Bug,
@@ -102,7 +106,10 @@ const Search = () => {
         onClick={() => setOpen(true)}
       >
         <div className="flex items-center space-x-3">
-          <SearchIcon size={SidebarItemIconSize} />
+          <SearchIcon
+            size={SidebarItemIconSize}
+            className={SidebarIconAnimation}
+          />
           <span>Search</span>
         </div>
       </Button>

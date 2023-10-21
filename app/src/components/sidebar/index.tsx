@@ -1,26 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import { ExternalLink, cn } from "@typethings/ui";
-import { Link, Outlet } from "react-router-dom";
-import {
-  Plus,
-  Settings,
-  Folders,
-  FilePlus2Icon,
-  ArrowUpRight,
-} from "lucide-react";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { Plus, Settings, Folders, ArrowUpRight, Inbox } from "lucide-react";
 import { Button, buttonVariants } from "@typethings/ui";
-import SidebarGroup from "@/components/sidebar/sidebarGroup";
 
+import Search from "@/components/search";
+import SidebarGroup from "@/components/sidebar/sidebarGroup";
 import Explorer from "@/components/explorer";
 import CreateFile from "@/components/file/createFile";
-import OpenFile from "@/components/file/openFile";
-
 import ManageWorkspaces from "@/components/workspaces/manageWorkspaces";
+
 import { useAppStore } from "@/store/appStore";
-import Search from "../search";
 
 // Global styles:
-export const SidebarItemClasses = cn("w-full justify-start text-sm px-2");
+export const SidebarItemClasses = cn("w-full justify-start text-sm px-2 group");
+export const SidebarIconAnimation = cn(
+  "transition-transform duration-300 group-hover:translate-x-0.5",
+);
+export const SidebarLinkActiveClasses = cn(
+  "bg-neutral-300/60 dark:bg-neutral-700/40",
+);
 export const SidebarItemIconSize = 16;
 
 // Sidebar Config:
@@ -30,6 +29,9 @@ const Sidebar = () => {
   const [width, setWidth] = useState<number>(defaultWidth);
   const isResized = useRef(false);
   const openDrawer = useAppStore((state) => state.openDrawer);
+  const route = useLocation();
+
+  console.log(route);
 
   // Resize sidebar:
   useEffect(() => {
@@ -64,22 +66,31 @@ const Sidebar = () => {
       >
         <div className="flex w-full flex-1 flex-col">
           <SidebarGroup border={true}>
+            <Link
+              to="/"
+              className={cn(
+                buttonVariants({ variant: "ghost" }),
+                SidebarItemClasses,
+                route.pathname === "/" ? SidebarLinkActiveClasses : "",
+              )}
+            >
+              <div className="flex items-center space-x-3 transition">
+                <Inbox
+                  size={SidebarItemIconSize}
+                  className={SidebarIconAnimation}
+                />
+                <span>Inbox</span>
+              </div>
+            </Link>
             <CreateFile
               trigger={
                 <Button variant="ghost" className={SidebarItemClasses}>
-                  <div className="flex items-center space-x-3">
-                    <Plus size={SidebarItemIconSize} />
-                    <span>New file</span>
-                  </div>
-                </Button>
-              }
-            />
-            <OpenFile
-              trigger={
-                <Button variant="ghost" className={SidebarItemClasses}>
-                  <div className="flex items-center space-x-3">
-                    <FilePlus2Icon size={SidebarItemIconSize} />
-                    <span>Open file</span>
+                  <div className="flex items-center space-x-3 transition">
+                    <Plus
+                      size={SidebarItemIconSize}
+                      className={SidebarIconAnimation}
+                    />
+                    <span>New</span>
                   </div>
                 </Button>
               }
@@ -87,8 +98,11 @@ const Sidebar = () => {
             <ManageWorkspaces
               trigger={
                 <Button variant="ghost" className={SidebarItemClasses}>
-                  <div className="flex items-center space-x-3">
-                    <Folders size={SidebarItemIconSize} />
+                  <div className="flex items-center space-x-3 transition">
+                    <Folders
+                      size={SidebarItemIconSize}
+                      className={SidebarIconAnimation}
+                    />
                     <span>Workspaces</span>
                   </div>
                 </Button>
@@ -100,10 +114,14 @@ const Sidebar = () => {
               className={cn(
                 buttonVariants({ variant: "ghost" }),
                 SidebarItemClasses,
+                route.pathname === "/settings" ? SidebarLinkActiveClasses : "",
               )}
             >
-              <div className="flex items-center space-x-3">
-                <Settings size={SidebarItemIconSize} />
+              <div className="flex items-center space-x-3 transition">
+                <Settings
+                  size={SidebarItemIconSize}
+                  className={SidebarIconAnimation}
+                />
                 <span>Settings</span>
               </div>
             </Link>
