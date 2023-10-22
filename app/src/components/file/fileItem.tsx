@@ -11,7 +11,7 @@ import { readFile, getFileNameWithoutExtension } from "@typethings/functions";
 import DeleteFile from "./deleteFile";
 
 // From Sidebar (shared classes & icon size):
-import { SidebarItemClasses, SidebarItemIconSize } from "../sidebar";
+import { SidebarItemClasses, SidebarItemIconSize } from "@/components/sidebar/shared";
 
 import {
   Button,

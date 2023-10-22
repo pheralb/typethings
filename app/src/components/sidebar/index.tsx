@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { ExternalLink, cn } from "@typethings/ui";
+import { ExternalLink, cn, Button, buttonVariants } from "@typethings/ui";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { Plus, Settings, Folders, ArrowUpRight, Inbox } from "lucide-react";
-import { Button, buttonVariants } from "@typethings/ui";
+import { useAppStore } from "@/store/appStore";
 
 import Search from "@/components/search";
 import SidebarGroup from "@/components/sidebar/sidebarGroup";
@@ -10,17 +10,12 @@ import Explorer from "@/components/explorer";
 import CreateFile from "@/components/file/createFile";
 import ManageWorkspaces from "@/components/workspaces/manageWorkspaces";
 
-import { useAppStore } from "@/store/appStore";
-
-// Global styles:
-export const SidebarItemClasses = cn("w-full justify-start text-sm px-2 group");
-export const SidebarIconAnimation = cn(
-  "transition-transform duration-300 group-hover:translate-x-0.5",
-);
-export const SidebarLinkActiveClasses = cn(
-  "bg-neutral-300/60 dark:bg-neutral-700/40",
-);
-export const SidebarItemIconSize = 16;
+import {
+  SidebarIconAnimation,
+  SidebarItemClasses,
+  SidebarItemIconSize,
+  SidebarLinkActiveClasses,
+} from "./shared";
 
 // Sidebar Config:
 const [minWidth, maxWidth, defaultWidth] = [200, 300, 208];

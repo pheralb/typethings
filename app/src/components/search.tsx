@@ -16,7 +16,7 @@ import {
   SidebarIconAnimation,
   SidebarItemClasses,
   SidebarItemIconSize,
-} from "./sidebar";
+} from "@/components/sidebar/shared";
 import {
   ArrowLeft,
   Bug,

@@ -7,7 +7,7 @@ import {
   X,
 } from "lucide-react";
 
-import { SidebarItemClasses, SidebarItemIconSize } from "./sidebar";
+import { SidebarItemClasses, SidebarItemIconSize } from "@/components/sidebar/shared";
 
 import {
   cn,
