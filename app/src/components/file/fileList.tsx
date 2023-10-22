@@ -22,7 +22,7 @@ const FileList = (props: iFileListProps) => {
       setFiles(result!);
     }
     loadFiles();
-  }, []);
+  }, [props.directory]);
 
   return (
     <div className="flex flex-col space-y-0">

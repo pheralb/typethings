@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { appWindow } from "@tauri-apps/api/window";
 import { ExternalLink, cn, Button, buttonVariants } from "@typethings/ui";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { Plus, Settings, Folders, ArrowUpRight, Inbox } from "lucide-react";
@@ -63,6 +64,9 @@ const Sidebar = () => {
           <SidebarGroup border={true}>
             <Link
               to="/"
+              onClick={() => {
+                appWindow.setTitle(`Inbox - Typethings`);
+              }}
               className={cn(
                 buttonVariants({ variant: "ghost" }),
                 SidebarItemClasses,
@@ -106,6 +110,9 @@ const Sidebar = () => {
             <Search />
             <Link
               to="/settings"
+              onClick={() => {
+                appWindow.setTitle(`Settings - Typethings`);
+              }}
               className={cn(
                 buttonVariants({ variant: "ghost" }),
                 SidebarItemClasses,

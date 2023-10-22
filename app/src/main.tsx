@@ -8,7 +8,6 @@ import "@typethings/ui/dist/index.css";
 
 // Global Imports:
 import Sidebar from "./components/sidebar";
-import { Toaster } from "sonner";
 
 // Routes:
 import App from "./routes";
@@ -20,6 +19,7 @@ import ErrorElement from "./components/errorElement";
 
 // Providers:
 import { ThemeProvider } from "./providers/themeProvider";
+import Providers from "./components/providers";
 
 // Router:
 const router = createBrowserRouter([
@@ -47,14 +47,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ThemeProvider>
       <RouterProvider router={router} />
-      <Toaster
-        theme="dark"
-        toastOptions={{
-          style: { background: "#1b1b1b", border: "1px solid #131313" },
-          className: "bg-neutral-800 text-neutral-200 font-sans border-none",
-          descriptionClassName: "text-neutral-400",
-        }}
-      />
+      <Providers />
     </ThemeProvider>
   </React.StrictMode>,
 );

@@ -23,6 +23,7 @@ import {
   File,
   Folder,
   Github,
+  Inbox,
   Link2Icon,
   Monitor,
   Moon,
@@ -138,7 +139,10 @@ const Search = () => {
                 <CommandItem
                   className={sharedCommandItemStyles}
                   value="light theme"
-                  onSelect={() => setTheme("light")}
+                  onSelect={() => {
+                    setOpen(false);
+                    setTheme("light");
+                  }}
                 >
                   <Sun size={iconSize} />
                   <span>Light theme</span>
@@ -146,7 +150,10 @@ const Search = () => {
                 <CommandItem
                   className={sharedCommandItemStyles}
                   value="system theme"
-                  onSelect={() => setTheme("system")}
+                  onSelect={() => {
+                    setOpen(false);
+                    setTheme("system");
+                  }}
                 >
                   <Monitor size={iconSize} />
                   <span>System theme</span>
@@ -154,7 +161,10 @@ const Search = () => {
                 <CommandItem
                   className={sharedCommandItemStyles}
                   value="dark theme"
-                  onSelect={() => setTheme("dark")}
+                  onSelect={() => {
+                    setOpen(false);
+                    setTheme("dark");
+                  }}
                 >
                   <Moon size={iconSize} />
                   <span>Dark theme</span>
@@ -163,9 +173,22 @@ const Search = () => {
               <CommandGroup heading="Menu">
                 <CommandItem
                   className={sharedCommandItemStyles}
+                  value="Inbox Page"
+                  onSelect={() => {
+                    setOpen(false);
+                    appWindow.setTitle(`Inbox - Typethings`);
+                    router("/");
+                  }}
+                >
+                  <Inbox size={iconSize} />
+                  <span>Inbox</span>
+                </CommandItem>
+                <CommandItem
+                  className={sharedCommandItemStyles}
                   value="Settings Page"
                   onSelect={() => {
                     setOpen(false);
+                    appWindow.setTitle(`Settings - Typethings`);
                     router("/settings");
                   }}
                 >
@@ -225,15 +248,19 @@ const Search = () => {
                     Back
                   </span>
                 </CommandItem>
-                {files.map((file) => (
-                  <CommandItem
-                    className={sharedCommandItemStyles}
-                    onSelect={() => handleOpenFile(file.name!)}
-                  >
-                    <File size={iconSize} />
-                    <span>{file.name}</span>
-                  </CommandItem>
-                ))}
+                {files ? (
+                  files.map((file) => (
+                    <CommandItem
+                      className={sharedCommandItemStyles}
+                      onSelect={() => handleOpenFile(file.name!)}
+                    >
+                      <File size={iconSize} />
+                      <span>{file.name}</span>
+                    </CommandItem>
+                  ))
+                ) : (
+                  <CommandEmpty>No results found.</CommandEmpty>
+                )}
               </CommandGroup>
             </>
           )}

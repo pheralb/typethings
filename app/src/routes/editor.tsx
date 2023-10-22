@@ -3,23 +3,23 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { toast } from "sonner";
 
 import { useFilesStore } from "@/store/filesStore";
-import { getFileName, updateFile } from "@typethings/functions";
+import { getFileNameWithoutExtension, updateFile } from "@typethings/functions";
 
 import { useEditor, Menu, Editor, Extensions } from "@typethings/editor";
 
 import PageNavbar from "@/components/pageNavbar";
 
-import { cn, buttonVariants, TooltipStyles } from "@typethings/ui";
+import {
+  cn,
+  buttonVariants,
+  TooltipStyles,
+  ProseClasses,
+} from "@typethings/ui";
 
-const ProseClasses = cn(
-  "prose prose-quoteless prose-neutral dark:prose-invert",
-  "prose-headings:text-2xl",
-  "prose-line:leading-8",
+const ProseStyle = cn(
   "focus:outline-none outline-none",
   "overflow-y-auto overflow-x-hidden mx-auto",
-  "prose-pre:rounded-md prose-pre:overflow-x-auto prose-pre:overflow-y-hidden prose-pre:dark:bg-neutral-800/50 prose-pre:bg-neutral-200/50 prose-pre:font-mono prose-pre:text-neutral-900 prose-pre:dark:text-white prose-pre:border prose-pre:border-neutral-300 prose-pre:dark:border-neutral-800",
-  "prose-code:font-mono",
-  "prose-a:cursor-pointer prose-a:underline-offset-4",
+  ProseClasses,
 );
 
 const EditorPage = () => {
@@ -35,7 +35,7 @@ const EditorPage = () => {
     editable: true,
     editorProps: {
       attributes: {
-        class: ProseClasses,
+        class: ProseStyle,
       },
     },
   });
@@ -72,7 +72,7 @@ const EditorPage = () => {
         setText(editor.storage.markdown.getMarkdown());
       }}
     >
-      <PageNavbar title={getFileName(fileSelected.path)!}>
+      <PageNavbar title={getFileNameWithoutExtension(fileSelected.path)!}>
         <Menu
           editor={editor}
           btnClassName={buttonVariants({
