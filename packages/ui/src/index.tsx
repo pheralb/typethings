@@ -17,3 +17,6 @@ export * from "./components/input";
 export * from "./components/popover";
 export * from "./components/radio-group";
 export * from "./components/tooltip";
+
+// Extend Config:
+export { ProseClasses } from "./extend/prose";
