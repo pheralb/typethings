@@ -12,20 +12,27 @@ import {
 
 import { toast } from "sonner";
 import { deleteFile } from "@typethings/functions";
-import { useFilesStore } from "@/store/filesStore";
 import { useNavigate } from "react-router-dom";
+import { useWorkspaceStore } from "@/store/workspaceStore";
 
-const DeleteFile = (props: FileEntry) => {
-  const removeFileStore = useFilesStore((state) => state.removeFile);
+interface iDeleteFileProps {
+  file: FileEntry;
+  workspace: string;
+}
+
+const DeleteFile = (props: iDeleteFileProps) => {
+  const removeFileStore = useWorkspaceStore(
+    (state) => state.deleteFileFromWorkspace,
+  );
   const router = useNavigate();
   // Delete function:
   const handleDeleteFile = async () => {
     try {
       router("/");
       await deleteFile({
-        path: props.path,
+        path: props.file.path,
       });
-      removeFileStore(props.name!);
+      removeFileStore(props.workspace, props.file.name!);
       toast("Deleted file");
     } catch (error) {
       console.error(error);
@@ -37,8 +44,8 @@ const DeleteFile = (props: FileEntry) => {
       <DialogHeader>
         <DialogTitle>Delete file</DialogTitle>
         <DialogDescription>
-          Are you sure you want to delete "{props.name}"? This action cannot be
-          undone.
+          Are you sure you want to delete "{props.file.name}"? This action
+          cannot be undone.
         </DialogDescription>
       </DialogHeader>
       <DialogFooter>

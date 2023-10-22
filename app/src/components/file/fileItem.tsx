@@ -3,7 +3,6 @@ import { appWindow } from "@tauri-apps/api/window";
 
 import { useState } from "react";
 import { cn } from "@typethings/ui";
-import { useFilesStore } from "@/store/filesStore";
 import { BookOpen, Trash } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -11,7 +10,10 @@ import { readFile, getFileNameWithoutExtension } from "@typethings/functions";
 import DeleteFile from "./deleteFile";
 
 // From Sidebar (shared classes & icon size):
-import { SidebarItemClasses, SidebarItemIconSize } from "@/components/sidebar/shared";
+import {
+  SidebarItemClasses,
+  SidebarItemIconSize,
+} from "@/components/sidebar/shared";
 
 import {
   Button,
@@ -22,14 +24,18 @@ import {
   ContextMenuItem,
   ContextMenuTrigger,
 } from "@typethings/ui";
+import { useWorkspaceStore } from "@/store/workspaceStore";
 
 interface iFileItemProps extends FileEntry {
   active?: boolean;
 }
 
 const FileItem = (props: iFileItemProps) => {
-  const selectFile = useFilesStore((state) => state.setSelectedFile);
-  const selectedFile = useFilesStore((state) => state.selectedFile);
+  const selectedWorkspace = useWorkspaceStore(
+    (state) => state.selectedWorkspace,
+  );
+  const selectFile = useWorkspaceStore((state) => state.setSelectedFile);
+  const selectedFile = useWorkspaceStore((state) => state.selectedFile);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const router = useNavigate();
   const location = useLocation();
@@ -100,7 +106,7 @@ const FileItem = (props: iFileItemProps) => {
           </DialogTrigger>
         </ContextMenuContent>
       </ContextMenu>
-      <DeleteFile name={props.name} path={props.path} />
+      <DeleteFile file={props} workspace={selectedWorkspace?.folderPath!} />
     </Dialog>
   );
 };

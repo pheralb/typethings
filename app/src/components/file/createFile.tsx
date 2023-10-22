@@ -7,7 +7,6 @@ import { useWorkspaceStore } from "@/store/workspaceStore";
 import { toast } from "sonner";
 
 import { createFile } from "@typethings/functions";
-import { useFilesStore } from "@/store/filesStore";
 
 import {
   Input,
@@ -36,8 +35,8 @@ interface iCreateFileInputs {
 const CreateFile = (props: iCreateFileProps) => {
   const { register, handleSubmit } = useForm<iCreateFileInputs>();
   const [openDialog, setOpenDialog] = useState<boolean>(false);
-  const selectFile = useFilesStore((state) => state.setSelectedFile);
-  const addFile = useFilesStore((state) => state.addFile);
+  const selectFile = useWorkspaceStore((state) => state.setSelectedFile);
+  const addFile = useWorkspaceStore((state) => state.addFileToWorkspace);
   const route = useNavigate();
   const selectedWorkspace = useWorkspaceStore(
     (state) => state.selectedWorkspace,
@@ -57,10 +56,11 @@ const CreateFile = (props: iCreateFileProps) => {
         extension: "md",
         content: "",
       });
-      addFile({
+      const file = {
         name: data.title,
         path: fullPath,
-      });
+      };
+      addFile(selectedWorkspace.folderPath, file);
       selectFile({
         path: fullPath,
         content: "",

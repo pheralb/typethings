@@ -2,7 +2,7 @@ import { FolderIcon, FolderOpen, X } from "lucide-react";
 import { toast } from "sonner";
 
 import { useWorkspaceStore } from "@/store/workspaceStore";
-import { selectFolder } from "@typethings/functions";
+import { readFilesFromFolder, selectFolder } from "@typethings/functions";
 
 import { Button, RadioGroup, RadioGroupItem } from "@typethings/ui";
 
@@ -36,11 +36,15 @@ const Workspaces = (props: WorkspacesProps) => {
         });
         return;
       }
-
+      // Get files from folder:
+      const result = await readFilesFromFolder({
+        path: folder.folderPath,
+      });
       // Add folder to workspaces:
       addWorkspace({
         folderName: folder.folderName,
         folderPath: folder.folderPath,
+        files: result!,
         createdAt: new Date(),
       });
       // Select workspace:

@@ -34,7 +34,6 @@ import {
 } from "lucide-react";
 import {
   readFile,
-  readFilesFromFolder,
   getFolderName,
   getFileNameWithoutExtension,
 } from "@typethings/functions";
@@ -42,19 +41,20 @@ import {
 import { useWorkspaceStore } from "@/store/workspaceStore";
 import { useTheme } from "@/providers/themeProvider";
 import { openLink } from "@/utils/openLink";
-import { useFilesStore } from "@/store/filesStore";
 import { appWindow } from "@tauri-apps/api/window";
+import { join } from "@tauri-apps/api/path";
 
 const Search = () => {
   const [open, setOpen] = useState<boolean>(false);
   const workspaces = useWorkspaceStore((state) => state.workspaces);
-  const selectFile = useFilesStore((state) => state.setSelectedFile);
+  const selectFile = useWorkspaceStore((state) => state.setSelectedFile);
   const { setTheme } = useTheme();
   const router = useNavigate();
   const [folders, setfolders] = useState<string[]>([]);
   const [files, setFiles] = useState<FileEntry[]>([]);
   const folder = folders[folders.length - 1];
 
+  // Press CMD+K to open search:
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -70,29 +70,21 @@ const Search = () => {
   const sharedCommandItemStyles = cn("pl-1 flex items-center space-x-2");
   const iconSize = 15;
 
-  // Read files from directory.
-  // For search files in CommandGroup:
-  const getFiles = async (path: string) => {
-    const result = await readFilesFromFolder({
-      path,
-    });
-    setFiles(result!);
-  };
-
   // Open Files:
-  const handleOpenFile = async (fileName: string) => {
+  const handleOpenFile = async (filename: string) => {
     try {
       setOpen(false);
+      const filepath = await join(folder, `${filename}.md`);
       const file = await readFile({
-        path: `${folder}/${fileName}`,
+        path: filepath,
       });
       selectFile({
-        path: `${folder}/${fileName}`,
+        path: filepath,
         content: file,
       });
       router("/editor");
       appWindow.setTitle(
-        `${getFileNameWithoutExtension(fileName)} - Typethings`,
+        `${getFileNameWithoutExtension(filepath)} - Typethings`,
       );
     } catch (error) {
       console.error(error);
@@ -121,17 +113,17 @@ const Search = () => {
           {!folder && (
             <>
               <CommandGroup heading="Workspaces">
-                {workspaces.map((file) => (
+                {workspaces.map((w) => (
                   <CommandItem
-                    key={file.folderName}
+                    key={w.folderName}
                     className={sharedCommandItemStyles}
                     onSelect={() => {
-                      setfolders([...folders, file.folderPath]);
-                      getFiles(file.folderPath);
+                      setfolders([...folders, w.folderPath]);
+                      setFiles(w.files);
                     }}
                   >
                     <Folder size={iconSize} />
-                    <span>{file.folderName}</span>
+                    <span>{w.folderName}</span>
                   </CommandItem>
                 ))}
               </CommandGroup>

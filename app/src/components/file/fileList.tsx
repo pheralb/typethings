@@ -1,29 +1,11 @@
-import { useEffect, useState } from "react";
-
-import { readFilesFromFolder } from "@typethings/functions";
 import type { FileEntry } from "@typethings/functions";
-
 import FileItem from "./fileItem";
 
 interface iFileListProps {
-  directory: string;
-  folder: string;
+  files: FileEntry[];
 }
 
-const FileList = (props: iFileListProps) => {
-  const [files, setFiles] = useState<FileEntry[]>([]);
-
-  // Read files from directory:
-  useEffect(() => {
-    async function loadFiles() {
-      const result = await readFilesFromFolder({
-        path: props.directory,
-      });
-      setFiles(result!);
-    }
-    loadFiles();
-  }, [props.directory]);
-
+const FileList = ({ files }: iFileListProps) => {
   return (
     <div className="flex flex-col space-y-0">
       {files ? (

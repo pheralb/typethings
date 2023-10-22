@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import { toast } from "sonner";
 
-import { useFilesStore } from "@/store/filesStore";
 import { getFileNameWithoutExtension, updateFile } from "@typethings/functions";
-
 import { useEditor, Menu, Editor, Extensions } from "@typethings/editor";
 
 import PageNavbar from "@/components/pageNavbar";
@@ -15,6 +13,7 @@ import {
   TooltipStyles,
   ProseClasses,
 } from "@typethings/ui";
+import { useWorkspaceStore } from "@/store/workspaceStore";
 
 const ProseStyle = cn(
   "focus:outline-none outline-none",
@@ -23,7 +22,7 @@ const ProseStyle = cn(
 );
 
 const EditorPage = () => {
-  const fileSelected = useFilesStore((state) => state.selectedFile);
+  const fileSelected = useWorkspaceStore((state) => state.selectedFile);
   const [text, setText] = useState<string | undefined>("");
   const editor = useEditor({
     extensions: Extensions,

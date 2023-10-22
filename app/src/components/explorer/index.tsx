@@ -1,4 +1,3 @@
-
 import { useWorkspaceStore } from "@/store/workspaceStore";
 import Folder from "../folder";
 
@@ -17,10 +16,7 @@ const Explorer = () => {
             name={workspace.folderName}
             path={workspace.folderPath}
           >
-            <FileList
-              directory={workspace.folderPath}
-              folder={workspace.folderName}
-            />
+            <FileList files={workspace.files} />
           </Folder>
         ))
       ) : (
