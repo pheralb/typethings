@@ -52,6 +52,7 @@
 - [x] Show files from workspace.
 - [x] CMD + K to search app settings & files.
 - [x] Light and dark mode.
+- [x] Works completely offline.
 
 ## 📦 Download
 
@@ -122,12 +123,12 @@ Built with:
 
 For all websites & apps:
 
-| Package | Description | Publish |
-| --- | --- | --- |
-| 📦 [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) | An unstyled primitives based on [Tiptap](https://tiptap.dev/) for building your custom WYSIWYG editor. | 🛩️ Planned |
-| 📦 [@typethings/functions](https://github.com/pheralb/typethings/tree/main/packages/functions) | A set of files/folders functions using Tauri API. | - |
-| 📦 [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) | A set of accessible UI components. Built with [React](https://react.dev), [shadcn/ui](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/).| - |
-| 📦 [@typethings/tailwind-config](https://github.com/pheralb/typethings/tree/main/packages/ui) | [Tailwind CSS](https://tailwindcss.com/) configuration for Typethings App.| - |
+| Package | Description |
+| --- | --- | 
+| [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) | An unstyled primitives based on [Tiptap](https://tiptap.dev/) for building your custom WYSIWYG editor. |
+| [@typethings/functions](https://github.com/pheralb/typethings/tree/main/packages/functions) | A set of files/folders functions using Tauri API. 
+| [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) | A set of accessible UI components. Built with [React](https://react.dev), [shadcn/ui](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/).
+| [@typethings/tailwind-config](https://github.com/pheralb/typethings/tree/main/packages/ui) | [Tailwind CSS](https://tailwindcss.com/) configuration for Typethings App.
 
 ## 📝 License
 
