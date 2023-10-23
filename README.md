@@ -122,12 +122,12 @@ Built with:
 
 For all websites & apps:
 
-| Package | Description |
-| --- | --- |
-| [`@typethings/functions`](https://github.com/pheralb/typethings/tree/main/packages/functions) | A set of files/folders functions using Tauri API. |
-| [`@typethings/editor`](https://github.com/pheralb/typethings/tree/main/packages/editor) | A wrapper around [Tiptap](https://tiptap.dev/) editor. |
-| [`@typethings/ui`](https://github.com/pheralb/typethings/tree/main/packages/ui) | A set of accessible UI components. Built with [React](https://react.dev), [shadcn/ui](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/).|
-| [`@typethings/tailwind-config`](https://github.com/pheralb/typethings/tree/main/packages/ui) | [Tailwind CSS](https://tailwindcss.com/) configuration for Typethings App.|
+| Package | Description | Publish |
+| --- | --- | --- |
+| 📦 [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) | An unstyled primitives based on [Tiptap](https://tiptap.dev/) for building your custom WYSIWYG editor. | 🛩️ Planned |
+| 📦 [@typethings/functions](https://github.com/pheralb/typethings/tree/main/packages/functions) | A set of files/folders functions using Tauri API. | - |
+| 📦 [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) | A set of accessible UI components. Built with [React](https://react.dev), [shadcn/ui](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/).| - |
+| 📦 [@typethings/tailwind-config](https://github.com/pheralb/typethings/tree/main/packages/ui) | [Tailwind CSS](https://tailwindcss.com/) configuration for Typethings App.| - |
 
 ## 📝 License
 
