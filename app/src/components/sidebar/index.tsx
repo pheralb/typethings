@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { appWindow } from "@tauri-apps/api/window";
-import { ExternalLink, cn, Button, buttonVariants } from "@typethings/ui";
+import { cn, Button, buttonVariants } from "@typethings/ui";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Plus, Settings, Folders, ArrowUpRight, Inbox } from "lucide-react";
+import { Plus, Folders, Inbox } from "lucide-react";
 import { useAppStore } from "@/store/appStore";
 
 import Search from "@/components/search";
@@ -10,9 +10,9 @@ import SidebarGroup from "@/components/sidebar/sidebarGroup";
 import Explorer from "@/components/explorer";
 import CreateFile from "@/components/file/createFile";
 import ManageWorkspaces from "@/components/workspaces/manageWorkspaces";
+import UserSettings from "@/components/settings/userSettings";
 
 import {
-  SidebarIconAnimation,
   SidebarItemClasses,
   SidebarItemIconSize,
   SidebarLinkActiveClasses,
@@ -26,8 +26,6 @@ const Sidebar = () => {
   const isResized = useRef(false);
   const openDrawer = useAppStore((state) => state.openDrawer);
   const route = useLocation();
-
-  console.log(route);
 
   // Resize sidebar:
   useEffect(() => {
@@ -74,10 +72,7 @@ const Sidebar = () => {
               )}
             >
               <div className="flex items-center space-x-3 transition">
-                <Inbox
-                  size={SidebarItemIconSize}
-                  className={SidebarIconAnimation}
-                />
+                <Inbox size={SidebarItemIconSize} />
                 <span>Inbox</span>
               </div>
             </Link>
@@ -85,10 +80,7 @@ const Sidebar = () => {
               trigger={
                 <Button variant="ghost" className={SidebarItemClasses}>
                   <div className="flex items-center space-x-3 transition">
-                    <Plus
-                      size={SidebarItemIconSize}
-                      className={SidebarIconAnimation}
-                    />
+                    <Plus size={SidebarItemIconSize} />
                     <span>New</span>
                   </div>
                 </Button>
@@ -98,49 +90,20 @@ const Sidebar = () => {
               trigger={
                 <Button variant="ghost" className={SidebarItemClasses}>
                   <div className="flex items-center space-x-3 transition">
-                    <Folders
-                      size={SidebarItemIconSize}
-                      className={SidebarIconAnimation}
-                    />
+                    <Folders size={SidebarItemIconSize} />
                     <span>Workspaces</span>
                   </div>
                 </Button>
               }
             />
             <Search />
-            <Link
-              to="/settings"
-              onClick={() => {
-                appWindow.setTitle(`Settings - Typethings`);
-              }}
-              className={cn(
-                buttonVariants({ variant: "ghost" }),
-                SidebarItemClasses,
-                route.pathname === "/settings" ? SidebarLinkActiveClasses : "",
-              )}
-            >
-              <div className="flex items-center space-x-3 transition">
-                <Settings
-                  size={SidebarItemIconSize}
-                  className={SidebarIconAnimation}
-                />
-                <span>Settings</span>
-              </div>
-            </Link>
           </SidebarGroup>
           <SidebarGroup title="Workspaces">
             <Explorer />
           </SidebarGroup>
         </div>
-        <div className="flex items-center justify-between text-xs text-neutral-500">
-          <span className="cursor-default font-mono">v0.1.0</span>
-          <ExternalLink
-            href="https://github.com/pheralb/typethings"
-            className="flex items-center space-x-1 transition-colors hover:text-neutral-700 dark:hover:text-neutral-300"
-          >
-            <span>GitHub</span>
-            <ArrowUpRight size={12} />
-          </ExternalLink>
+        <div className="flex flex-col space-y-2">
+          <UserSettings />
         </div>
         <div
           className={cn(
