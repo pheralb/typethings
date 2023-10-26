@@ -57,7 +57,7 @@ const CreateFile = (props: iCreateFileProps) => {
         content: "",
       });
       const file = {
-        name: data.title,
+        name: `${data.title}.md`,
         path: fullPath,
       };
       addFile(selectedWorkspace.folderPath, file);
