@@ -15,10 +15,11 @@
   "dependencies": {
     "@monaco-editor/react": "4.6.0",
     "@tauri-apps/api": "1.5.0",
-    "@typethings/functions": "workspace:*",
     "@typethings/editor": "workspace:*",
+    "@typethings/functions": "workspace:*",
     "@typethings/tailwind-config": "workspace:*",
     "@typethings/ui": "workspace:*",
+    "boring-avatars": "1.10.1",
     "class-variance-authority": "0.7.0",
     "lucide-react": "0.286.0",
     "react": "18.2.0",
