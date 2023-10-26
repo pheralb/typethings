@@ -13,7 +13,6 @@ import {
   cn,
 } from "@typethings/ui";
 import {
-  SidebarIconAnimation,
   SidebarItemClasses,
   SidebarItemIconSize,
 } from "@/components/sidebar/shared";
@@ -54,6 +53,8 @@ const Search = () => {
   const [files, setFiles] = useState<FileEntry[]>([]);
   const folder = folders[folders.length - 1];
 
+  console.log(workspaces);
+
   // Press CMD+K to open search:
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -74,7 +75,7 @@ const Search = () => {
   const handleOpenFile = async (filename: string) => {
     try {
       setOpen(false);
-      const filepath = await join(folder, `${filename}.md`);
+      const filepath = await join(folder, `${filename}`);
       const file = await readFile({
         path: filepath,
       });
@@ -99,10 +100,7 @@ const Search = () => {
         onClick={() => setOpen(true)}
       >
         <div className="flex items-center space-x-3">
-          <SearchIcon
-            size={SidebarItemIconSize}
-            className={SidebarIconAnimation}
-          />
+          <SearchIcon size={SidebarItemIconSize} />
           <span>Search</span>
         </div>
       </Button>
@@ -243,6 +241,7 @@ const Search = () => {
                 {files ? (
                   files.map((file) => (
                     <CommandItem
+                      key={file.name}
                       className={sharedCommandItemStyles}
                       onSelect={() => handleOpenFile(file.name!)}
                     >
