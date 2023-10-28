@@ -11,6 +11,7 @@
     "url": "git+https://github.com/pheralb/typethings.git"
   },
   "dependencies": {
+    "@tailwindcss/nesting": "0.0.0-insiders.565cd3e",
     "@tailwindcss/typography": "0.5.9",
     "tailwindcss-animate": "1.0.7"
   },
