@@ -51,6 +51,7 @@
 - [x] Open markdown files from a specific directory.
 - [x] Show files from workspace.
 - [x] CMD + K to search app settings & files.
+- [x] Support code with syntax highlighting.
 - [x] Light and dark mode.
 - [x] Works completely offline.
 
