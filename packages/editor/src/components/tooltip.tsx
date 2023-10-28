@@ -2,7 +2,7 @@ import type { iTooltipProps } from "../types/tooltipProps";
 
 import * as React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import { cn } from "../utils/cn";
+import clsx from "clsx";
 
 const TooltipProvider = TooltipPrimitive.Provider;
 const Tooltip = TooltipPrimitive.Root;
@@ -15,7 +15,7 @@ const TooltipContent = React.forwardRef<
   <TooltipPrimitive.Content
     ref={ref}
     sideOffset={sideOffset}
-    className={cn(className)}
+    className={clsx(className)}
     {...props}
   />
 ));
@@ -28,7 +28,7 @@ export const BtnTooltip = (props: iTooltipProps) => {
         <TooltipTrigger asChild>{props.children}</TooltipTrigger>
         <TooltipContent
           className={props.className}
-          sideOffset={5}
+          sideOffset={6}
           side="bottom"
         >
           <p>{props.text}</p>
