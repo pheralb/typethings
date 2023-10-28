@@ -20,6 +20,7 @@ import ErrorElement from "./components/errorElement";
 // Providers:
 import { ThemeProvider } from "./providers/themeProvider";
 import Providers from "./components/providers";
+import { HotkeysProvider } from "react-hotkeys-hook";
 
 // Router:
 const router = createBrowserRouter([
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorElement />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <App />,
       },
       {
@@ -45,9 +46,11 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
-      <Providers />
-    </ThemeProvider>
+    <HotkeysProvider>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+        <Providers />
+      </ThemeProvider>
+    </HotkeysProvider>
   </React.StrictMode>,
 );
