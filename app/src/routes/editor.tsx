@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import { toast } from "sonner";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import "@/styles/tiptap-code.css";
 
 import { getFileNameWithoutExtension, updateFile } from "@typethings/functions";
 import { useEditor, Menu, Editor, Extensions } from "@typethings/editor";
@@ -13,7 +15,7 @@ import {
   TooltipStyles,
   ProseClasses,
 } from "@typethings/ui";
-import { useWorkspaceStore } from "@/store/workspaceStore";
+
 
 const ProseStyle = cn(
   "focus:outline-none outline-none",
@@ -26,6 +28,7 @@ const EditorPage = () => {
   const [text, setText] = useState<string | undefined>("");
   const editor = useEditor({
     extensions: Extensions,
+    injectCSS: false,
     content: fileSelected?.content,
     onUpdate: ({ editor }) => {
       setText(editor.storage.markdown.getMarkdown());
@@ -38,7 +41,8 @@ const EditorPage = () => {
       },
     },
   });
-  useHotkeys("ctrl+s", () => handleSaveFile);
+
+  useHotkeys("ctrl+s", () => handleSaveFile());
 
   useEffect(() => {
     if (!fileSelected) return;
@@ -77,11 +81,11 @@ const EditorPage = () => {
           btnClassName={buttonVariants({
             variant: "ghost",
             className:
-              "p-1 dark:text-neutral-500 text-neutral-400 hover:bg-transparent dark:hover:bg-transparent",
+              "p-1 text-neutral-500/80 dark:text-neutral-500/80 hover:bg-transparent dark:hover:bg-transparent",
           })}
           btnActiveClassName="text-dark dark:text-white"
           btnGroupClassName="flex items-center border-b border-neutral-300/50 dark:border-neutral-800 overflow-x-auto bg-neutral-100 dark:bg-neutral-900 w-full z-50 pb-2"
-          btnGroupDividerClassName="flex items-center space-x-1 h-6 px-2"
+          btnGroupDividerClassName="flex items-center space-x-1 h-6 px-2 first:border-none border-l border-neutral-300/50 dark:border-neutral-800"
           btnToolTipClassName={TooltipStyles}
           saveOnClickFn={handleSaveFile}
         />

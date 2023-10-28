@@ -3,7 +3,6 @@ import { Toaster } from "sonner";
 
 const Providers = () => {
   const { theme } = useTheme();
-  console.log(theme);
   return (
     <>
       <Toaster

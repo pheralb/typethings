@@ -54,7 +54,7 @@ const Account = () => {
                 <Avatar size={22} variant="marble" name={user} />
               </div>
             </div>
-            <Button type="submit" variant="outline" disabled={!user}>
+            <Button type="submit" variant="outline">
               Save
             </Button>
           </div>
