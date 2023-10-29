@@ -1,6 +1,7 @@
 import type { Extensions as iTiptapExtensions } from "@tiptap/react";
 
 // Extensions:
+// ------------------
 import Color from "@tiptap/extension-color";
 import TextStyle from "@tiptap/extension-text-style";
 import StarterKit from "@tiptap/starter-kit";
@@ -13,6 +14,8 @@ import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import { Markdown } from "tiptap-markdown";
 import { common, createLowlight } from "lowlight";
 
+// Custom code block:
+// ------------------
 import css from "highlight.js/lib/languages/css";
 import js from "highlight.js/lib/languages/javascript";
 import ts from "highlight.js/lib/languages/typescript";
@@ -23,6 +26,9 @@ lowlight.register("html", html);
 lowlight.register("css", css);
 lowlight.register("js", js);
 lowlight.register("ts", ts);
+
+// Table extensions:
+// -----------------
 
 const CustomTable = Table.extend({
   addAttributes() {
@@ -45,6 +51,9 @@ const CustomTableCell = TableCell.extend({
     };
   },
 });
+
+// Create extensions config:
+// -------------------------
 
 export const Extensions: iTiptapExtensions = [
   StarterKit.configure({
@@ -73,6 +82,11 @@ export const Extensions: iTiptapExtensions = [
         class: "-mt-2",
       },
     },
+  }),
+  Link.configure({
+    openOnClick: false,
+    validate: (href) => /^https?:\/\//.test(href),
+    // HTMLAttributes: { rel: "noopener noreferrer" },
   }),
   CodeBlockLowlight.configure({
     lowlight,
@@ -103,15 +117,16 @@ export const Extensions: iTiptapExtensions = [
     },
   }),
   Markdown.configure({
-    html: false,
+    html: true,
     tightLists: false,
     tightListClass: "tight",
     bulletListMarker: "-",
     transformPastedText: true,
     transformCopiedText: true,
     breaks: false,
+    linkify: true,
   }),
   Color.configure({ types: [TextStyle.name] }),
-  Link.configure({ openOnClick: false, HTMLAttributes: { target: "_blank" } }),
+
   TextStyle,
 ];
