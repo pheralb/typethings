@@ -44,7 +44,7 @@
 
 ## <img src="app/public/images/logo.svg" alt="Typethings logo" height="18" />&nbsp;&nbsp;Introduction
 
-[**Typethings**](https://typethings.vercel.app/) is an open source markdown editor built with [Tauri](https://tauri.app) and [React](https://react.dev). It is designed to be a simple, fast and beautiful for everyone.
+[**Typethings**](#) is an open source markdown editor built with [Tauri](https://tauri.app) and [React](https://react.dev). It is designed to be a simple, fast and beautiful for everyone.
 
 - [x] Create, read, delete markdown files.
 - [x] Create and delete workspaces.
@@ -59,8 +59,11 @@
 
 **Download the latest release for your platform:**
 
-- [Windows](#) - Soon.
-- [MacOS](#) - Soon.
+| | Platform | Version | Download |
+| --- | --- | --- | --- |
+| ☁️ | Windows | ![GitHub releases](https://img.shields.io/github/release/pheralb/typethings) | *Soon* |
+| ☁️ | Linux | ![GitHub releases](https://img.shields.io/github/release/pheralb/typethings) | *Soon* |
+| ☁️ | MacOS | ![GitHub releases](https://img.shields.io/github/release/pheralb/typethings) | *Soon* |
 
 ## 🚀 Getting Started
 
