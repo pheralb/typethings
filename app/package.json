@@ -8,6 +8,7 @@
     "icon": "tauri icon public/images/logo.png",
     "dev:vite": "vite",
     "build": "tsc && vite build",
+    "build-tauri": "tauri build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "tauri": "tauri"
