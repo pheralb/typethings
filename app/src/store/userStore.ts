@@ -10,7 +10,7 @@ export const useUserStore = create<iUserStore>()(
   devtools(
     persist(
       (set) => ({
-        user: "",
+        user: "Typethings",
         setUser: (user) => set({ user }),
       }),
       {
