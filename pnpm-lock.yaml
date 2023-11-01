@@ -308,7 +308,7 @@ importers:
   website:
     dependencies:
       '@astrojs/check':
-        specifier: ^0.3.0
+        specifier: 0.3.0
         version: 0.3.0(prettier@3.0.3)(typescript@5.2.2)
       '@astrojs/deno':
         specifier: 5.0.1
@@ -335,10 +335,10 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tailwindcss:
-        specifier: ^3.3.3
+        specifier: 3.3.3
         version: 3.3.3
       typescript:
-        specifier: ^5.2.2
+        specifier: 5.2.2
         version: 5.2.2
 
 packages:
