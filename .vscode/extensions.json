@@ -4,6 +4,7 @@
     "rust-lang.rust-analyzer",
     "tamasfe.even-better-toml",
     "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "astro-build.astro-vscode"
   ]
 }
