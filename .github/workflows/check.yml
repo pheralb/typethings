@@ -33,6 +33,3 @@ jobs:
       
       - name: Functions Typecheck
         run: pnpm run typecheck-editor
-
-      - name: Website Typecheck
-        run: pnpm run typecheck-website

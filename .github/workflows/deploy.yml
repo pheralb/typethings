@@ -28,8 +28,7 @@ jobs:
         run: pnpm install
 
       - name: Build Website
-        working-directory: website
-        run: pnpm run build
+        run: pnpm turbo run build --filter=website
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
