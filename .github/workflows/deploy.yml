@@ -33,6 +33,6 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: website
+          project: typethings
           entrypoint: server/entry.mjs
-          root: dist
+          root: website/dist
