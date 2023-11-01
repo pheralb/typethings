@@ -7,6 +7,7 @@ import { useAppStore } from "@/store/appStore";
 interface PageNavbarProps {
   title: string;
   border?: boolean;
+  close?: boolean;
   children?: ReactNode;
 }
 
@@ -44,16 +45,18 @@ const PageNavbar = (props: PageNavbarProps) => {
             {props.title}
           </p>
         </div>
-        <Link
-          to="/"
-          className={buttonVariants({
-            variant: "ghost",
-            className: "rounded-full p-2",
-            size: "icon",
-          })}
-        >
-          <X size={16} />
-        </Link>
+        {props.close && (
+          <Link
+            to="/"
+            className={buttonVariants({
+              variant: "ghost",
+              className: "rounded-full p-2",
+              size: "icon",
+            })}
+          >
+            <X size={16} />
+          </Link>
+        )}
       </div>
       <div>{props.children}</div>
     </nav>

@@ -110,21 +110,23 @@ const Search = () => {
           <CommandEmpty>No results found.</CommandEmpty>
           {!folder && (
             <>
-              <CommandGroup heading="Workspaces">
-                {workspaces.map((w) => (
-                  <CommandItem
-                    key={w.folderName}
-                    className={sharedCommandItemStyles}
-                    onSelect={() => {
-                      setfolders([...folders, w.folderPath]);
-                      setFiles(w.files);
-                    }}
-                  >
-                    <Folder size={iconSize} />
-                    <span>{w.folderName}</span>
-                  </CommandItem>
-                ))}
-              </CommandGroup>
+              {workspaces.length > 0 && (
+                <CommandGroup heading="Workspaces">
+                  {workspaces.map((w) => (
+                    <CommandItem
+                      key={w.folderName}
+                      className={sharedCommandItemStyles}
+                      onSelect={() => {
+                        setfolders([...folders, w.folderPath]);
+                        setFiles(w.files);
+                      }}
+                    >
+                      <Folder size={iconSize} />
+                      <span>{w.folderName}</span>
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              )}
               <CommandGroup heading="Theme">
                 <CommandItem
                   className={sharedCommandItemStyles}

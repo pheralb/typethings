@@ -127,6 +127,20 @@
     background: var(--sb-thumb-color);
     border-radius: 10px;
   }
+
+  pre::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+  }
+
+  pre::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  pre::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 10px;
+  }
 }
 
 @font-face {

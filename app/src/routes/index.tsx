@@ -1,25 +1,25 @@
-import { Button } from "@typethings/ui";
-import { toast } from "sonner";
+import Container from "@/components/container";
+import PageNavbar from "@/components/pageNavbar";
 
 function App() {
+  const greeting = () => {
+    const date = new Date();
+    const hour = date.getHours();
+    if (hour < 12) {
+      return "Good morning";
+    } else if (hour < 18) {
+      return "Good afternoon";
+    } else {
+      return "Good evening";
+    }
+  };
+
   return (
-    <>
-      <div className="flex h-screen flex-col items-center justify-center space-y-2">
-        <h2 className="text-5xl font-extrabold tracking-tighter text-neutral-300 md:text-6xl">
-          Good morning
-        </h2>
-        <Button
-          variant="outline"
-          onClick={() =>
-            toast("hello", {
-              description: "This is a description",
-            })
-          }
-        >
-          Hello
-        </Button>
-      </div>
-    </>
+    <PageNavbar title="Inbox" border={false}>
+      <Container className="pt-0">
+        <h1>hello ✨</h1>
+      </Container>
+    </PageNavbar>
   );
 }
 

@@ -16,7 +16,6 @@ import {
   ProseClasses,
 } from "@typethings/ui";
 
-
 const ProseStyle = cn(
   "focus:outline-none outline-none",
   "overflow-y-auto overflow-x-hidden mx-auto",
@@ -75,7 +74,10 @@ const EditorPage = () => {
         setText(editor.storage.markdown.getMarkdown());
       }}
     >
-      <PageNavbar title={getFileNameWithoutExtension(fileSelected.path)!}>
+      <PageNavbar
+        title={getFileNameWithoutExtension(fileSelected.path)!}
+        close={true}
+      >
         <Menu
           editor={editor}
           btnClassName={buttonVariants({
