@@ -316,6 +316,15 @@ importers:
       '@astrojs/react':
         specifier: 3.0.4
         version: 3.0.4(@types/react-dom@18.2.11)(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)(vite@4.4.11)
+      '@astrojs/tailwind':
+        specifier: ^5.0.2
+        version: 5.0.2(astro@3.4.2)(tailwindcss@3.3.3)
+      '@typethings/tailwind-config':
+        specifier: workspace:^
+        version: link:../packages/tailwind-config
+      '@typethings/ui':
+        specifier: workspace:^
+        version: link:../packages/ui
       astro:
         specifier: 3.4.2
         version: 3.4.2(@types/node@20.8.3)(typescript@5.2.2)
@@ -325,6 +334,9 @@ importers:
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
+      tailwindcss:
+        specifier: ^3.3.3
+        version: 3.3.3
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
@@ -465,6 +477,21 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - vite
+    dev: false
+
+  /@astrojs/tailwind@5.0.2(astro@3.4.2)(tailwindcss@3.3.3):
+    resolution: {integrity: sha512-oXqeqmBlkQmsltrsU9nEWeXOtrZIAHW8dcmX7BCdrjzPnU6dPwWzAwhddNQ9ihKiWwsLnlbwQZIo2CDigcZlIA==}
+    peerDependencies:
+      astro: ^3.2.4
+      tailwindcss: ^3.0.24
+    dependencies:
+      astro: 3.4.2(@types/node@20.8.3)(typescript@5.2.2)
+      autoprefixer: 10.4.16(postcss@8.4.31)
+      postcss: 8.4.31
+      postcss-load-config: 4.0.1(postcss@8.4.31)
+      tailwindcss: 3.3.3
+    transitivePeerDependencies:
+      - ts-node
     dev: false
 
   /@astrojs/telemetry@3.0.4:
@@ -3534,7 +3561,6 @@ packages:
       picocolors: 1.0.0
       postcss: 8.4.31
       postcss-value-parser: 4.2.0
-    dev: true
 
   /available-typed-arrays@1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
@@ -4673,7 +4699,6 @@ packages:
 
   /fraction.js@4.3.6:
     resolution: {integrity: sha512-n2aZ9tNfYDwaHhvFTkhFErqOMIb8uyzSQ+vGJBjZyanAKZVbGUQ1sngfk9FdkBw7G26O7AgNjLcecLffD1c7eg==}
-    dev: true
 
   /fs-constants@1.0.0:
     resolution: {integrity: sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==}
@@ -6477,7 +6502,6 @@ packages:
   /normalize-range@0.1.2:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /npm-run-path@4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
