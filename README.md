@@ -1,4 +1,12 @@
 <div align="center">
+<a href="#">
+<img src="website/public/images/screenshot_en.png">
+</a>
+</div>
+
+<p></p>
+
+<div align="center">
     <a href="#-download">
         Download
     </a>
@@ -59,11 +67,11 @@
 
 **Download the latest release for your platform:**
 
-| | Platform | Version | Download |
-| --- | --- | --- | --- |
-| ☁️ | Windows | ![GitHub releases](https://img.shields.io/github/release/pheralb/typethings) | *Soon* |
-| ☁️ | Linux | ![GitHub releases](https://img.shields.io/github/release/pheralb/typethings) | *Soon* |
-| ☁️ | MacOS | ![GitHub releases](https://img.shields.io/github/release/pheralb/typethings) | *Soon* |
+|     | Platform | Version                                                                      | Download |
+| --- | -------- | ---------------------------------------------------------------------------- | -------- |
+| ☁️  | Windows  | ![GitHub releases](https://img.shields.io/github/release/pheralb/typethings) | _Soon_   |
+| ☁️  | Linux    | ![GitHub releases](https://img.shields.io/github/release/pheralb/typethings) | _Soon_   |
+| ☁️  | MacOS    | ![GitHub releases](https://img.shields.io/github/release/pheralb/typethings) | _Soon_   |
 
 ## 🚀 Getting Started
 
@@ -72,7 +80,7 @@ To get a local copy up and running, please follow these simple steps.
 **Prerequisites:**
 
 - [Node.js +18 (LTS recommended)](https://nodejs.org/). Then run `node --version` in your terminal to check if it's installed correctly.
-- [pnpm (we are using +8.8.0)](https://pnpm.io/). Install with npm: ``npm i pnpm -g``. Then run `pnpm --version` in your terminal to check if it's installed correctly.
+- [pnpm (we are using +8.8.0)](https://pnpm.io/). Install with npm: `npm i pnpm -g`. Then run `pnpm --version` in your terminal to check if it's installed correctly.
 - [Visual Studio Code](https://code.visualstudio.com/) (recommended) or [Lapce](https://lapce.dev/).
 - Only for Windows: [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/es/visual-cpp-build-tools/).
 - Rust. For Windows x64: [click here](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe). For Linux: [click here](https://forge.rust-lang.org/infra/other-installation-methods.html#other-ways-to-install-rustup). Then, run `rustc --version` in your terminal to check if it's installed correctly.
@@ -127,12 +135,12 @@ Built with:
 
 For all websites & apps:
 
-| Package | Description |
-| --- | --- | 
-| [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) | An unstyled primitives based on [Tiptap](https://tiptap.dev/) for building your custom WYSIWYG editor. |
-| [@typethings/functions](https://github.com/pheralb/typethings/tree/main/packages/functions) | A set of files/folders functions using Tauri API. 
-| [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) | A set of accessible UI components. Built with [React](https://react.dev), [shadcn/ui](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/).
-| [@typethings/tailwind-config](https://github.com/pheralb/typethings/tree/main/packages/ui) | [Tailwind CSS](https://tailwindcss.com/) configuration for Typethings App.
+| Package                                                                                     | Description                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor)       | An unstyled primitives based on [Tiptap](https://tiptap.dev/) for building your custom WYSIWYG editor.                                                      |
+| [@typethings/functions](https://github.com/pheralb/typethings/tree/main/packages/functions) | A set of files/folders functions using Tauri API.                                                                                                           |
+| [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui)               | A set of accessible UI components. Built with [React](https://react.dev), [shadcn/ui](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/). |
+| [@typethings/tailwind-config](https://github.com/pheralb/typethings/tree/main/packages/ui)  | [Tailwind CSS](https://tailwindcss.com/) configuration for Typethings App.                                                                                  |
 
 ## 📝 License
 
