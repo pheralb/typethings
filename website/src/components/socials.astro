@@ -1,0 +1,32 @@
+---
+import { Twitter, Github } from "lucide-react";
+
+const iconSize = 22;
+const links = [
+  {
+    name: "Twitter",
+    url: "https://twitter.com/lukeocodes",
+    icon: Twitter,
+  },
+  {
+    name: "Github",
+    url: "https://github.com/pheralb/typethings",
+    icon: Github,
+  },
+];
+---
+
+<div class="flex items-center space-x-5">
+  {
+    links.map((link) => (
+      <a
+        href={link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-neutral-300 hover:text-white duration-100 transition-colors"
+      >
+        <link.icon size={iconSize} />
+      </a>
+    ))
+  }
+</div>

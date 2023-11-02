@@ -85,61 +85,6 @@
 
   body {
     @apply bg-background text-foreground;
-    scrollbar-color: var(--sb-thumb-color) transparent;
-  }
-
-  body::-webkit-scrollbar {
-    width: var(--sb-size);
-  }
-
-  body::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  body::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 10px;
-  }
-
-  nav::-webkit-scrollbar {
-    width: var(--sb-size);
-  }
-
-  nav::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  nav::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 10px;
-  }
-
-  div::-webkit-scrollbar {
-    width: var(--sb-size);
-    height: var(--sb-size);
-  }
-
-  div::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  div::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 10px;
-  }
-
-  pre::-webkit-scrollbar {
-    width: var(--sb-size);
-    height: var(--sb-size);
-  }
-
-  pre::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  pre::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 10px;
   }
 }
 

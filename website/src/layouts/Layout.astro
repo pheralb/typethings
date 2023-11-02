@@ -1,7 +1,10 @@
 ---
 // Global styles:
-import "@/styles/globals.css";
 import "@typethings/ui/dist/index.css";
+import "@/styles/globals.css";
+
+// Global layout:
+import Header from "@/components/header.astro";
 
 // Layout props:
 interface Props {
@@ -20,7 +23,8 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="dark">
+  <body class="min-h-screen bg-neutral-900 text-white antialiased font-sans">
+    <Header />
     <slot />
   </body>
 </html>
