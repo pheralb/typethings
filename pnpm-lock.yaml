@@ -328,6 +328,9 @@ importers:
       astro:
         specifier: 3.4.2
         version: 3.4.2(@types/node@20.8.3)(typescript@5.2.2)
+      lucide-react:
+        specifier: 0.291.0
+        version: 0.291.0(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -5848,6 +5851,14 @@ packages:
 
   /lucide-react@0.286.0(react@18.2.0):
     resolution: {integrity: sha512-0+AOFa/uiXlXJJTqcKto1gqbU9XflYgYZbS9DN2ytSIhSBQaF5xfRKAq/k0okBInpgu5P6i7dhCcgbHV4OMkHQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /lucide-react@0.291.0(react@18.2.0):
+    resolution: {integrity: sha512-79jHlT9Je2PXSvXIBGDkItCK7In2O9iKnnSJ/bJxvIBOFaX2Ex0xEcC4fRS/g0F2uQGFejjmn2qWhwdc5wicMQ==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
