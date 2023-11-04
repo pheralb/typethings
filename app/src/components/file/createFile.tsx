@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useWorkspaceStore } from "@/store/workspaceStore";
 import { toast } from "sonner";
 
-import { createFile } from "@typethings/functions";
+import { checkDirFile, createFile } from "@typethings/functions";
 
 import {
   Input,
@@ -41,6 +41,7 @@ const CreateFile = (props: iCreateFileProps) => {
   const selectedWorkspace = useWorkspaceStore(
     (state) => state.selectedWorkspace,
   );
+  const deleteWorkspace = useWorkspaceStore((state) => state.deleteWorkspace);
   useHotkeys("ctrl+n", () => setOpenDialog(true));
 
   // Create New File function:
@@ -50,6 +51,14 @@ const CreateFile = (props: iCreateFileProps) => {
       return false;
     }
     try {
+      const check = await checkDirFile(selectedWorkspace?.folderPath);
+      if (!check) {
+        toast.error("Directory not found.", {
+          description: `The directory ${selectedWorkspace?.folderPath} was not found.`,
+        });
+        deleteWorkspace(selectedWorkspace?.folderPath);
+        return;
+      }
       const fullPath = await createFile({
         path: selectedWorkspace?.folderPath || "",
         filename: data.title,

@@ -1,9 +1,9 @@
 import { useWorkspaceStore } from "@/store/workspaceStore";
-import Folder from "../folder";
-
-import ManageWorkspaces from "../workspaces/manageWorkspaces";
 import { Button } from "@typethings/ui";
-import FileList from "../file/fileList";
+
+import Folder from "@/components/folder";
+import ManageWorkspaces from "@/components/workspaces/manageWorkspaces";
+import FileList from "@/components/file/fileList";
 
 const Explorer = () => {
   const workspaces = useWorkspaceStore((state) => state.workspaces);
