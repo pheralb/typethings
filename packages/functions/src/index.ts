@@ -1,3 +1,6 @@
+// Check if directory exists:
+export * from "./checkDirFile";
+
 // Create, Update & Delete File:
 export * from "./createUpdateFile";
 export * from "./deleteFile";
@@ -11,7 +14,8 @@ export * from "./getFolderName";
 export * from "./openFile";
 export * from "./readFiles";
 
-// Select Folder:
+// Create & Select Folder:
+export * from "./createFolder";
 export * from "./selectFolder";
 
 // Export types:
