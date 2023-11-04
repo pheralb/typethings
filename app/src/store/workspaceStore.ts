@@ -2,7 +2,7 @@ import { FileEntry } from "@typethings/functions";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
-interface workspace {
+export interface workspace {
   folderName: string;
   folderPath: string;
   files: FileEntry[];
