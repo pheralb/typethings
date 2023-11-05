@@ -35,7 +35,7 @@ jobs:
         run: pnpm run typecheck-editor
 
   Website:
-    name: Website Build
+    name: Build Website
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
