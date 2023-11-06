@@ -17,7 +17,7 @@ const Tip = (props: TipProps) => {
       <Tooltip delayDuration={0.5}>
         <TooltipTrigger
           asChild
-          className="cursor-help text-neutral-300 transition-colors duration-300 hover:text-yellow-400"
+          className="cursor-help transition-colors duration-300 hover:text-yellow-400"
         >
           <Lightbulb size={props.iconSize || 16} />
         </TooltipTrigger>

@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -21,6 +22,10 @@ const ManageWorkspaces = (props: ManageWorkspacesProps) => {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Manage workspaces</DialogTitle>
+          <DialogDescription>
+            A workspace is a system folder. Here you can add and remove
+            workspaces. Close a workspace does not delete the folder.
+          </DialogDescription>
         </DialogHeader>
         <Workspaces checkOption={false} />
       </DialogContent>

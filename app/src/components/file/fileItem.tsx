@@ -3,15 +3,17 @@ import { appWindow } from "@tauri-apps/api/window";
 
 import { useState } from "react";
 import { cn } from "@typethings/ui";
-import { useFilesStore } from "@/store/filesStore";
 import { BookOpen, Trash } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-import { readFile } from "@/functions/readFiles";
+import { readFile, getFileNameWithoutExtension } from "@typethings/functions";
 import DeleteFile from "./deleteFile";
 
 // From Sidebar (shared classes & icon size):
-import { SidebarItemClasses, SidebarItemIconSize } from "../sidebar";
+import {
+  SidebarItemClasses,
+  SidebarItemIconSize,
+} from "@/components/sidebar/shared";
 
 import {
   Button,
@@ -22,18 +24,21 @@ import {
   ContextMenuItem,
   ContextMenuTrigger,
 } from "@typethings/ui";
-
-import { getFileNameWithoutExtension } from "@/functions/getFileName";
+import { useWorkspaceStore } from "@/store/workspaceStore";
 
 interface iFileItemProps extends FileEntry {
   active?: boolean;
 }
 
 const FileItem = (props: iFileItemProps) => {
-  const selectFile = useFilesStore((state) => state.setSelectedFile);
-  const selectedFile = useFilesStore((state) => state.selectedFile);
+  const selectedWorkspace = useWorkspaceStore(
+    (state) => state.selectedWorkspace,
+  );
+  const selectFile = useWorkspaceStore((state) => state.setSelectedFile);
+  const selectedFile = useWorkspaceStore((state) => state.selectedFile);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const router = useNavigate();
+  const location = useLocation();
 
   const handleOpenFile = async () => {
     try {
@@ -66,8 +71,9 @@ const FileItem = (props: iFileItemProps) => {
             className={cn(
               SidebarItemClasses,
               "cursor-default text-sm text-neutral-500 transition-none duration-75 dark:text-neutral-500",
-              selectedFile?.path === props.path &&
-                "text-dark dark:text-neutral-100 bg-neutral-400/20 dark:bg-neutral-700/50",
+              location.pathname === "/editor" &&
+                selectedFile?.path === props.path &&
+                "text-dark bg-neutral-400/20 dark:bg-neutral-700/50 dark:text-neutral-100",
               dropdownOpen && "text-neutral-900 dark:text-neutral-100",
             )}
             onClick={handleOpenFile}
@@ -100,7 +106,7 @@ const FileItem = (props: iFileItemProps) => {
           </DialogTrigger>
         </ContextMenuContent>
       </ContextMenu>
-      <DeleteFile name={props.name} path={props.path} />
+      <DeleteFile file={props} workspace={selectedWorkspace?.folderPath!} />
     </Dialog>
   );
 };

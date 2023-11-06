@@ -12,11 +12,10 @@
   "types": "./dist/index.d.ts",
   "typings": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/**"
   ],
   "exports": {
-    ".": "./dist",
-    "./styles.css": "./dist/index.css"
+    ".": "./dist"
   },
   "scripts": {
     "build": "tsup",
@@ -26,13 +25,20 @@
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "1.0.7",
+    "@tiptap/extension-code-block-lowlight": "2.1.12",
     "@tiptap/extension-color": "2.1.7",
     "@tiptap/extension-link": "2.1.11",
+    "@tiptap/extension-table": "2.1.12",
+    "@tiptap/extension-table-cell": "2.1.12",
+    "@tiptap/extension-table-header": "2.1.12",
+    "@tiptap/extension-table-row": "2.1.12",
     "@tiptap/extension-text-style": "2.1.7",
     "@tiptap/pm": "2.1.7",
     "@tiptap/react": "2.1.7",
     "@tiptap/starter-kit": "2.1.7",
     "clsx": "2.0.0",
+    "highlight.js": "11.9.0",
+    "lowlight": "3.1.0",
     "lucide-react": "0.271.0",
     "tailwind-merge": "1.14.0",
     "tiptap-markdown": "0.8.2"

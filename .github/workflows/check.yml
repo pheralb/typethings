@@ -10,7 +10,7 @@ concurrency: ${{ github.workflow }} - ${{ github.ref }}
 
 jobs:
   Typecheck:
-    name: Check-Types
+    name: Packages Types
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,14 +22,30 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run App Typecheck
+      - name: App Typecheck
         run: pnpm run typecheck-app
 
-      - name: Run Editor Typecheck
+      - name: Editor Typecheck
         run: pnpm run typecheck-editor
 
-      - name: Run UI Library Typecheck
+      - name: UI Library Typecheck
         run: pnpm run typecheck-editor
 
-      - name: Run Website Typecheck
-        run: pnpm run typecheck-website
+      - name: Functions Typecheck
+        run: pnpm run typecheck-editor
+
+  Website:
+    name: Build Website
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install
+  
+      - name: Build Website
+        run: pnpm turbo run build --filter=website

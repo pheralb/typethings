@@ -5,6 +5,7 @@ import "./styles/globals.css";
 export { cn } from "./utils/cn";
 
 // Components:
+export * from "./components/alert";
 export * from "./components/button";
 export * from "./components/collapsible";
 export * from "./components/command";
@@ -17,3 +18,7 @@ export * from "./components/input";
 export * from "./components/popover";
 export * from "./components/radio-group";
 export * from "./components/tooltip";
+export * from "./components/tabs";
+
+// Extend Config:
+export { ProseClasses } from "./extend/prose";

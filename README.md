@@ -1,4 +1,12 @@
 <div align="center">
+<a href="#">
+<img src="website/public/images/screenshot_en.png">
+</a>
+</div>
+
+<p></p>
+
+<div align="center">
     <a href="#-download">
         Download
     </a>
@@ -9,6 +17,10 @@
     <span>&nbsp;✦&nbsp;</span>
     <a href="#-whats-inside">
         What's inside?
+    </a>
+    <span>&nbsp;✦&nbsp;</span>
+    <a href="https://github.com/pheralb/typethings/tree/main/packages">
+        Packages
     </a>
     <span>&nbsp;✦&nbsp;</span>
     <a href="#" target="_blank">
@@ -40,20 +52,26 @@
 
 ## <img src="app/public/images/logo.svg" alt="Typethings logo" height="18" />&nbsp;&nbsp;Introduction
 
-[**Typethings**](https://typethings.vercel.app/) is an open source markdown editor built with [Tauri](https://tauri.app) and [React](https://react.dev). It is designed to be a simple, fast and beautiful for everyone.
+[**Typethings**](#) is an open source markdown editor built with [Tauri](https://tauri.app) and [React](https://react.dev). It is designed to be a simple, fast and beautiful for everyone.
 
 - [x] Create, read, delete markdown files.
 - [x] Create and delete workspaces.
 - [x] Open markdown files from a specific directory.
 - [x] Show files from workspace.
+- [x] CMD + K to search app settings & files.
+- [x] Support code with syntax highlighting.
 - [x] Light and dark mode.
+- [x] Works completely offline.
 
 ## 📦 Download
 
 **Download the latest release for your platform:**
 
-- [Windows](#) - Soon.
-- [MacOS](#) - Soon.
+|     | Platform | Version                                                                      | Download |
+| --- | -------- | ---------------------------------------------------------------------------- | -------- |
+| ☁️  | Windows  | ![GitHub releases](https://img.shields.io/github/release/pheralb/typethings) | _Soon_   |
+| ☁️  | Linux    | ![GitHub releases](https://img.shields.io/github/release/pheralb/typethings) | _Soon_   |
+| ☁️  | MacOS    | ![GitHub releases](https://img.shields.io/github/release/pheralb/typethings) | _Soon_   |
 
 ## 🚀 Getting Started
 
@@ -62,7 +80,7 @@ To get a local copy up and running, please follow these simple steps.
 **Prerequisites:**
 
 - [Node.js +18 (LTS recommended)](https://nodejs.org/). Then run `node --version` in your terminal to check if it's installed correctly.
-- [pnpm (we are using +8.8.0)](https://pnpm.io/). Install with npm: ``npm i pnpm -g``. Then run `pnpm --version` in your terminal to check if it's installed correctly.
+- [pnpm (we are using +8.8.0)](https://pnpm.io/). Install with npm: `npm i pnpm -g`. Then run `pnpm --version` in your terminal to check if it's installed correctly.
 - [Visual Studio Code](https://code.visualstudio.com/) (recommended) or [Lapce](https://lapce.dev/).
 - Only for Windows: [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/es/visual-cpp-build-tools/).
 - Rust. For Windows x64: [click here](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe). For Linux: [click here](https://forge.rust-lang.org/infra/other-installation-methods.html#other-ways-to-install-rustup). Then, run `rustc --version` in your terminal to check if it's installed correctly.
@@ -88,7 +106,11 @@ pnpm install
 3. Run the app:
 
 ```bash
+# Run all monorepo apps, websites and packages:
 pnpm dev
+
+# Run only website dev server:
+pnpm dev:web
 ```
 
 ## 🤔 What's inside?
@@ -99,9 +121,6 @@ Built with:
 
 - [Tauri](https://tauri.studio/en/) - Build smaller, faster, and more secure desktop applications with a web frontend.
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
-- [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) - A set of accessible UI components.
-- [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) - Custom editor built with Tiptap.
 - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - For state management in React.
 - [React Router v6](https://reactrouter.com/) - For routing in React.
 
@@ -110,13 +129,18 @@ Built with:
 Built with:
 
 - [Next.js](https://nextjs.org/) - The React Framework for Production.
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
 - [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) - A set of accessible UI components.
 
 ### Packages:
 
-- [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor) - A wrapper around [Tiptap](https://tiptap.dev/) editor. Built with [React](https://react.dev) and using [tsup](https://tsup.egoist.dev/) for bundling.
-- [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui) - A set of accessible UI components. Built with [React](https://react.dev), [shadcn/ui](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/). Using [tsup](https://tsup.egoist.dev/) for bundling.
+For all websites & apps:
+
+| Package                                                                                     | Description                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [@typethings/editor](https://github.com/pheralb/typethings/tree/main/packages/editor)       | An unstyled primitives based on [Tiptap](https://tiptap.dev/) for building your custom WYSIWYG editor.                                                      |
+| [@typethings/functions](https://github.com/pheralb/typethings/tree/main/packages/functions) | A set of files/folders functions using Tauri API.                                                                                                           |
+| [@typethings/ui](https://github.com/pheralb/typethings/tree/main/packages/ui)               | A set of accessible UI components. Built with [React](https://react.dev), [shadcn/ui](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/). |
+| [@typethings/tailwind-config](https://github.com/pheralb/typethings/tree/main/packages/ui)  | [Tailwind CSS](https://tailwindcss.com/) configuration for Typethings App.                                                                                  |
 
 ## 📝 License
 

@@ -17,6 +17,9 @@ dist
 dist-ssr
 *.local
 
+# Astro generated types
+.astro/
+
 # misc
 .DS_Store
 *.pem

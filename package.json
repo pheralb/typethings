@@ -9,9 +9,9 @@
     "typecheck-app": "cd app && pnpm typecheck",
     "typecheck-editor": "cd packages/editor && pnpm typecheck",
     "typecheck-ui": "cd packages/ui && pnpm typecheck",
-    "typecheck-website": "cd website && pnpm typecheck",
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "dev:web": "cd website && pnpm dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
@@ -20,6 +20,7 @@
     "@types/node": "20.8.3",
     "@types/react": "18.2.25",
     "@types/react-dom": "18.2.11",
+    "@typethings/tailwind-config": "workspace:*",
     "eslint": "8.51.0",
     "prettier": "3.0.3",
     "prettier-plugin-tailwindcss": "0.5.5",

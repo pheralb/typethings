@@ -1,0 +1,33 @@
+{
+  "name": "@typethings/functions",
+  "author": "@pheralb_",
+  "description": "A framework agnostic library to manage files and folders using Tauri API",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": "./dist"
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint src/",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "1.5.0"
+  },
+  "devDependencies": {
+    "tsup": "7.2.0",
+    "typescript": "5.1.6"
+  },
+  "peerDependencies": {
+    "@tauri-apps/api": "^1.5.0"
+  }
+}

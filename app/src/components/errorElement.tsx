@@ -5,7 +5,7 @@ import { exit, relaunch } from "@tauri-apps/api/process";
 import { Button, buttonVariants, ExternalLink } from "@typethings/ui";
 import { AlertTriangle, ArrowUpRight, LogOut, RefreshCw } from "lucide-react";
 
-import { type OSInfo, getOSInfo } from "@/functions/getAllPlatformInfo";
+import { type OSInfo, getOSInfo } from "@typethings/functions";
 
 const ErrorElement = () => {
   const error = useRouteError() as any;

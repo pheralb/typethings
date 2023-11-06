@@ -23,17 +23,20 @@ import {
   Pilcrow,
   SaveAll,
   StrikethroughIcon,
+  Table,
   TextQuote,
   WrapText,
+  XSquare,
 } from "lucide-react";
 
 // Components:
 import BtnTooltip from "./tooltip";
 
-// Icons size:
-const iconSize = 16;
-
 const Menu = (props: MenuEditorProps) => {
+
+  // Icons size:
+  const iconSize = 16 || props.iconSize;
+
   return (
     <div className={cn(props.btnGroupClassName)}>
       {/* ------------------------ */}
@@ -260,6 +263,33 @@ const Menu = (props: MenuEditorProps) => {
             )}
           >
             <Heading6 size={iconSize} />
+          </button>
+        </BtnTooltip>
+      </div>
+      {/* -------------------- */}
+      {/* Table: */}
+      {/* -------------------- */}
+      <div className={cn(props.btnGroupDividerClassName)}>
+        <BtnTooltip text="Insert Table" className={props.btnToolTipClassName}>
+          <button
+            onClick={() =>
+              props.editor
+                ?.chain()
+                .focus()
+                .insertTable({ rows: 3, cols: 3, withHeaderRow: true })
+                .run()
+            }
+            className={cn(props.btnClassName)}
+          >
+            <Table size={iconSize} />
+          </button>
+        </BtnTooltip>
+        <BtnTooltip text="Delete Table" className={props.btnToolTipClassName}>
+          <button
+            onClick={() => props.editor?.chain().focus().deleteTable().run()}
+            className={cn(props.btnClassName)}
+          >
+            <XSquare size={iconSize} />
           </button>
         </BtnTooltip>
       </div>

@@ -1,38 +1,31 @@
-import { ExternalLink, cn } from "@typethings/ui";
-import { Link, Outlet } from "react-router-dom";
-import {
-  Plus,
-  Settings,
-  Search,
-  Folders,
-  FilePlus2Icon,
-  ArrowUpRight,
-} from "lucide-react";
-import { Button, buttonVariants } from "@typethings/ui";
-import { useWorkspaceStore } from "@/store/workspaceStore";
-
-import CreateFile from "@/components/file/createFile";
-import OpenFile from "@/components/file/openFile";
-import FileList from "@/components/file/fileList";
-
-import SidebarGroup from "@/components/sidebar/sidebarGroup";
-import Folder from "@/components/folder";
-import ManageWorkspaces from "@/components/workspaces/manageWorkspaces";
 import { useEffect, useRef, useState } from "react";
+import { appWindow } from "@tauri-apps/api/window";
+import { cn, Button, buttonVariants } from "@typethings/ui";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { Plus, Folders, Inbox } from "lucide-react";
 import { useAppStore } from "@/store/appStore";
 
-// Global styles:
-export const SidebarItemClasses = cn("w-full justify-start text-sm px-2");
-export const SidebarItemIconSize = 16;
+import Search from "@/components/search";
+import SidebarGroup from "@/components/sidebar/sidebarGroup";
+import Explorer from "@/components/explorer";
+import CreateFile from "@/components/file/createFile";
+import ManageWorkspaces from "@/components/workspaces/manageWorkspaces";
+import UserSettings from "@/components/settings/userSettings";
+
+import {
+  SidebarItemClasses,
+  SidebarItemIconSize,
+  SidebarLinkActiveClasses,
+} from "./shared";
 
 // Sidebar Config:
 const [minWidth, maxWidth, defaultWidth] = [200, 300, 208];
 
 const Sidebar = () => {
-  const workspaces = useWorkspaceStore((state) => state.workspaces);
   const [width, setWidth] = useState<number>(defaultWidth);
   const isResized = useRef(false);
   const openDrawer = useAppStore((state) => state.openDrawer);
+  const route = useLocation();
 
   // Resize sidebar:
   useEffect(() => {
@@ -67,22 +60,28 @@ const Sidebar = () => {
       >
         <div className="flex w-full flex-1 flex-col">
           <SidebarGroup border={true}>
+            <Link
+              to="/"
+              onClick={() => {
+                appWindow.setTitle(`Inbox - Typethings`);
+              }}
+              className={cn(
+                buttonVariants({ variant: "ghost" }),
+                SidebarItemClasses,
+                route.pathname === "/" ? SidebarLinkActiveClasses : "",
+              )}
+            >
+              <div className="flex items-center space-x-3 transition">
+                <Inbox size={SidebarItemIconSize} />
+                <span>Inbox</span>
+              </div>
+            </Link>
             <CreateFile
               trigger={
                 <Button variant="ghost" className={SidebarItemClasses}>
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-3 transition">
                     <Plus size={SidebarItemIconSize} />
-                    <span>New file</span>
-                  </div>
-                </Button>
-              }
-            />
-            <OpenFile
-              trigger={
-                <Button variant="ghost" className={SidebarItemClasses}>
-                  <div className="flex items-center space-x-3">
-                    <FilePlus2Icon size={SidebarItemIconSize} />
-                    <span>Open file</span>
+                    <span>New</span>
                   </div>
                 </Button>
               }
@@ -90,80 +89,21 @@ const Sidebar = () => {
             <ManageWorkspaces
               trigger={
                 <Button variant="ghost" className={SidebarItemClasses}>
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-3 transition">
                     <Folders size={SidebarItemIconSize} />
                     <span>Workspaces</span>
                   </div>
                 </Button>
               }
             />
-            <Link
-              to="/test"
-              className={cn(
-                buttonVariants({ variant: "ghost" }),
-                SidebarItemClasses,
-              )}
-            >
-              <div className="flex items-center space-x-3">
-                <Search size={SidebarItemIconSize} />
-                <span>Search</span>
-              </div>
-            </Link>
-            <Link
-              to="/settings"
-              className={cn(
-                buttonVariants({ variant: "ghost" }),
-                SidebarItemClasses,
-              )}
-            >
-              <div className="flex items-center space-x-3">
-                <Settings size={SidebarItemIconSize} />
-                <span>Settings</span>
-              </div>
-            </Link>
+            <Search />
           </SidebarGroup>
           <SidebarGroup title="Workspaces">
-            <div className="flex flex-col">
-              {workspaces.length > 0 ? (
-                workspaces.sort().map((workspace) => (
-                  <Folder
-                    key={workspace.folderPath}
-                    name={workspace.folderName}
-                    path={workspace.folderPath}
-                  >
-                    <FileList
-                      directory={workspace.folderPath}
-                      folder={workspace.folderName}
-                    />
-                  </Folder>
-                ))
-              ) : (
-                <div className="flex flex-col justify-center space-y-2 rounded-md border border-dashed border-neutral-300 p-3 text-center text-xs text-neutral-600 dark:border-neutral-700 dark:text-neutral-400">
-                  <p>Add a workspace to get started.</p>
-                  <ManageWorkspaces
-                    trigger={
-                      <Button
-                        variant="link"
-                        className="flex w-full items-center space-x-2 text-xs h-0"
-                      >
-                        <span>Get started</span>
-                      </Button>
-                    }
-                  />
-                </div>
-              )}
-            </div>
+            <Explorer />
           </SidebarGroup>
         </div>
-        <div className="flex items-center justify-between text-xs text-neutral-500">
-          <span className="cursor-default font-mono">v0.1.0</span>
-          <ExternalLink
-            href="https://github.com/pheralb/typethings"
-            className="flex items-center space-x-1 transition-colors hover:text-neutral-700 dark:hover:text-neutral-300"
-          >
-            <span>GitHub</span>
-            <ArrowUpRight size={12} />
-          </ExternalLink>
+        <div className="flex flex-col space-y-2">
+          <UserSettings />
         </div>
         <div
           className={cn(

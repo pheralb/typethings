@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useWorkspaceStore } from "@/store/workspaceStore";
 import { toast } from "sonner";
 
-import { createFile } from "@/functions/createUpdateFile";
-import { useFilesStore } from "@/store/filesStore";
+import { checkDirFile, createFile } from "@typethings/functions";
 
 import {
   Input,
@@ -36,11 +35,13 @@ interface iCreateFileInputs {
 const CreateFile = (props: iCreateFileProps) => {
   const { register, handleSubmit } = useForm<iCreateFileInputs>();
   const [openDialog, setOpenDialog] = useState<boolean>(false);
-  const selectFile = useFilesStore((state) => state.setSelectedFile);
+  const selectFile = useWorkspaceStore((state) => state.setSelectedFile);
+  const addFile = useWorkspaceStore((state) => state.addFileToWorkspace);
   const route = useNavigate();
   const selectedWorkspace = useWorkspaceStore(
     (state) => state.selectedWorkspace,
   );
+  const deleteWorkspace = useWorkspaceStore((state) => state.deleteWorkspace);
   useHotkeys("ctrl+n", () => setOpenDialog(true));
 
   // Create New File function:
@@ -50,12 +51,25 @@ const CreateFile = (props: iCreateFileProps) => {
       return false;
     }
     try {
+      const check = await checkDirFile(selectedWorkspace?.folderPath);
+      if (!check) {
+        toast.error("Directory not found.", {
+          description: `The directory ${selectedWorkspace?.folderPath} was not found.`,
+        });
+        deleteWorkspace(selectedWorkspace?.folderPath);
+        return;
+      }
       const fullPath = await createFile({
         path: selectedWorkspace?.folderPath || "",
         filename: data.title,
         extension: "md",
         content: "",
       });
+      const file = {
+        name: `${data.title}.md`,
+        path: fullPath,
+      };
+      addFile(selectedWorkspace.folderPath, file);
       selectFile({
         path: fullPath,
         content: "",

@@ -1,0 +1,30 @@
+{
+  "name": "@typethings/tailwind-config",
+  "description": "Tailwind CSS Config for Typethings",
+  "version": "0.1.0",
+  "main": "index.ts",
+  "types": "index.ts",
+  "author": "@pheralb_",
+  "homepage": "https://typethings.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pheralb/typethings.git"
+  },
+  "dependencies": {
+    "@tailwindcss/nesting": "0.0.0-insiders.565cd3e",
+    "@tailwindcss/typography": "0.5.9",
+    "tailwindcss-animate": "1.0.7"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.3.3"
+  },
+  "keywords": [
+    "dub",
+    "dub.co",
+    "tailwind",
+    "tailwindcss"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
