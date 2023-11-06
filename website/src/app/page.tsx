@@ -1,13 +1,11 @@
-import CardSpotlight from "@/components/cardSpotlight";
 import Container from "@/components/container";
+import Features from "@/components/features";
 import Mac from "@/components/icons/mac";
 import Windows from "@/components/icons/windows";
 import { Global } from "@/global/data";
-import { ExternalLink, buttonVariants, cn } from "@typethings/ui";
-import { Book, Download } from "lucide-react";
-import Image from "next/image";
+import { buttonVariants, cn } from "@typethings/ui";
+import { Book } from "lucide-react";
 import Link from "next/link";
-import { userAgent } from "next/server";
 
 export default function Home() {
   const getOsInfo = () => {
@@ -75,9 +73,9 @@ export default function Home() {
         </Container>
       </section>
       <section>
-        {/* <Container>
-          <CardSpotlight />
-        </Container> */}
+        <Container>
+          <Features />
+        </Container>
       </section>
     </>
   );
