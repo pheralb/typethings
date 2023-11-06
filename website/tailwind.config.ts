@@ -1,14 +1,17 @@
 import sharedConfig from "@typethings/tailwind-config/tailwind.config";
+import type { Config } from "tailwindcss";
 
-/** @type {import('tailwindcss').Config} */
-export default {
+const config: Pick<Config, "presets"> = {
   presets: [
     {
       ...sharedConfig,
       content: [
-        "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+        "./index.html",
+        "./src/**/*.{ts,tsx}",
         "../packages/ui/src/**/*{.js,.ts,.jsx,.tsx}",
       ],
     },
   ],
 };
+
+export default config;
