@@ -46,7 +46,7 @@ const CardSpotlight = (props: iCardSpotlight) => {
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="relative flex overflow-hidden rounded-md border border-neutral-800 p-6"
+      className="relative flex overflow-hidden rounded-md border dark:border-neutral-800 p-6"
     >
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"

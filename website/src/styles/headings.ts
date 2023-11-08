@@ -1,0 +1,1 @@
+export const headingStyles = `before:content-['#'] before:absolute before:-ml-[1em] before:text-rose-100/0 before:text-indigo-900/50 dark:before:text-indigo-300/50 pl-[1em] -mr-[3em]`;

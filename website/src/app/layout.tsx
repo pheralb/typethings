@@ -8,6 +8,9 @@ import { cn } from "@typethings/ui";
 // Layout:
 import Navbar from "@/components/navbar";
 
+// Providers:
+import { ThemeProvider } from "@/providers/theme-provider";
+
 // Metadata:
 export const metadata: Metadata = {
   title: {
@@ -56,14 +59,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "dark min-h-screen bg-neutral-900 text-white antialiased",
+          "min-h-screen bg-neutral-100 text-neutral-900 dark:text-white antialiased dark:bg-neutral-900",
         )}
       >
-        <Navbar />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

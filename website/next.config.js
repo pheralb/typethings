@@ -1,3 +1,6 @@
+const { withContentlayer } = require("next-contentlayer");
+
+// Next.js config:
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   swcMinify: true,
@@ -5,4 +8,4 @@ const nextConfig = {
   transpilePackages: ["@typethings/ui"],
 };
 
-export default nextConfig;
+module.exports = withContentlayer(nextConfig);

@@ -5,6 +5,7 @@ import Windows from "@/components/icons/windows";
 import { Global } from "@/global/data";
 import { buttonVariants, cn } from "@typethings/ui";
 import { Book } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="pb-12 pt-6">
+      <section className="py-12">
         <Container>
           <div className="mx-auto items-center gap-8 md:grid md:grid-cols-2 xl:gap-16">
             <div className="animate-in slide-in-from-bottom-8 fade-in-10 mt-4 duration-700 md:mt-0">
@@ -63,11 +64,14 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
+              sizes="100vw"
+              width={800}
+              height={600}
+              style={{ width: "100%", height: "auto" }}
               className="w-full rounded-md delay-300"
               src="/images/screenshot_en.png"
-              alt="dashboard image"
+              alt="Typethings screenshot"
             />
           </div>
         </Container>

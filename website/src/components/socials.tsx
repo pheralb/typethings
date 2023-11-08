@@ -2,7 +2,14 @@
 
 import React from "react";
 import { Twitter, Github } from "lucide-react";
-import { ExternalLink } from "@typethings/ui";
+import {
+  ExternalLink,
+  Tooltip,
+  TooltipProvider,
+  TooltipTrigger,
+  TooltipContent,
+  buttonVariants,
+} from "@typethings/ui";
 
 const Socials = () => {
   const iconSize = 22;
@@ -18,20 +25,20 @@ const Socials = () => {
       icon: Github,
     },
   ];
-  return (
-    <div className="flex items-center space-x-5">
-      {links.map((link) => (
-        <ExternalLink
-          key={link.name}
-          href={link.url}
-          rel="noopener noreferrer"
-          className="text-neutral-300 transition-colors duration-100 hover:text-white"
-        >
-          <link.icon size={iconSize} />
-        </ExternalLink>
-      ))}
-    </div>
-  );
+  return links.map((link) => (
+    <ExternalLink
+      key={link.name}
+      href={link.url}
+      title={link.name}
+      rel="noopener noreferrer"
+      className={buttonVariants({
+        variant: "ghost",
+        size: "icon",
+      })}
+    >
+      <link.icon size={iconSize} />
+    </ExternalLink>
+  ));
 };
 
 export default Socials;
