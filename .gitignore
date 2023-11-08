@@ -16,6 +16,7 @@ build
 dist
 dist-ssr
 *.local
+.contentlayer
 
 # Astro generated types
 .astro/
