@@ -2,14 +2,7 @@
 
 import React from "react";
 import { Twitter, Github } from "lucide-react";
-import {
-  ExternalLink,
-  Tooltip,
-  TooltipProvider,
-  TooltipTrigger,
-  TooltipContent,
-  buttonVariants,
-} from "@typethings/ui";
+import { ExternalLink, buttonVariants } from "@typethings/ui";
 
 const Socials = () => {
   const iconSize = 22;

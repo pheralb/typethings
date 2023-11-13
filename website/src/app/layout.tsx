@@ -7,6 +7,7 @@ import { cn } from "@typethings/ui";
 
 // Layout:
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 // Providers:
 import { ThemeProvider } from "@/providers/theme-provider";
@@ -62,7 +63,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-neutral-100 text-neutral-900 dark:text-white antialiased dark:bg-neutral-900",
+          "min-h-screen bg-neutral-100 text-neutral-900 antialiased dark:bg-neutral-900 dark:text-white",
         )}
       >
         <ThemeProvider
@@ -73,6 +74,7 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

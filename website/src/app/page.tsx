@@ -19,6 +19,7 @@ export default function Home() {
 
   return (
     <>
+      <div className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#1c1c1c_1px,transparent_1px)]"></div>
       <section className="py-12">
         <Container>
           <div className="mx-auto items-center gap-8 md:grid md:grid-cols-2 xl:gap-16">
@@ -28,8 +29,8 @@ export default function Home() {
               </h2>
               <p className="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">
                 Typethings is a simple, beautiful and powerful markdown editor
-                with a minimalistic design. It{"'"}s 💸 free, 🔒 private and ✨
-                open source.
+                with a minimalistic design. It{"'"}s free, private and open
+                source.
               </p>
               <div className="mt-3 flex items-center space-x-2">
                 <Link
