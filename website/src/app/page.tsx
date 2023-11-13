@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#1c1c1c_1px,transparent_1px)]"></div>
+      <div className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#222222_1px,transparent_1px)]"></div>
       <section className="py-12">
         <Container>
           <div className="mx-auto items-center gap-8 md:grid md:grid-cols-2 xl:gap-16">
