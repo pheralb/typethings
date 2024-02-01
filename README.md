@@ -19,7 +19,7 @@
         What's inside?
     </a>
     <span>&nbsp;✦&nbsp;</span>
-    <a href="https://github.com/pheralb/typethings/tree/main/packages">
+    <a href="#packages">
         Packages
     </a>
     <span>&nbsp;✦&nbsp;</span>

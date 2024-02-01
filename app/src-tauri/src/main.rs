@@ -6,7 +6,7 @@
 )]
 
 use tauri::Manager;
-use window_vibrancy::{apply_acrylic, NSVisualEffectMaterial};
+use window_vibrancy::{apply_vibrancy, NSVisualEffectMaterial};
 
 fn main() {
     tauri::Builder::default()
