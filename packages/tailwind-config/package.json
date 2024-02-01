@@ -12,17 +12,16 @@
   },
   "dependencies": {
     "@tailwindcss/nesting": "0.0.0-insiders.565cd3e",
-    "@tailwindcss/typography": "0.5.9",
+    "@tailwindcss/typography": "0.5.10",
     "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {
-    "tailwindcss": "3.3.3"
+    "tailwindcss": "3.4.1"
   },
   "keywords": [
-    "dub",
-    "dub.co",
     "tailwind",
-    "tailwindcss"
+    "tailwindcss",
+    "typethings"
   ],
   "publishConfig": {
     "access": "public"
