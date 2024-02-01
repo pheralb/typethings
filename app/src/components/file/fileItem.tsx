@@ -6,7 +6,11 @@ import { cn } from "@typethings/ui";
 import { BookOpen, Trash } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { readFile, getFileNameWithoutExtension } from "@typethings/functions";
+import {
+  readFile,
+  getFileNameWithoutExtension,
+  checkDirFile,
+} from "@typethings/functions";
 import DeleteFile from "./deleteFile";
 
 // From Sidebar (shared classes & icon size):
@@ -25,6 +29,7 @@ import {
   ContextMenuTrigger,
 } from "@typethings/ui";
 import { useWorkspaceStore } from "@/store/workspaceStore";
+import { toast } from "sonner";
 
 interface iFileItemProps extends FileEntry {
   active?: boolean;
@@ -42,6 +47,14 @@ const FileItem = (props: iFileItemProps) => {
 
   const handleOpenFile = async () => {
     try {
+      const check = await checkDirFile(props.path);
+      if (!check) {
+        toast.error("File not found.", {
+          description: `File "${props.path}" was not found.`,
+          duration: 5000,
+        });
+        return;
+      }
       const file = await readFile({
         path: props.path,
       });

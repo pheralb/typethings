@@ -92,7 +92,7 @@ export const Extensions: iTiptapExtensions = [
     lowlight,
     HTMLAttributes: {
       class:
-        "w-full bg-neutral-200 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 text-dark",
+        "w-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 text-dark",
     },
   }),
   CustomTable.configure({

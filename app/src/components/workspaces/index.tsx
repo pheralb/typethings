@@ -101,7 +101,13 @@ const Workspaces = (props: WorkspacesProps) => {
 
   return (
     <div className="flex flex-col space-y-2">
-      <Collapsible open={openCollapsible} onOpenChange={setOpenCollapsible}>
+      <Collapsible
+        open={openCollapsible}
+        onOpenChange={() => {
+          setOpenCollapsible(!openCollapsible);
+          setSearch("");
+        }}
+      >
         <div className="flex items-center space-x-2">
           <CreateFolder
             trigger={
