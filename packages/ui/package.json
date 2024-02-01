@@ -2,7 +2,7 @@
   "name": "@typethings/ui",
   "author": "@pheralb_",
   "description": "Typethings UI library built with React, Tailwind CSS and shadcn/ui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -30,25 +30,25 @@
     "@radix-ui/react-tabs": "1.0.4",
     "@radix-ui/react-tooltip": "1.0.7",
     "class-variance-authority": "0.7.0",
-    "clsx": "2.0.0",
-    "cmdk": "0.2.0",
-    "lucide-react": "0.284.0",
-    "react": "^18.2.0",
+    "clsx": "2.1.0",
+    "cmdk": "0.2.1",
+    "lucide-react": "0.320.0",
+    "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tailwind-merge": "1.14.0"
+    "tailwind-merge": "2.2.1"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "0.5.9",
-    "@typescript-eslint/eslint-plugin": "6.7.4",
-    "@typescript-eslint/parser": "6.7.4",
-    "autoprefixer": "10.4.16",
-    "eslint": "8.51.0",
+    "@tailwindcss/typography": "0.5.10",
+    "@typescript-eslint/eslint-plugin": "6.20.0",
+    "@typescript-eslint/parser": "6.20.0",
+    "autoprefixer": "10.4.17",
+    "eslint": "8.56.0",
     "eslint-plugin-react": "7.33.2",
-    "postcss": "^8.4.31",
-    "tailwindcss": "3.3.3",
+    "postcss": "^8.4.33",
+    "tailwindcss": "3.4.1",
     "tailwindcss-animate": "1.0.7",
-    "tsup": "7.2.0",
-    "typescript": "5.2.2"
+    "tsup": "8.0.1",
+    "typescript": "5.3.3"
   },
   "peerDependencies": {
     "react": "^18.2.0"
