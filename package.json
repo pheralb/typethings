@@ -16,14 +16,14 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@turbo/gen": "1.10.15",
-    "@types/node": "20.8.3",
-    "@types/react": "18.2.25",
-    "@types/react-dom": "18.2.11",
+    "@turbo/gen": "1.12.2",
+    "@types/node": "20.11.15",
+    "@types/react": "18.2.51",
+    "@types/react-dom": "18.2.18",
     "@typethings/tailwind-config": "workspace:*",
-    "eslint": "8.51.0",
-    "prettier": "3.0.3",
-    "prettier-plugin-tailwindcss": "0.5.5",
+    "eslint": "8.56.0",
+    "prettier": "3.2.4",
+    "prettier-plugin-tailwindcss": "0.5.11",
     "turbo": "latest"
   }
 }
