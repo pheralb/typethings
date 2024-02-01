@@ -19,12 +19,7 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
-    @apply bg-background text-foreground;
     scrollbar-color: var(--sb-thumb-color) transparent;
   }
 
